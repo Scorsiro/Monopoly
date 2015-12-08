@@ -1,6 +1,8 @@
+package Jeu;
+
 public abstract class CarreauPropriete {
-	private int _loyerBase;
-	private int _prixAchat;
+	private int loyerBase;
+	private int prixAchat;
 
 	public void acheterPropriete() {
 		throw new UnsupportedOperationException();

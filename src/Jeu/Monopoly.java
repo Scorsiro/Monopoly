@@ -1,3 +1,5 @@
+package Jeu;
+
 public class Monopoly {
 	private int _nbMaisons = 32;
 	private int _nbHotels = 12;

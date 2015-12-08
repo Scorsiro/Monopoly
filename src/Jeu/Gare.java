@@ -1,12 +1,14 @@
+package Jeu;
+
 public class Gare {
-	private Joueur _nbGare;
+    
+	private int nbGare;
+        private Joueur j;
 
 	public void action(Joueur j) {
-		throw new UnsupportedOperationException();
 	}
 
 	private void construire() {
-		throw new UnsupportedOperationException();
 	}
 
 	public int calculLoyerGare(int nbGare) {
@@ -18,15 +20,13 @@ public class Gare {
 	}
 
 	public String getNom() {
-		throw new UnsupportedOperationException();
+		return j.getNomjoueur();
 	}
 
 	private int calculeLoyer() {
-		throw new UnsupportedOperationException();
 	}
 
 	private int calculArgentRes(Object a) {
-		throw new UnsupportedOperationException();
 	}
 
 	private void acheterPropriete() {

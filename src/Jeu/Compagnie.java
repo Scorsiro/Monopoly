@@ -1,3 +1,5 @@
+package Jeu;
+
 public class Compagnie extends CarreauPropriete {
 
 	public void Action(Object j) {
@@ -12,6 +14,8 @@ public class Compagnie extends CarreauPropriete {
 		throw new UnsupportedOperationException();
 	}
 
+        
+     
 	private int calculeLoyer() {
 		throw new UnsupportedOperationException();
 	}

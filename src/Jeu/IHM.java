@@ -1,3 +1,5 @@
+package Jeu;
+
 public class IHM {
 
 	public void affiche() {

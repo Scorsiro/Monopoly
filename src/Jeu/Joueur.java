@@ -1,72 +1,94 @@
+package Jeu;
+
 public class Joueur {
-	private String _nomJoueur;
-	private int _cash = 1500;
-	private int _nbDoubles = 0;
-	private boolean _prison = false;
-	private int _nbTourPrison = 0;
-	private int _dés = 0;
+	private String nomJoueur;
+	private int cash = 1500;
+	private int nbDoubles = 0;
+	private boolean prison = false;
+	private int nbTourPrison = 0;
+	private int dés = 0;
+        private Carreau c;
+        
+
+        public Joueur(String nomJoueur) {
+            this.nomJoueur = nomJoueur;
+        }
+
+        public String getNomjoueur() {
+            return nomJoueur;
+        }
+
+        public void setNomJoueur(String nomJoueur) {
+            this.nomJoueur = nomJoueur;
+        }
+        
+        public int getArgent() {
+		return cash;
+	}
+
+        public void setCash(int cash) {
+            this.cash = cash;
+        }
+        
 
 	public void payerLoyer(int l) {
-		throw new UnsupportedOperationException();
+		
 	}
 
 	public void recevoirLoyer(int l) {
-		throw new UnsupportedOperationException();
+		
 	}
 
 	public int getNbDoubles() {
-		return this._nbDoubles;
+		return this.nbDoubles;
 	}
 
 	public void setNbDoubles(int nbDoubles) {
-		this._nbDoubles = nbDoubles;
+		this.nbDoubles = nbDoubles;
 	}
 
-	public int getNbGare() {
-		throw new UnsupportedOperationException();
-	}
 
 	public int getDés() {
-		return this._dés;
+		return this.dés;
 	}
 
-	public int getArgent() {
-		throw new UnsupportedOperationException();
-	}
-
-	public String getNP() {
-		throw new UnsupportedOperationException();
-	}
-
-	public void setCash(Object cash, Object prix) {
-		throw new UnsupportedOperationException();
-	}
 
 	public Carreau getPositionCourante() {
-		throw new UnsupportedOperationException();
+		
+	}
+        
+        public void setPositionCourante(Carreau c) {
+		this.c = c ;
 	}
 
 	public boolean getPrison() {
-		return this._prison;
+		return this.prison;
 	}
 
 	public void setPrison(boolean prison) {
-		this._prison = prison;
+		this.prison = prison;
 	}
 
 	public int getNbTourPrison() {
-		return this._nbTourPrison;
+		return this.nbTourPrison;
 	}
 
 	public void setNbTourPrison(int nbTourPrison) {
-		this._nbTourPrison = nbTourPrison;
+		this.nbTourPrison = nbTourPrison;
 	}
 
-	public void setPositionCourante(Carreau c) {
-		throw new UnsupportedOperationException();
-	}
+	
 
 	public int getNbCompagnie() {
-		throw new UnsupportedOperationException();
+		
 	}
+        
+        public int getNbPropriete() {
+		
+	}
+        
+        public int getNbGare() {
+		
+	}
+        
 }

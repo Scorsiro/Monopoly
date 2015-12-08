@@ -1,11 +1,15 @@
+package Jeu;
+
+import Jeu.Groupe;
+
 public class ProprieteAConstruire extends CarreauPropriete {
-	private int _nbMaisons = 0;
-	private int _nbHotels = 0;
-	private java.util.ArrayList<int> _loyerMaison;
-	private int _nbmaison = 0;
-	private boolean _hotel = false;
-	private int[] _prixloyer;
-	private Groupe _groupePropriete;
+	private int nbMaisons = 0;
+	private int nbHotels = 0;
+	//private java.util.ArrayList<int> loyerMaison;
+	private int nbmaison = 0;
+	private boolean hotel = false;
+	private int[] prixloyer;
+	private Groupe groupePropriete;
 
 	public Groupe getGroupeProprieté() {
 		throw new UnsupportedOperationException();
@@ -16,27 +20,27 @@ public class ProprieteAConstruire extends CarreauPropriete {
 	}
 
 	public int getNbmaison() {
-		return this._nbmaison;
+		return this.nbmaison;
 	}
 
 	public void setNbmaison(int nbmaison) {
-		this._nbmaison = nbmaison;
+		this.nbmaison = nbmaison;
 	}
 
 	public boolean getHotel() {
-		return this._hotel;
+		return this.hotel;
 	}
 
 	public void setHotel(boolean hotel) {
-		this._hotel = hotel;
+		this.hotel = hotel;
 	}
 
 	public int[] getPrixloyer() {
-		return this._prixloyer;
+		return this.prixloyer;
 	}
 
 	public void setPrixloyer(int[] prixloyer) {
-		this._prixloyer = prixloyer;
+		this.prixloyer = prixloyer;
 	}
 
 	public void construire() {
@@ -44,18 +48,15 @@ public class ProprieteAConstruire extends CarreauPropriete {
 	}
 
 	private int calculeLoyer() {
-		throw new UnsupportedOperationException();
 	}
 
 	private int calculArgentRes(Object a) {
-		throw new UnsupportedOperationException();
 	}
 
+        @Override
 	private void acheterPropriete() {
-		throw new UnsupportedOperationException();
 	}
 
 	public int calculLoyerPropriete(int nbPropriete) {
-		throw new UnsupportedOperationException();
 	}
 }
