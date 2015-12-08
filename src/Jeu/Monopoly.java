@@ -19,7 +19,7 @@ public class Monopoly {
 	}
 
 	public int calculArRest() {
-		//TAMERE
+		
 	}
 
 	public int genererChiffreDés() {
