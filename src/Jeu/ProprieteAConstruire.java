@@ -4,15 +4,15 @@ import Jeu.Groupe;
 
 public class ProprieteAConstruire extends CarreauPropriete {
     
-	private int nbMaisons = 0;
-	private int nbHotels = 0;
+	private int _nbMaisons = 0;
+	private int _nbHotels = 0;
 	//private java.util.ArrayList<int> loyerMaison;
-	private int nbmaison = 0;
-	private boolean hotel = false;
-	private int[] prixloyer;
-	private Groupe groupePropriete;
+	private int _nbmaison = 0;
+	private boolean _hotel = false;
+	private int[] _prixloyer;
+	private Groupe _groupePropriete;
 
-        public ProprieteAConstruire(int numero, String nomCarreau, int prix) {
+        public ProprieteAConstruire(int numero, String nomCarreau, int prix, Groupe groupePropriete) {
                 super(numero, nomCarreau, prix);
         }
 
