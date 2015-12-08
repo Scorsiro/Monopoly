@@ -11,7 +11,7 @@ public class Compagnie extends CarreauPropriete {
 
 	}
 
-	private int calculLoyerCamp(Object nbComp, Object resDés) {
+	/*private int calculLoyerCamp(Object nbComp, Object resDés) {
 
 	}
 
@@ -29,5 +29,5 @@ public class Compagnie extends CarreauPropriete {
 
 	private void acheterPropriete() {
 
-	}
+	}*/
 }

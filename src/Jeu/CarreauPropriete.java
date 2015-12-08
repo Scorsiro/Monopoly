@@ -15,11 +15,11 @@ public abstract class CarreauPropriete extends Carreau {
 	public void acheterPropriete() {
 	}
 
-	public int calculArgentRes(int a) {
+	/*public int calculArgentRes(int a) {
 	}
 
 	public int calculeLoyer() {
-	}
+	}*/
 
         public Joueur getPropriétaire(){
                 return j;
