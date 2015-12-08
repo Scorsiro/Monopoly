@@ -1,30 +1,40 @@
 package Jeu;
 
-public abstract class CarreauPropriete {
+public abstract class CarreauPropriete extends Carreau {
+    
 	private int loyerBase;
-	private int prixAchat;
+        private Joueur j;
+        private int prix;
+
+        public CarreauPropriete(int numero, String nomCarreau, int prix) {
+                super(numero, nomCarreau);
+                this.prix = prix;
+        }
+
 
 	public void acheterPropriete() {
-		throw new UnsupportedOperationException();
 	}
 
-	public int calculArgentRes(Object a) {
-		throw new UnsupportedOperationException();
+	public int calculArgentRes(int a) {
 	}
 
 	public int calculeLoyer() {
-		throw new UnsupportedOperationException();
 	}
 
-	public void setPropriétaire(Object j) {
-		throw new UnsupportedOperationException();
+        public Joueur getPropriétaire(){
+                return j;
+        }
+        
+	public void setPropriétaire(Joueur j) {
+                this.j = j;
 	}
 
 	public int getPrix() {
-		throw new UnsupportedOperationException();
+                return prix;
 	}
 
-	public Joueur getProprietaire() {
-		throw new UnsupportedOperationException();
-	}
+        public void setPrix(int prix) {
+                this.prix = prix;
+        }
+        
 }

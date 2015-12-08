@@ -1,10 +1,12 @@
 package Jeu;
 
-public class Gare {
-    
-	private int nbGare;
-        private Joueur j;
+public class Gare extends CarreauPropriete {
+        
 
+        public Gare(int numero, String nomCarreau, int prix) {
+                super(numero,nomCarreau,prix);
+        }
+        
 	public void action(Joueur j) {
 	}
 
@@ -12,24 +14,6 @@ public class Gare {
 	}
 
 	public int calculLoyerGare(int nbGare) {
-		throw new UnsupportedOperationException();
 	}
 
-	public String getGroupe() {
-		throw new UnsupportedOperationException();
-	}
-
-	public String getNom() {
-		return j.getNomjoueur();
-	}
-
-	private int calculeLoyer() {
-	}
-
-	private int calculArgentRes(Object a) {
-	}
-
-	private void acheterPropriete() {
-		throw new UnsupportedOperationException();
-	}
 }

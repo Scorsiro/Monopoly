@@ -2,7 +2,12 @@ package Jeu;
 
 public class Compagnie extends CarreauPropriete {
 
-	public void Action(Object j) {
+    
+        public Compagnie(int numero, String nomCarreau, int prix) {
+                super(numero, nomCarreau, prix);
+        }
+    
+	public void Action(Joueur j) {
 
 	}
 

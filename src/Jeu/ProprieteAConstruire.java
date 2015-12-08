@@ -3,6 +3,7 @@ package Jeu;
 import Jeu.Groupe;
 
 public class ProprieteAConstruire extends CarreauPropriete {
+    
 	private int nbMaisons = 0;
 	private int nbHotels = 0;
 	//private java.util.ArrayList<int> loyerMaison;
@@ -11,12 +12,14 @@ public class ProprieteAConstruire extends CarreauPropriete {
 	private int[] prixloyer;
 	private Groupe groupePropriete;
 
+        public ProprieteAConstruire(int numero, String nomCarreau, int prix) {
+                super(numero, nomCarreau, prix);
+        }
+
 	public Groupe getGroupeProprieté() {
-		throw new UnsupportedOperationException();
 	}
 
 	public void action(Joueur j) {
-		throw new UnsupportedOperationException();
 	}
 
 	public int getNbmaison() {
@@ -44,18 +47,11 @@ public class ProprieteAConstruire extends CarreauPropriete {
 	}
 
 	public void construire() {
-		throw new UnsupportedOperationException();
 	}
 
 	private int calculeLoyer() {
 	}
 
-	private int calculArgentRes(Object a) {
-	}
-
-        @Override
-	private void acheterPropriete() {
-	}
 
 	public int calculLoyerPropriete(int nbPropriete) {
 	}
