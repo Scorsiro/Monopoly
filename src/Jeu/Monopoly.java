@@ -28,7 +28,7 @@ public class Monopoly {
 		
 	}
 
-	public int calculArRest() {
+	/*public int calculArRest() {
 		
 	
 	}
@@ -39,7 +39,7 @@ public class Monopoly {
 
 	public Carreau calculPositionNum(int num) {
 		
-	}
+	}*/
 
 	public void mettreEnPrison(Joueur j) {
 		
@@ -47,7 +47,7 @@ public class Monopoly {
         
         /***************************** Init Game Plateau *****************************/
         private void buildGamePlateau(String dataFilename)
-	{
+	{           
 		try{
 			ArrayList<String[]> data = readDataFile(dataFilename, ",");
 			/* Creation of mutiples objects */
@@ -57,7 +57,8 @@ public class Monopoly {
 				String caseType = data.get(i)[0];
 				if(caseType.compareTo("P") == 0){
 					System.out.println("Propriété :\t" + data.get(i)[2] + "\t@ case " + data.get(i)[1]);
-                                        _carreaux.put(Integer.parseInt(data.get(i)[1]), /* PROPRIETE A AJOUTER */);
+                                        // IL MANQUE LES DIFFERENTS LOYERS
+                                        _carreaux.put(Integer.parseInt(data.get(i)[1]),new ProprieteAConstruire(Integer.parseInt(data.get(i)[1]),data.get(i)[2],Integer.parseInt(data.get(i)[5]),data.get(i)[5],Integer.parseInt(data.get(i)[11])));
 				}
 				else if(caseType.compareTo("G") == 0){
 					System.out.println("Gare :\t" + data.get(i)[2] + "\t@ case " + data.get(i)[1]);
@@ -65,7 +66,7 @@ public class Monopoly {
 				}
 				else if(caseType.compareTo("C") == 0){
 					System.out.println("Compagnie :\t" + data.get(i)[2] + "\t@ case " + data.get(i)[1]);
-                                        _carreaux.put(Integer.parseInt(data.get(i)[1]),new Gare(Integer.parseInt(data.get(i)[1]),data.get(i)[2],Integer.parseInt(data.get(i)[3])));  
+                                        _carreaux.put(Integer.parseInt(data.get(i)[1]),new Compagnie(Integer.parseInt(data.get(i)[1]),data.get(i)[2],Integer.parseInt(data.get(i)[3])));  
 				}
 				else if(caseType.compareTo("CT") == 0){
 					System.out.println("Case Tirage :\t" + data.get(i)[2] + "\t@ case " + data.get(i)[1]);

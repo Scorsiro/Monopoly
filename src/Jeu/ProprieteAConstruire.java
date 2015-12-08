@@ -12,47 +12,62 @@ public class ProprieteAConstruire extends CarreauPropriete {
 	private int[] _prixloyer;
 	private Groupe _groupePropriete;
 
-        public ProprieteAConstruire(int numero, String nomCarreau, int prix, Groupe groupePropriete) {
+        public ProprieteAConstruire(int numero, String nomCarreau, int prix, String col, int prixMaiHot) {
                 super(numero, nomCarreau, prix);
+                setGroupe(new Groupe(col,this,prixMaiHot));
         }
 
-	public Groupe getGroupeProprieté() {
-	}
+	/*public Groupe getGroupeProprieté() {
+	}*/
 
 	public void action(Joueur j) {
 	}
 
 	public int getNbmaison() {
-		return this.nbmaison;
+		return this._nbmaison;
 	}
 
 	public void setNbmaison(int nbmaison) {
-		this.nbmaison = nbmaison;
+		this._nbmaison = nbmaison;
 	}
 
 	public boolean getHotel() {
-		return this.hotel;
+		return this._hotel;
 	}
 
 	public void setHotel(boolean hotel) {
-		this.hotel = hotel;
+		this._hotel = hotel;
 	}
 
 	public int[] getPrixloyer() {
-		return this.prixloyer;
+		return this._prixloyer;
 	}
 
 	public void setPrixloyer(int[] prixloyer) {
-		this.prixloyer = prixloyer;
+		this._prixloyer = prixloyer;
 	}
 
 	public void construire() {
 	}
 
-	private int calculeLoyer() {
+	/*private int calculeLoyer() {
 	}
 
 
 	public int calculLoyerPropriete(int nbPropriete) {
-	}
+	}*/
+
+    /**
+     * @return the _groupePropriete
+     */
+    public Groupe getGroupe() {
+        return _groupePropriete;
+    }
+
+    /**
+     * @param _groupePropriete the _groupePropriete to set
+     */
+    public void setGroupe(Groupe _groupePropriete) {
+        this._groupePropriete = _groupePropriete;
+    }
 }
