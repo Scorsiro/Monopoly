@@ -3,6 +3,7 @@ package Jeu;
 public abstract class Carreau {
 	private int numero;
 	private String nomCarreau;
+        
 	private Monopoly monopoly;
 
         public Carreau(int numero, String nomCarreau) {
@@ -26,8 +27,4 @@ public abstract class Carreau {
             this.nomCarreau = nomCarreau;
         }
 
-	public void operation() {
-		throw new UnsupportedOperationException();
-	}
-        //plop plop
 }
