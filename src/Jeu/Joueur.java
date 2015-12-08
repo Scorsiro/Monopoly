@@ -110,7 +110,7 @@ public class Joueur {
         }
 
         public void setNbProprieteGroupe(CouleurPropriete nbProprieteGroupe) {
-                this.nbProprieteGroupe = nbProprieteGroupe;
+                this.nbProprieteGroupe = nbProprieteGroupe; 
         }
         
         //le joueur paye son loyer
