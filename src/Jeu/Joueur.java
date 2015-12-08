@@ -116,7 +116,7 @@ public class Joueur {
         //le joueur paye son loyer
         public void payerLoyer(int l) {
 		
-	}
+	} 
         
         //le joueur recoit son loyer
 	public void recevoirLoyer(int l) {
