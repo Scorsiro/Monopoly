@@ -26,7 +26,7 @@ public class Monopoly {
 	public void jouerUnCoup(Joueur j) {
 		this.lancerDésAvancer(j );
                 
-                while (j.getNbDoubles() != 0 && j.getNbDoubles() < 3 ) {
+                while (j.getNbDoubles() != 0  ) {
                     this.lancerDésAvancer(j);
                 
                 }
@@ -39,11 +39,17 @@ public class Monopoly {
             if(j.getNbDoubles() < 3) {
                 int d1 = this.genererChiffreDés() ; 
                 int d2 = this.genererChiffreDés() ; 
+                j.setDés(d1+d2);
                 
                 if (d1 == d2 ) {
                     j.setNbDoubles(j.getNbDoubles() + d1 );
                 }
                 else {j.setNbDoubles(0);}
+                
+                Carreau c = j.getPositionCourante() ; 
+                int num = c.getNumero() ; 
+                
+                
             
                 
             
@@ -64,9 +70,10 @@ public class Monopoly {
             return d1 ; 
 	}
 
-	/*public Carreau calculPositionNum(int num) {
-		
-	}*/
+	public Carreau calculPositionNum(int num) {
+            
+
+	}
 
 	public void mettreEnPrison(Joueur j) {
 		
@@ -89,27 +96,27 @@ public class Monopoly {
                                         for(int j = 5; j<=10; j++){
                                             loyers.add(j-5,Integer.parseInt(data.get(i)[j]));
                                         }
-                                        _carreaux.put(Integer.parseInt(data.get(i)[1]),new ProprieteAConstruire(Integer.parseInt(data.get(i)[1]),data.get(i)[2],Integer.parseInt(data.get(i)[4]),data.get(i)[3],loyers,Integer.parseInt(data.get(i)[11])));
+                                        getCarreaux().put(Integer.parseInt(data.get(i)[1]),new ProprieteAConstruire(Integer.parseInt(data.get(i)[1]),data.get(i)[2],Integer.parseInt(data.get(i)[4]),data.get(i)[3],loyers,Integer.parseInt(data.get(i)[11])));
                                 }
 				else if(caseType.compareTo("G") == 0){
 					System.out.println("Gare :\t" + data.get(i)[2] + "\t@ case " + data.get(i)[1]);
-                                        _carreaux.put(Integer.parseInt(data.get(i)[1]),new Gare(Integer.parseInt(data.get(i)[1]),data.get(i)[2],Integer.parseInt(data.get(i)[3])));       
+                                        getCarreaux().put(Integer.parseInt(data.get(i)[1]),new Gare(Integer.parseInt(data.get(i)[1]),data.get(i)[2],Integer.parseInt(data.get(i)[3])));       
 				}
 				else if(caseType.compareTo("C") == 0){
 					System.out.println("Compagnie :\t" + data.get(i)[2] + "\t@ case " + data.get(i)[1]);
-                                        _carreaux.put(Integer.parseInt(data.get(i)[1]),new Compagnie(Integer.parseInt(data.get(i)[1]),data.get(i)[2],Integer.parseInt(data.get(i)[3])));  
+                                        getCarreaux().put(Integer.parseInt(data.get(i)[1]),new Compagnie(Integer.parseInt(data.get(i)[1]),data.get(i)[2],Integer.parseInt(data.get(i)[3])));  
 				}
 				else if(caseType.compareTo("CT") == 0){
 					System.out.println("Case Tirage :\t" + data.get(i)[2] + "\t@ case " + data.get(i)[1]);
-                                        _carreaux.put(Integer.parseInt(data.get(i)[1]),new CarreauTirage(Integer.parseInt(data.get(i)[1]),data.get(i)[2]));
+                                        getCarreaux().put(Integer.parseInt(data.get(i)[1]),new CarreauTirage(Integer.parseInt(data.get(i)[1]),data.get(i)[2]));
 				}
 				else if(caseType.compareTo("CA") == 0){
 					System.out.println("Case Argent :\t" + data.get(i)[2] + "\t@ case " + data.get(i)[1]);
-                                        _carreaux.put(Integer.parseInt(data.get(i)[1]),new CarreauArgent(Integer.parseInt(data.get(i)[1]),data.get(i)[2],Integer.parseInt(data.get(i)[3])));
+                                        getCarreaux().put(Integer.parseInt(data.get(i)[1]),new CarreauArgent(Integer.parseInt(data.get(i)[1]),data.get(i)[2],Integer.parseInt(data.get(i)[3])));
 				}
 				else if(caseType.compareTo("CM") == 0){
 					System.out.println("Case Mouvement :\t" + data.get(i)[2] + "\t@ case " + data.get(i)[1]);
-                                        _carreaux.put(Integer.parseInt(data.get(i)[1]),new CarreauMouvement(Integer.parseInt(data.get(i)[1]),data.get(i)[2]));
+                                        getCarreaux().put(Integer.parseInt(data.get(i)[1]),new CarreauMouvement(Integer.parseInt(data.get(i)[1]),data.get(i)[2]));
 				}
 				else
 					System.err.println("[buildGamePleateau()] : Invalid Data type");
@@ -136,6 +143,48 @@ public class Monopoly {
 		
 		return data;
 	}
+
+    /**
+     * @return the _nbMaisons
+     */
+    public int getNbMaisons() {
+        return _nbMaisons;
+    }
+
+    /**
+     * @return the _nbHotels
+     */
+    public int getNbHotels() {
+        return _nbHotels;
+    }
+
+    /**
+     * @return the _joueurs
+     */
+    public ArrayList<Joueur> getJoueurs() {
+        return _joueurs;
+    }
+
+    /**
+     * @param _joueurs the _joueurs to set
+     */
+    public void setJoueurs(ArrayList<Joueur> _joueurs) {
+        this._joueurs = _joueurs;
+    }
+
+    /**
+     * @return the _carreaux
+     */
+    public HashMap<Integer, Carreau> getCarreaux() {
+        return _carreaux;
+    }
+
+    /**
+     * @param _carreaux the _carreaux to set
+     */
+    public void setCarreaux(HashMap<Integer, Carreau> _carreaux) {
+        this._carreaux = _carreaux;
+    }
         
         
         

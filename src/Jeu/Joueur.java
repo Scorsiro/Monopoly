@@ -10,7 +10,7 @@ public class Joueur {
         private int nbGare;
         private int nbCompagnie;
         private int nbPropriete;
-        private Carreau c;
+        private Carreau positionCourante;
         private CouleurPropriete nbProprieteGroupe;
         
 
@@ -52,16 +52,16 @@ public class Joueur {
 
 	//retourne le carreau sur lequel est le joueur
 	public Carreau getPositionCourante() {
-		return this.c;
+		return positionCourante ; 
 	}
         
         public void setPositionCourante(Carreau c) {
-		this.c = c ;
+            this.positionCourante = c ; 
 	}
 
         //retourne vrai si le joueur est en prison
 	public boolean getPrison() {
-		return this.prison;
+		return this.isPrison();
 	}
 
 	public void setPrison(boolean prison) {
@@ -122,5 +122,21 @@ public class Joueur {
 	public void recevoirLoyer(int l) {
 		
 	}
+
+    /**
+     * @param dés the dés to set
+     */
+    public void setDés(int dés) {
+        this.dés = dés;
+    }
+
+    /**
+     * @return the prison
+     */
+    public boolean isPrison() {
+        return prison;
+    }
+
+  
         
 }
