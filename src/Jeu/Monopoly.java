@@ -12,15 +12,16 @@ import java.util.Random;
 public class Monopoly {
 	private final int _nbMaisons = 32;
 	private final int _nbHotels = 12;
-        private ArrayList<Joueur> _joueurs ;
-        private HashMap<Integer, Carreau> _carreaux ;
+        private ArrayList<Joueur> _joueurs ; //  = new ArrayList <> () ;
+        private HashMap<Integer, Carreau> _carreaux  ; //= new HashMap<>() ;
         private IHM _IHM;
         
         /* Constructor */
         public Monopoly(String dataFilename){
-		buildGamePlateau(dataFilename);
-                _joueurs = new ArrayList <> () ;  
-                _carreaux = new HashMap<>();
+	      _joueurs = new ArrayList <> () ;  
+               _carreaux = new HashMap<>();	
+            buildGamePlateau(dataFilename);
+         
 	}
         
 	public void jouerUnCoup(Joueur j) {
@@ -48,13 +49,18 @@ public class Monopoly {
                 
                 Carreau c = j.getPositionCourante() ; 
                 int num = c.getNumero() ; 
+                Carreau nc = this.calculPositionNum(num + d1 +d2) ; 
+                j.setPositionCourante(nc); }
+            else {
+                this.mettreEnPrison(j);
                 
-                
-            
-                
-            
-            
+              
             }
+                
+            
+                
+            
+            
 		
 	}
 
@@ -71,12 +77,16 @@ public class Monopoly {
 	}
 
 	public Carreau calculPositionNum(int num) {
-            
+       
+              return this.getCarreaux().get(num) ; 
 
 	}
 
 	public void mettreEnPrison(Joueur j) {
-		
+           
+            j.setPositionCourante(this.calculPositionNum(11));
+            j.setPrison(true);
+            j.setNbDoubles(0) ; 
 	}
         
         /***************************** Init Game Plateau *****************************/
