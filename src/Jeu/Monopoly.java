@@ -132,38 +132,40 @@ public class Monopoly {
 		try{
                         ArrayList<Integer> loyers = new ArrayList<>();
 			ArrayList<String[]> data = readDataFile(dataFilename, ",");
-			/* Creation of mutiples objects */
-
                         
+			/* Creation des différents carreaux */
 			for(int i=0; i<data.size(); ++i){
 				String caseType = data.get(i)[0];
 				if(caseType.compareTo("P") == 0){
 					System.out.println("Propriété :\t" + data.get(i)[2] + "\t@ case " + data.get(i)[1]);
-                                        // Ajouts des differents loyers dans 
+                                        
+                                        // Ajouts des differents loyers dans l'ArrayList (Les valeurs des loyers sont dans les case 5 à 10 du fichier.)
                                         for(int j = 5; j<=10; j++){
                                             loyers.add(j-5,Integer.parseInt(data.get(i)[j]));
                                         }
-                                        getCarreaux().put(Integer.parseInt(data.get(i)[1]),new ProprieteAConstruire(Integer.parseInt(data.get(i)[1]),data.get(i)[2],Integer.parseInt(data.get(i)[4]),data.get(i)[3],loyers,Integer.parseInt(data.get(i)[11])));
+                                        
+                                        /* Init du carreau               numCase                                     numCase                         nom                           prix              couleur     loyers          prixMaison/Hotel*/
+                                        _carreaux.put(Integer.parseInt(data.get(i)[1]),new ProprieteAConstruire(Integer.parseInt(data.get(i)[1]),data.get(i)[2],Integer.parseInt(data.get(i)[4]),data.get(i)[3],loyers,Integer.parseInt(data.get(i)[11])));
                                 }
 				else if(caseType.compareTo("G") == 0){
 					System.out.println("Gare :\t" + data.get(i)[2] + "\t@ case " + data.get(i)[1]);
-                                        getCarreaux().put(Integer.parseInt(data.get(i)[1]),new Gare(Integer.parseInt(data.get(i)[1]),data.get(i)[2],Integer.parseInt(data.get(i)[3])));       
+                                        _carreaux.put(Integer.parseInt(data.get(i)[1]),new Gare(Integer.parseInt(data.get(i)[1]),data.get(i)[2],Integer.parseInt(data.get(i)[3])));       
 				}
 				else if(caseType.compareTo("C") == 0){
 					System.out.println("Compagnie :\t" + data.get(i)[2] + "\t@ case " + data.get(i)[1]);
-                                        getCarreaux().put(Integer.parseInt(data.get(i)[1]),new Compagnie(Integer.parseInt(data.get(i)[1]),data.get(i)[2],Integer.parseInt(data.get(i)[3])));  
+                                        _carreaux.put(Integer.parseInt(data.get(i)[1]),new Compagnie(Integer.parseInt(data.get(i)[1]),data.get(i)[2],Integer.parseInt(data.get(i)[3])));  
 				}
 				else if(caseType.compareTo("CT") == 0){
 					System.out.println("Case Tirage :\t" + data.get(i)[2] + "\t@ case " + data.get(i)[1]);
-                                        getCarreaux().put(Integer.parseInt(data.get(i)[1]),new CarreauTirage(Integer.parseInt(data.get(i)[1]),data.get(i)[2]));
+                                        _carreaux.put(Integer.parseInt(data.get(i)[1]),new CarreauTirage(Integer.parseInt(data.get(i)[1]),data.get(i)[2]));
 				}
 				else if(caseType.compareTo("CA") == 0){
 					System.out.println("Case Argent :\t" + data.get(i)[2] + "\t@ case " + data.get(i)[1]);
-                                        getCarreaux().put(Integer.parseInt(data.get(i)[1]),new CarreauArgent(Integer.parseInt(data.get(i)[1]),data.get(i)[2],Integer.parseInt(data.get(i)[3])));
+                                        _carreaux.put(Integer.parseInt(data.get(i)[1]),new CarreauArgent(Integer.parseInt(data.get(i)[1]),data.get(i)[2],Integer.parseInt(data.get(i)[3])));
 				}
 				else if(caseType.compareTo("CM") == 0){
 					System.out.println("Case Mouvement :\t" + data.get(i)[2] + "\t@ case " + data.get(i)[1]);
-                                        getCarreaux().put(Integer.parseInt(data.get(i)[1]),new CarreauMouvement(Integer.parseInt(data.get(i)[1]),data.get(i)[2]));
+                                        _carreaux.put(Integer.parseInt(data.get(i)[1]),new CarreauMouvement(Integer.parseInt(data.get(i)[1]),data.get(i)[2]));
 				}
 				else
 					System.err.println("[buildGamePleateau()] : Invalid Data type");
@@ -177,6 +179,7 @@ public class Monopoly {
 			System.err.println("[buildGamePlateau()] : Error while reading file!");
 		}
 	}
+        
         private ArrayList<String[]> readDataFile(String filename, String token) throws FileNotFoundException, IOException
 	{
 		ArrayList<String[]> data = new ArrayList<String[]>();
