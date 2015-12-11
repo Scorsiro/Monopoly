@@ -1,43 +1,70 @@
 package Jeu;
 
-import java.util.HashMap;
 import java.io.BufferedReader;
 import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.Random;
 
 
 public class Monopoly {
 	private final int _nbMaisons = 32;
 	private final int _nbHotels = 12;
-        private ArrayList<Joueur> _joueurs;
-        private HashMap<Integer, Carreau> _carreaux;
+        private ArrayList<Joueur> _joueurs ;
+        private HashMap<Integer, Carreau> _carreaux ;
         private IHM _IHM;
         
         /* Constructor */
         public Monopoly(String dataFilename){
 		buildGamePlateau(dataFilename);
+                _joueurs = new ArrayList <> () ;  
+                _carreaux = new HashMap<>();
 	}
         
 	public void jouerUnCoup(Joueur j) {
-		
+		this.lancerDésAvancer(j );
+                
+                while (j.getNbDoubles() != 0 && j.getNbDoubles() < 3 ) {
+                    this.lancerDésAvancer(j);
+                
+                }
+                
+                
 	}
 
-	private void lancerDésAvancer() {
+	private void lancerDésAvancer(Joueur j) {
+            
+            if(j.getNbDoubles() < 3) {
+                int d1 = this.genererChiffreDés() ; 
+                int d2 = this.genererChiffreDés() ; 
+                
+                if (d1 == d2 ) {
+                    j.setNbDoubles(j.getNbDoubles() + d1 );
+                }
+                else {j.setNbDoubles(0);}
+            
+                
+            
+            
+            }
 		
 	}
 
 	/*public int calculArRest() {
 		
 	
-	}
+	}*/
 
 	public int genererChiffreDés() {
 		
+            Random rand = new Random () ; 
+            int d1 = rand.nextInt(6) ; 
+            return d1 ; 
 	}
 
-	public Carreau calculPositionNum(int num) {
+	/*public Carreau calculPositionNum(int num) {
 		
 	}*/
 
