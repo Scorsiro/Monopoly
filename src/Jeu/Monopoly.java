@@ -49,6 +49,7 @@ public class Monopoly {
         private void buildGamePlateau(String dataFilename)
 	{           
 		try{
+                        ArrayList<Integer> loyers = new ArrayList<>();
 			ArrayList<String[]> data = readDataFile(dataFilename, ",");
 			/* Creation of mutiples objects */
 
@@ -57,9 +58,12 @@ public class Monopoly {
 				String caseType = data.get(i)[0];
 				if(caseType.compareTo("P") == 0){
 					System.out.println("Propriété :\t" + data.get(i)[2] + "\t@ case " + data.get(i)[1]);
-                                        // IL MANQUE LES DIFFERENTS LOYERS
-                                        _carreaux.put(Integer.parseInt(data.get(i)[1]),new ProprieteAConstruire(Integer.parseInt(data.get(i)[1]),data.get(i)[2],Integer.parseInt(data.get(i)[5]),data.get(i)[5],Integer.parseInt(data.get(i)[11])));
-				}
+                                        // Ajouts des differents loyers dans 
+                                        for(int j = 5; j<=10; j++){
+                                            loyers.add(j-5,Integer.parseInt(data.get(i)[j]));
+                                        }
+                                        _carreaux.put(Integer.parseInt(data.get(i)[1]),new ProprieteAConstruire(Integer.parseInt(data.get(i)[1]),data.get(i)[2],Integer.parseInt(data.get(i)[4]),data.get(i)[3],loyers,Integer.parseInt(data.get(i)[11])));
+                                }
 				else if(caseType.compareTo("G") == 0){
 					System.out.println("Gare :\t" + data.get(i)[2] + "\t@ case " + data.get(i)[1]);
                                         _carreaux.put(Integer.parseInt(data.get(i)[1]),new Gare(Integer.parseInt(data.get(i)[1]),data.get(i)[2],Integer.parseInt(data.get(i)[3])));       

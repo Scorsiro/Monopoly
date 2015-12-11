@@ -4,7 +4,7 @@ package Jeu;
 public class Main {
 
 	public static void main(String[] args) {
-		Monopoly m = new Monopoly("case.txt");
+		Monopoly m = new Monopoly("src/Data/data.txt");
 	}
 
 }

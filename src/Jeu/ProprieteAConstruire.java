@@ -1,6 +1,7 @@
 package Jeu;
 
 import Jeu.Groupe;
+import java.util.ArrayList;
 
 public class ProprieteAConstruire extends CarreauPropriete {
     
@@ -9,12 +10,13 @@ public class ProprieteAConstruire extends CarreauPropriete {
 	//private java.util.ArrayList<int> loyerMaison;
 	private int _nbmaison = 0;
 	private boolean _hotel = false;
-	private int[] _prixloyer;
+	private ArrayList<Integer> _prixLoyers = new ArrayList<>();
 	private Groupe _groupePropriete;
 
-        public ProprieteAConstruire(int numero, String nomCarreau, int prix, String col, int prixMaiHot) {
+        public ProprieteAConstruire(int numero, String nomCarreau, int prix, String col,ArrayList<Integer> Loyers, int prixMaiHot) {
                 super(numero, nomCarreau, prix);
                 setGroupe(new Groupe(col,this,prixMaiHot));
+                setPrixLoyers(Loyers);
         }
 
 	/*public Groupe getGroupeProprieté() {
@@ -39,12 +41,12 @@ public class ProprieteAConstruire extends CarreauPropriete {
 		this._hotel = hotel;
 	}
 
-	public int[] getPrixloyer() {
-		return this._prixloyer;
+	public ArrayList<Integer> getPrixLoyers() {
+		return this._prixLoyers;
 	}
 
-	public void setPrixloyer(int[] prixloyer) {
-		this._prixloyer = prixloyer;
+	public void setPrixLoyers(ArrayList<Integer> prixloyer) {
+		this._prixLoyers = prixloyer;
 	}
 
 	public void construire() {
