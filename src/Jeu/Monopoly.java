@@ -89,6 +89,43 @@ public class Monopoly {
             j.setNbDoubles(0) ; 
 	}
         
+         /***************************** Init Partie *****************************/
+        /*public Joueur InitialiserPartie(){
+                    
+                Scanner sc = new Scanner(System.in);
+                int k = 1;
+                boolean fin = false, exaequo = false;
+                ArrayList<Integer> lanceDe = new ArrayList<>();
+                
+                int nbJoueurs=0;
+                while (nbJoueurs<6) {
+                    nbJoueurs++;
+                    System.out.println("Joueur " + nbJoueurs);
+                    System.out.print("Saisir nom :\t");
+                    String nom = sc.nextLine();
+                    Joueur j = new Joueur(nom);
+                    _joueurs.add(j);
+                }
+                while(!fin){
+                    for(int j; j<=nbJoueurs; j++){
+                        lanceDe.add(j, genererChiffreDés());
+                    }
+                    while((exaequo == false ) && (k <= nbJoueurs)){
+                    if()      
+                
+                    
+                       k++;
+                    }
+                    if(!exaequo){
+                        fin = true;
+                    }
+                    k=0;
+                      
+                }
+                return _joueurs.get();  
+                }/*
+        
+        
         /***************************** Init Game Plateau *****************************/
         private void buildGamePlateau(String dataFilename)
 	{           
