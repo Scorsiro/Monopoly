@@ -5,8 +5,10 @@ import java.io.FileNotFoundException;
 import java.io.FileReader;
 import java.io.IOException;
 import java.util.ArrayList;
+import java.util.Collections;
 import java.util.HashMap;
 import java.util.Random;
+import java.util.Scanner;
 
 
 public class Monopoly {
@@ -90,7 +92,7 @@ public class Monopoly {
 	}
         
          /***************************** Init Partie *****************************/
-        /*public Joueur InitialiserPartie(){
+        public String InitialiserPartie(){
                     
                 Scanner sc = new Scanner(System.in);
                 int k = 1;
@@ -107,23 +109,32 @@ public class Monopoly {
                     _joueurs.add(j);
                 }
                 while(!fin){
-                    for(int j; j<=nbJoueurs; j++){
+                    for(int j = 0; j<=nbJoueurs; j++){
                         lanceDe.add(j, genererChiffreDés());
                     }
-                    while((exaequo == false ) && (k <= nbJoueurs)){
-                    if()      
+                    int de = Collections.max(lanceDe);
+                    String nomPrem = lanceDe.get(de).toString();
+                    
+                    
+                    for(int d : lanceDe){
+                    if(){
+                        exaequo = true;
+                    } 
                 
                     
-                       k++;
+                    if(exaequo){
                     }
-                    if(!exaequo){
-                        fin = true;
+                    
                     }
-                    k=0;
-                      
                 }
-                return _joueurs.get();  
-                }/*
+                    
+                    
+                    
+                return nomPrem;
+                     
+                }
+                
+                
         
         
         /***************************** Init Game Plateau *****************************/
