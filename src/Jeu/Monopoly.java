@@ -93,7 +93,7 @@ public class Monopoly {
 	}
         
          /***************************** Init Partie *****************************/
-        public String InitialiserPartie(){
+       /* public String InitialiserPartie(){
                     
                 Scanner sc = new Scanner(System.in);
                 int k = 1;
@@ -133,7 +133,7 @@ public class Monopoly {
                     
                 return nomPrem;
                      
-                }
+                }*/
                 
                 
         
