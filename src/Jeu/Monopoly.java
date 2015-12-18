@@ -93,12 +93,12 @@ public class Monopoly {
 	}
         
          /***************************** Init Partie *****************************/
-       /* public String InitialiserPartie(){
-                    
+       public String InitialiserPartie(){
                 Scanner sc = new Scanner(System.in);
-                int k = 1;
-                boolean fin = false, exaequo = false;
+                boolean fin = false;
                 ArrayList<Integer> lanceDe = new ArrayList<>();
+                ArrayList<Integer> exaequo = new ArrayList<>();
+                String nomPrem = null;
                 
                 int nbJoueurs=0;
                 while (nbJoueurs<6) {
@@ -110,28 +110,32 @@ public class Monopoly {
                     _joueurs.add(j);
                 }
                 while(!fin){
+                    
                     for(int j = 0; j<=nbJoueurs; j++){
-                        lanceDe.add(j, genererChiffreDés());
+                        lanceDe.add(j, genererChiffreDés()); //génère les chiffres dans l'arraylist avec les joueurs
                     }
-                    int de = Collections.max(lanceDe);
-                    String nomPrem = lanceDe.get(de).toString();
-                    
-                    
-                    for(int d : lanceDe){
-                    if(){
-                        exaequo = true;
-                    } 
                 
+                    int de = Collections.max(lanceDe); // 'de' est le chiffre max de l'arraylist
+                    int max = Collections.frequency(lanceDe, de);
                     
-                    if(exaequo){
+                    while(max == 1){
+                        nomPrem = lanceDe.get(de).toString();// nomPrem est le nom du joueur associé au numero 'de'
+                    } 
+                    
+                    while(max > 1){
+                        Random rand = new Random();
+                        
+                        for(int k = 0;k<=max;k++){
+                        exaequo.add(k,de);}
+                        
+                        int deRand = rand.nextInt(exaequo.size());
+                        nomPrem = exaequo.get(deRand).toString();
                     }
                 }
-                    
-                    
-                    
-                return nomPrem;
-                     
-                }*/
+                fin = true;      
+                System.out.println("le premier Joueur a joué est :");    
+                return nomPrem; 
+       }
                 
                 
         
