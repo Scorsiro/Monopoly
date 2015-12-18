@@ -54,17 +54,18 @@ public class Monopoly {
                 Carreau nc = this.calculPositionNum(num + d1 +d2) ; 
                 j.setPositionCourante(nc); }
             else {
-                this.mettreEnPrison(j);
-                
-              
-            }
-                
-            
-                
-            
-            
+                this.mettreEnPrison(j); 
+            }  
+        } 
+          
+        
+         public void jouerPlusieursCoups(){
+            for(Joueur j : _joueurs){
+                jouerUnCoup(j);
+            }   
+         }   
 		
-	}
+	
 
 	/*public int calculArRest() {
 		
