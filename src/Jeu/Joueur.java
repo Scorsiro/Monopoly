@@ -207,42 +207,52 @@ public class Joueur {
     
     
     public void payerLoyer (int l )  {
+        
+        this.setCash(this.getCash() - l );
     
     }
     
     public void recevoirLoyer (int l ) {
+        this.setCash( this.getCash() + l );
     } 
      
     public void addGroupe (Groupe groupe) {
+        
+       
     
     }
     
-    /*public boolean possedeCarteLiberation () {
+    public boolean possedeCarteLiberation () {
     
-    }*/
-    
-    
-    /*public boolean peutPayer (int montant) {
-    
-    
-    }*/
-    
-    
-    public void ajouterCash(int somme) {
-    
+        return ( !this.getCartes().isEmpty()) ; 
     }
     
- /*  public int calculArgentRest (int loyer) {
     
+    public boolean peutPayer (int montant) {
+    
+        return (this.getCash()> montant ) ; 
+    }
+    
+    
+  
+    
+   public int calculArgentRest (int loyer) {
+       
+       return ( this.getCash() - loyer ) ; 
 
-   }*/
+   }
     
     
     public void addCarte(CarteLibere c) {
+        
+        this.getCartes().add(c) ;
     
     }
     
     public void removeCarte (CarteLibere c ) {
     
+        this.getCartes().remove(c) ; 
     }
+    
+   
 }
