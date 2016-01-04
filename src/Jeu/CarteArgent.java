@@ -10,6 +10,36 @@ package Jeu;
  *
  * @author adlit
  */
-public class CarteArgent {
+public class CarteArgent extends Carte {
+    
+    private int montant ; 
+
+    public CarteArgent(int montant) {
+        this.montant = montant;
+    }
+
+    /**
+     * @return the montant
+     */
+    public int getMontant() {
+        return montant;
+    }
+
+    /**
+     * @param montant the montant to set
+     */
+    public void setMontant(int montant) {
+        this.montant = montant;
+    }
+    
+    /*public int calculMontant (Joueur j ) {
+    
+    }*/
+    
+    
+    public void executerCarte () {
+    
+    }
+    
     
 }

@@ -10,6 +10,11 @@ package Jeu;
  *
  * @author adlit
  */
-public class CarteLibere {
+public class CarteLibere extends Carte {
+    
+    public void executerCarte () {
+    
+    
+    }
     
 }
