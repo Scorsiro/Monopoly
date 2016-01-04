@@ -20,6 +20,12 @@ public class Joueur {
     /**
      * @return the nomJoueur
      */
+    public Joueur(String nomJoueur) {
+        this.nomJoueur = nomJoueur;
+    }
+
+        
+    
     public String getNomJoueur() {
         return nomJoueur;
     }
@@ -198,5 +204,45 @@ public class Joueur {
     public void setGroupes(HashSet <Groupe> groupes) {
         this.groupes = groupes;
     }
+    
+    
+    public void payerLoyer (int l )  {
+    
+    }
+    
+    public void recevoirLoyer (int l ) {
+    } 
      
+    public void addGroupe (Groupe groupe) {
+    
+    }
+    
+    /*public boolean possedeCarteLiberation () {
+    
+    }*/
+    
+    
+    /*public boolean peutPayer (int montant) {
+    
+    
+    }*/
+    
+    
+    public void ajouterCash(int somme) {
+    
+    }
+    
+ /*  public int calculArgentRest (int loyer) {
+    
+
+   }*/
+    
+    
+    public void addCarte(CarteLibere c) {
+    
+    }
+    
+    public void removeCarte (CarteLibere c ) {
+    
+    }
 }

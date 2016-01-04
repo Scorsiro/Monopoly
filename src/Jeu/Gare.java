@@ -10,7 +10,7 @@ public class Gare extends CarreauPropriete {
 	public void action(Joueur j) {
 	}
 
-	private void construire() {
+	public void construire() {
 	}
 
 	/*public int calculLoyerGare(int nbGare) {

@@ -42,7 +42,7 @@ public class Monopoly {
             if(j.getNbDoubles() < 3) {
                 int d1 = this.genererChiffreDés() ; 
                 int d2 = this.genererChiffreDés() ; 
-                j.setDés(d1+d2);
+                j.setDes(d1+d2);
                 
                 if (d1 == d2 ) {
                     j.setNbDoubles(j.getNbDoubles() + d1 );
