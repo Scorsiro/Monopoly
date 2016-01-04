@@ -5,18 +5,21 @@ import java.util.ArrayList;
 
 public class ProprieteAConstruire extends CarreauPropriete {
     
-	private int _nbMaisons = 0;
-	private int _nbHotels = 0;
+	//private int _nbMaisons = 0;
+	//private int _nbHotels = 0;
 	//private java.util.ArrayList<int> loyerMaison;
 	private int _nbmaison = 0;
 	private boolean _hotel = false;
-	private ArrayList<Integer> _prixLoyers = new ArrayList<>();
+	private ArrayList<Integer> _prixLoyers;
 	private Groupe _groupePropriete;
 
-        public ProprieteAConstruire(int numero, String nomCarreau, int prix, String col,ArrayList<Integer> Loyers, int prixMaiHot) {
+        public ProprieteAConstruire(int numero, String nomCarreau, int prix, Groupe groupe,ArrayList<Integer> loyers) {
                 super(numero, nomCarreau, prix);
-                setGroupe(new Groupe(col,this,prixMaiHot));
-                setPrixLoyers(Loyers);
+                this._prixLoyers = new ArrayList<>();
+                
+                setGroupepropriete(groupe);
+                
+                setPrixLoyers(loyers);
         }
 
 	/*public Groupe getGroupeProprieté() {
@@ -62,14 +65,15 @@ public class ProprieteAConstruire extends CarreauPropriete {
     /**
      * @return the _groupePropriete
      */
-    public Groupe getGroupe() {
+    public Groupe getGroupePropriete() {
         return _groupePropriete;
     }
 
     /**
      * @param _groupePropriete the _groupePropriete to set
      */
-    public void setGroupe(Groupe _groupePropriete) {
+    public void setGroupepropriete(Groupe _groupePropriete) {
         this._groupePropriete = _groupePropriete;
+        this._groupePropriete.getProprietes().add(this);
     }
 }

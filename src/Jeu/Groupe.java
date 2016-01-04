@@ -5,15 +5,13 @@ import java.util.HashSet;
 
 public class Groupe {
 	private CouleurPropriete _couleur;
-	private int _prixAchatMaison;
-	private int _prixAchatHotel;
-	private ArrayList<ProprieteAConstruire> _proprietes = new ArrayList<ProprieteAConstruire>();
+	private int _prixAchat;
+	private ArrayList<ProprieteAConstruire> _proprietes;
 
-        Groupe(String colGroupe, ProprieteAConstruire prop, int prixMaiHot){
+        Groupe(String colGroupe, int prixMaiHot){
             setCouleurPropriete(colGroupe);
-            _proprietes.add(prop);
-            this.setPrixAchatHotel(prixMaiHot);
-            this.setPrixAchatMaison(prixMaiHot);
+            this._proprietes = new ArrayList<ProprieteAConstruire>();
+            this.setPrixAchat(prixMaiHot);
         }
 
         private void setCouleurPropriete(String col){
@@ -45,28 +43,32 @@ public class Groupe {
     /**
      * @return the _prixAchatMaison
      */
-    public int getPrixAchatMaison() {
-        return _prixAchatMaison;
+    public int getPrixAchat() {
+        return _prixAchat;
     }
 
     /**
      * @param _prixAchatMaison the _prixAchatMaison to set
      */
-    public void setPrixAchatMaison(int _prixAchatMaison) {
-        this._prixAchatMaison = _prixAchatMaison;
+    public void setPrixAchat(int prixAchat) {
+        this._prixAchat = prixAchat;
+    }
+
+    /**
+     * @return the _proprietes
+     */
+    public ArrayList<ProprieteAConstruire> getProprietes() {
+        return _proprietes;
+    }
+
+    /**
+     * @param _proprietes the _proprietes to set
+     */
+    public void setProprietes(ArrayList<ProprieteAConstruire> _proprietes) {
+        this._proprietes = _proprietes;
     }
 
     /**
      * @return the _prixAchatHotel
      */
-    public int getPrixAchatHotel() {
-        return _prixAchatHotel;
-    }
-
-    /**
-     * @param _prixAchatHotel the _prixAchatHotel to set
-     */
-    public void setPrixAchatHotel(int _prixAchatHotel) {
-        this._prixAchatHotel = _prixAchatHotel;
-    }
 }
