@@ -17,6 +17,7 @@ public class Monopoly {
         private ArrayList<Joueur> _joueurs ; //  = new ArrayList <> () ;
         private HashMap<Integer, Carreau> _carreaux  ; //= new HashMap<>() ;
         private IHM _IHM;
+        private HashMap<CouleurPropriete,Groupe> _groupes;
         
         /* Constructor */
         public Monopoly(String dataFilename){
@@ -159,7 +160,7 @@ public class Monopoly {
                                         }
                                         
                                         /* Init du carreau               numCase                                     numCase                         nom                           prix              couleur     loyers          prixMaison/Hotel*/
-                                        _carreaux.put(Integer.parseInt(data.get(i)[1]),new ProprieteAConstruire(Integer.parseInt(data.get(i)[1]),data.get(i)[2],Integer.parseInt(data.get(i)[4]),data.get(i)[3],loyers,Integer.parseInt(data.get(i)[11])));
+                                        _carreaux.put(Integer.parseInt(data.get(i)[1]),new ProprieteAConstruire(Integer.parseInt(data.get(i)[2]),data.get(i)[3],Integer.parseInt(data.get(i)[5]),getGroupe(CouleurPropriete.valueOf(data.get(i)[4])),loyers));
                                 }
 				else if(caseType.compareTo("G") == 0){
 					System.out.println("Gare :\t" + data.get(i)[2] + "\t@ case " + data.get(i)[1]);
@@ -249,7 +250,26 @@ public class Monopoly {
     public void setCarreaux(HashMap<Integer, Carreau> _carreaux) {
         this._carreaux = _carreaux;
     }
+
+    /**
+     * @return the _groupes
+     */
+    public HashMap<CouleurPropriete,Groupe> getGroupes() {
+        return _groupes;
+    }
+
+    /**
+     * @param _groupes the _groupes to set
+     */
+    public void setGroupes(HashMap<CouleurPropriete,Groupe> _groupes) {
+        this._groupes = _groupes;
+    }
         
+    
+    public Groupe getGroupe (CouleurPropriete c ) {
+    
+    return this.getGroupes().get(c) ; 
+    }
         
         
 }

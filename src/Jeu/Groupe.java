@@ -33,7 +33,7 @@ public class Groupe {
             }else if(col == "rouge"){
                 colour=CouleurPropriete.rouge;   
             }
-            _couleur = colour;
+            setCouleur(colour);
         }
 
 	/*public HashSet<ProprieteAConstruire> getProprietes() {
@@ -71,4 +71,21 @@ public class Groupe {
     /**
      * @return the _prixAchatHotel
      */
+ 
+
+    /**
+     * @return the _couleur
+     */
+    public CouleurPropriete getCouleur() {
+        return _couleur;
+    }
+
+    /**
+     * @param _couleur the _couleur to set
+     */
+    public void setCouleur(CouleurPropriete _couleur) {
+        this._couleur = _couleur;
+    }
+    
+  
 }

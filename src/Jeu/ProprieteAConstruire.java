@@ -13,11 +13,12 @@ public class ProprieteAConstruire extends CarreauPropriete {
 	private ArrayList<Integer> _prixLoyers;
 	private Groupe _groupePropriete;
 
-        public ProprieteAConstruire(int numero, String nomCarreau, int prix, Groupe groupe,ArrayList<Integer> loyers) {
+        public ProprieteAConstruire(int numero, String nomCarreau, int prix, Groupe g,ArrayList<Integer> loyers) {
                 super(numero, nomCarreau, prix);
+                
                 this._prixLoyers = new ArrayList<>();
                 
-                setGroupepropriete(groupe);
+                setGroupepropriete(g);
                 
                 setPrixLoyers(loyers);
         }
