@@ -26,5 +26,12 @@ public abstract class Carreau {
         public void setNomCarreau(String nomCarreau) {
             this.nomCarreau = nomCarreau;
         }
+        
+        public void construire (){
+        
+        }
+        
+        public void action(Joueur j ) {
+        }
 
 }
