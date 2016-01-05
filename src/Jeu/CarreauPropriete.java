@@ -30,10 +30,10 @@ public abstract class CarreauPropriete extends Carreau {
                 this.prix = prix;
         }
         
-	public void acheterPropriete() {
-	}
+	public abstract void acheterPropriete() ; 
 
-	/*public int calculMontant () {}
-        /*public int calculeLoyer(Joueur j ) {
-	}*/
+        // Les méthodes sont redéfinis dans : gare , compagnie , PropriétéAconstruire 
+	public abstract int calculMontant () ; 
+       
+        public abstract int calculeLoyer(Joueur j ) ; 
 }

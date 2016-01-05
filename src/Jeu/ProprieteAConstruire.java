@@ -77,4 +77,21 @@ public class ProprieteAConstruire extends CarreauPropriete {
         this._groupePropriete = _groupePropriete;
         this._groupePropriete.getProprietes().add(this);
     }
+
+    
+
+    @Override
+    public int calculMontant() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+
+    @Override
+    public int calculeLoyer(Joueur j) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
+    
+    @Override
+    public void acheterPropriete() {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

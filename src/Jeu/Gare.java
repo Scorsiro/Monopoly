@@ -24,18 +24,28 @@ public class Gare extends CarreauPropriete {
             return montant ; 
         
         }
-        
-        
-	public int calculLoyerGare(Joueur j ) {
+     
+
+  
+        @Override
+
+        public int calculeLoyer(Joueur j) {
+             
             Joueur jp = this.getProprietaire() ; 
-            
+
             int montant = this.calculMontant() ; 
-            
+
             int ar = j.calculArgentRest(montant) ; 
-            
+
             return montant ; 
+
+        }
+
+         @Override
+        
+         public void acheterPropriete() {
             
-            
-            }
+             throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+        }
 
 }
