@@ -21,11 +21,26 @@ public class Monopoly {
         
         /* Constructor */
         public Monopoly(String dataFilename){
-	      _joueurs = new ArrayList <> () ;  
-               _carreaux = new HashMap<>();	
+	       _joueurs = new ArrayList <> () ;  
+               _carreaux = new HashMap<>();
+               _groupes = new HashMap<>();
             buildGamePlateau(dataFilename);
-         
+            
 	}
+        
+        private void lancementPartie(){
+            int choix = 0;
+            String nomPremJ;
+            while(choix != 0){
+                choix = this.getIHM().affichageMenu();
+                if(choix == 1){
+                    nomPremJ = this.InitialiserPartie();
+                }
+                if(choix == 3){
+                    //this.lancementDemo();
+                }
+            }
+        }
         
 	public void jouerUnCoup(Joueur j) {
 		this.lancerDésAvancer(j );
@@ -64,14 +79,7 @@ public class Monopoly {
             for(Joueur j : _joueurs){
                 jouerUnCoup(j);
             }   
-         }   
-		
-	
-
-	/*public int calculArRest() {
-		
-	
-	}*/
+         }
 
 	public int genererChiffreDés() {
 		
@@ -95,46 +103,61 @@ public class Monopoly {
         
          /***************************** Init Partie *****************************/
        public String InitialiserPartie(){
-                Scanner sc = new Scanner(System.in);
+                Scanner sca = new Scanner(System.in);
+                Scanner scb = new Scanner(System.in);
                 boolean fin = false;
+                
                 ArrayList<Integer> lanceDe = new ArrayList<>();
                 ArrayList<Integer> exaequo = new ArrayList<>();
                 String nomPrem = null;
                 
                 int nbJoueurs=0;
+                
+                while(nbJoueurs < 2 || nbJoueurs > 6){
+                    System.out.print("\nEntrez le nombre de joueur désirant jouer : ");
+                    nbJoueurs = scb.nextInt();
+                }
+                
+                /* Init du joueur 0 avec pour nom vide et rang 0 (Bouche trou) */
+                Joueur jVide = new Joueur("vide");
+                _joueurs.add(0,jVide);
+                
                 while (nbJoueurs<6) {
                     nbJoueurs++;
                     System.out.println("Joueur " + nbJoueurs);
-                    System.out.print("Saisir nom :\t");
-                    String nom = sc.nextLine();
+                    System.out.print("Saisissez votre nom : ");
+                    String nom = sca.nextLine();
                     Joueur j = new Joueur(nom);
                     _joueurs.add(j);
                 }
+                
                 while(!fin){
                     
                     for(int j = 0; j<=nbJoueurs; j++){
                         lanceDe.add(j, genererChiffreDés()); //génère les chiffres dans l'arraylist avec les joueurs
                     }
                 
-                    int de = Collections.max(lanceDe); // 'de' est le chiffre max de l'arraylist
-                    int max = Collections.frequency(lanceDe, de);
+                    int max = Collections.max(lanceDe); // 'max' est le chiffre max de l'arraylist
+                    int freq = Collections.frequency(lanceDe, max);
                     
-                    while(max == 1){
-                        nomPrem = lanceDe.get(de).toString();// nomPrem est le nom du joueur associé au numero 'de'
+                    if(freq == 1){
+                        nomPrem = lanceDe.get(max).toString();// nomPrem est le nom du joueur associé au numero 'de'
+                        fin = true;
                     } 
                     
-                    while(max > 1){
+                    if(freq > 1){
                         Random rand = new Random();
                         
-                        for(int k = 0;k<=max;k++){
-                        exaequo.add(k,de);}
+                        for(int k = 0;k<=freq;k++){
+                        exaequo.add(k,max);}
                         
                         int deRand = rand.nextInt(exaequo.size());
                         nomPrem = exaequo.get(deRand).toString();
+                        fin = true;
                     }
-                }
-                fin = true;      
-                System.out.println("le premier Joueur a joué est :");    
+                } 
+                sca.close();
+                scb.close();
                 return nomPrem; 
        }
                 
@@ -159,8 +182,11 @@ public class Monopoly {
                                             loyers.add(j-5,Integer.parseInt(data.get(i)[j]));
                                         }
                                         
-                                        /* Init du carreau               numCase                                     numCase                         nom                           prix              couleur     loyers          prixMaison/Hotel*/
-                                        _carreaux.put(Integer.parseInt(data.get(i)[1]),new ProprieteAConstruire(Integer.parseInt(data.get(i)[2]),data.get(i)[3],Integer.parseInt(data.get(i)[5]),getGroupe(CouleurPropriete.valueOf(data.get(i)[4])),loyers));
+                                        /*getGroupe(CouleurPropriete.valueOf(data.get(i)[3]))
+                                        Groupe grTemp = new Groupe(,data.get(i)[11]);*/
+                                        
+                                        /* Init du carreau               numCase                                     numCase                         nom                           prix              couleur                                        loyers */
+                                        _carreaux.put(Integer.parseInt(data.get(i)[1]),new ProprieteAConstruire(Integer.parseInt(data.get(i)[1]),data.get(i)[2],Integer.parseInt(data.get(i)[4]),grTemp,loyers));
                                 }
 				else if(caseType.compareTo("G") == 0){
 					System.out.println("Gare :\t" + data.get(i)[2] + "\t@ case " + data.get(i)[1]);
@@ -269,6 +295,13 @@ public class Monopoly {
     public Groupe getGroupe (CouleurPropriete c ) {
     
     return this.getGroupes().get(c) ; 
+    }
+
+    /**
+     * @return the _IHM
+     */
+    public IHM getIHM() {
+        return _IHM;
     }
         
         
