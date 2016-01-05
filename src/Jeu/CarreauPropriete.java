@@ -35,14 +35,22 @@ public abstract class CarreauPropriete extends Carreau {
         
             if (!j.peutPayer(this.getPrix())) {
                 
+                this.getMonopoly().getIHM().affichePeutPasPayer(); 
                 
             }
-            else {   this.getNomCarreau() ; 
+            
+            else {   
+                
+                if (this.getMonopoly().getIHM().getAchatRep() == "oui") {
+                
+                this.getNomCarreau() ; 
                 
                 j.payerLoyer(this.getPrix());
                 
                 this.setProprietaire(j);
+                }
                 
+               
             }
         
         }; 

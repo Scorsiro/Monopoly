@@ -61,7 +61,7 @@ public class IHM {
             
             System.out.println("\n");
 
-            if((choix <= 2) && (choix >= 1)){
+            if((choix <= 3) && (choix >= 1)){
                 erreur = false;
             } else{
                 System.out.println("");
@@ -110,10 +110,18 @@ public class IHM {
         }
     }
     
-    public String afficheAchatRep () {
+    public String getAchatRep () {
         Scanner sc = new Scanner (System.in) ; 
         System.out.println ("Voulez vous acheter la propriétée") ; 
+        System.out.println ("Entrer 'oui'/ 'non'") ;
+      
         String rep = sc.nextLine() ; 
+        
+            while(rep!="oui"|| rep!= "non"   ){
+              
+                System.out.println ("Veuillez entre 'oui'ou 'non'") ; 
+        
+            }
         return rep ; 
         
     }
