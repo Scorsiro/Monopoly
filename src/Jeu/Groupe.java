@@ -103,4 +103,20 @@ public class Groupe {
     }
     
   
+    public int getMinNbM () {
+    
+        int min = 4 ; 
+        
+        for(ProprieteAConstruire p : this.getProprietes()) {
+    
+            if(p.getNbmaison() < min ) {
+            
+            min = p.getNbmaison() ; 
+            
+            }
+        }
+        return min ; 
+    
+    
+    }
 }

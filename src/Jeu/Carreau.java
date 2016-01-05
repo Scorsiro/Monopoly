@@ -1,5 +1,7 @@
 package Jeu;
 
+import java.util.ArrayList;
+
 public abstract class Carreau {
 	private int numero;
 	private String nomCarreau;
@@ -27,7 +29,23 @@ public abstract class Carreau {
             this.nomCarreau = nomCarreau;
         }
         
-        public void construire (){
+        public void construire (Joueur j ){
+            
+            ArrayList <Groupe> groupes = j.getGroupes() ; 
+            
+            if (!groupes.isEmpty()) {
+            
+                for(Groupe g : groupes) {
+                
+                    g.getProprietes() ; 
+                
+                
+                
+                }
+            
+            
+            }
+            
             
             
         

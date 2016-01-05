@@ -73,7 +73,7 @@ public abstract class CarreauPropriete extends Carreau {
                 jP.recevoirLoyer(this.calculLoyer(j));
             }
             
-            this.construire();
+            this.construire(j);
         }
 
         // Les méthodes sont redéfinis dans : gare , compagnie , PropriétéAconstruire 
