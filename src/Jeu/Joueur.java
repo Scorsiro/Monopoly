@@ -50,6 +50,13 @@ public class Joueur {
      */
     public void setCash(int cash) {
         this.cash = cash;
+        
+    }
+    
+    public void nouveauTourCash (){
+        
+        this.setCash(this.getCash()+200) ; 
+    
     }
 
     /**

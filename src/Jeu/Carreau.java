@@ -70,7 +70,7 @@ public abstract class Carreau {
                         
                        int numC = this.getMonopoly().getIHM().getConstruireRep() ; 
                        
-                       //Return le carreau avec le numC
+                       //Return le carreau avec le numC pour incrémenter le nbmaison ... 
                        
                         
                        
