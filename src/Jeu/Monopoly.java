@@ -17,6 +17,7 @@ public class Monopoly {
 	private final int _nbHotels = 12;
         private ArrayList<Joueur> _joueurs ; //  = new ArrayList <> () ;
         private HashMap<Integer, Carreau> _carreaux  ; //= new HashMap<>() ;
+        ArrayList<Carte> _cartes = new ArrayList<>();
         private IHM _IHM;
         private HashMap<CouleurPropriete,Groupe> _groupes;
         
@@ -37,6 +38,7 @@ public class Monopoly {
                 choix = this.getIHM().affichageMenu();
                 if(choix == 1){
                     nomPremJ = this.InitialiserPartie();
+                    this.getIHM().affichagePlateau();
                 }
                 if(choix == 3){
                    
@@ -252,6 +254,30 @@ public class Monopoly {
 		return data;
 	}
 
+    public void tirerUneCarte(){}
+                
+                public ArrayList<Carte> getCartes() {
+                    return _cartes;
+                }
+    
+    public Carte genererCarte() {
+                    this.getCartes();
+                    this.melangerCarte();
+                    Random rand = new Random ();
+                    int c = rand.nextInt(_cartes.size());
+                    return _cartes.get(c);
+                }
+    
+    public void melangerCarte(){
+                    Collections.shuffle(_cartes);
+                }    
+     
+    public void mettreEnFaillite(Joueur j){
+                    _joueurs.remove(j);
+                 }
+    
+    
+    
     /**
      * @return the _nbMaisons
      */

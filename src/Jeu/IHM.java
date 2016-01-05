@@ -73,33 +73,72 @@ public class IHM {
 	
     public void affichagePlateau(){
     this.espacement();
-    System.out.println("**************************************************************************************************************************************************************************");
-    System.out.println("*                *    Avenue    *              *   Boulevard  *    Avenue    *     Gare     *   Faubourg   *   Place de   * Compagnie de *    Rue la    *                *");
-    System.out.println("* Parc           *   Matignon   *              *  Malesherbes * Henri-Martin *    du Nord   *Saint-Honnoré *   la Bourse  * distribution *    fayette   *  Allez         *");
-    System.out.println("*                *              *    CHANCE    *              *              *              *              *              *              *              *                *");
-    System.out.println("*                *              *              *              *              *              *              *              *              *              *      en        *");
-    System.out.println("*      Gratuit   *     PRIX     *       ?      *     PRIX     *     PRIX     *     PRIX     *     PRIX     *     PRIX     *     PRIX     *     PRIX     *                *");
-    System.out.println("*                *              *              *              *              *              *              *              *              *              *         Prison *");
-    System.out.println("*                ****************************************************************************************************************************************                *");
-    System.out.println("*                *  M:0    H:0  *              *  M:0    H:0  *  M:0    H:0  *              *  M:0    H:0  *  M:0    H:0  *              *  M:0    H:0  *                *");
-    System.out.println("*                *  J:3         *              *              *              *              *              *              *              *              *                *");  
-    System.out.println("**************************************************************************************************************************************************************************");
-    System.out.println("* Place    * M:0 *                                                                                                                                      *                *");
-    System.out.println("*   Pigalle* H:0 *                                                                                                                                                       *");
-    System.out.println("*          *J:   *                                                                                                                                                       *");
-    System.out.println("******************");
-    System.out.println("*          * M:0 *");
-    System.out.println("**************************************************************************************************************************************************************************");
-    System.out.println("*      *         *              *              *              *              *              *              *              *              *              *                *");
-    System.out.println("*      *         *              *              *              *              *              *              *              *              *              *                *");
-    System.out.println("*   S  * En      ****************************************************************************************************************************************  D             *");
-    System.out.println("*   i  *  Prison *    Avenue    *    Rue de    *              *    Rue de    *     Gare     *  Impôts sur  *     Rue      *   Caisse de  * Boulevard de *    E           *");
-    System.out.println("*   m  *********** la Republique*  Courcelles  *              *   Vaugirard  * Montparnasse *  le revenu   *   Lecourbe   *   communauté *  Belleville  *      P         *");
-    System.out.println("*   p            *              *              *    CHANCE    *              *              *              *              *              *              *        A       *");
-    System.out.println("*   l            *              *              *              *              *              *              *              *              *              *          R     *");
-    System.out.println("*   e            *     PRIX     **     PRIX    *       ?      *     PRIX     *     PRIX     *     PRIX     *     PRIX     *              *     PRIX     *            T   *");
-    System.out.println("*      Visite    *              *              *              *              *              *              *              *              *              *                *");
-    System.out.println("**************************************************************************************************************************************************************************");
+    System.out.println("**************************************************************************************************************************************************************************************");
+    System.out.println("*                      *    Avenue    *              *   Boulevard  *    Avenue    *     Gare     *   Faubourg   *   Place de   * Compagnie de *    Rue la    *                      *");
+    System.out.println("*                      *   Matignon   *              *  Malesherbes * Henri-Martin *    du Nord   *Saint-Honnoré *   la Bourse  * distribution *    fayette   *  Allez               *");
+    System.out.println("*      Parc            *              *    CHANCE    *              *              *              *              *              *              *              *                      *");
+    System.out.println("*                      *              *              *              *              *              *              *              *              *              *      en              *");
+    System.out.println("*                      *     PRIX     *       ?      *     PRIX     *     PRIX     *     PRIX     *     PRIX     *     PRIX     *     PRIX     *     PRIX     *                      *");
+    System.out.println("*           Gratuit    *              *              *              *              *              *              *              *              *              *         Prison       *");
+    System.out.println("*                      ****************************************************************************************************************************************                      *");
+    System.out.println("*                      *  M:0    H:0  *              *  M:0    H:0  *  M:0    H:0  *              *  M:0    H:0  *  M:0    H:0  *              *  M:0    H:0  *                      *");
+    System.out.println("*                      *  J:3         *              *              *              *              *              *              *              *              *                      *");  
+    System.out.println("**************************************************************************************************************************************************************************************");
+    System.out.println("* Place       * M:0    *                                                                                                                                      * M:0    * Avenue de   *");
+    System.out.println("*   Pigalle   * H:0    *                                                                                                                                      * H:0    *    Breteuil *");
+    System.out.println("*             *J:123456*                                                                                                                                      *j:123456*             *");
+    System.out.println("*   PRIX      *        *                                                                                                                                      *        *     PRIX    *");
+    System.out.println("************************                                                                                                                                      ************************");
+    System.out.println("*  Boulevard  *        *                                                                                                                                      *        * Avenue      *");
+    System.out.println("* Saint-Michel*        *                                                                                                                                      *        *      Foch   *");
+    System.out.println("*             *        *                                                                                                                                      *        *             *");
+    System.out.println("*     PRIX    *        *                                                                                                                                      *        *     PRIX    *");
+    System.out.println("************************                                                                                                                                      ************************");
+    System.out.println("*   Caisse    *        *                                                                                                                                      *        * Caisse de   *");
+    System.out.println("*     de      *        *                                                                                                                                      *        *  Communauté *");
+    System.out.println("* Communauté  *        *                                                                                                                                      *        *             *");
+    System.out.println("*     PRIX    *        *                                                                                                                                      *        *             *");
+    System.out.println("************************                                                                                                                                      ************************");
+    System.out.println("*   Avenue    *        *                                                                                                                                      *        *Boulevard des*");
+    System.out.println("*    Mozart   *        *                                                                                                                                      *        *  Capucines  *");
+    System.out.println("*             *        *                                                                                                                                      *        *             *");
+    System.out.println("*     PRIX    *        *                                                                                                                                      *        *     PRIX    *");
+    System.out.println("************************                                                                                                                                      ************************");
+    System.out.println("*   Gare de   *        *                                                                                                                                      *        *     Gare    *");
+    System.out.println("*     Lyon    *        *                                                                                                                                      *        *Saint-Lazaire*");
+    System.out.println("*             *        *                                                                                                                                      *        *             *");
+    System.out.println("*     PRIX    *        *                                                                                                                                      *        *     PRIX    *");
+    System.out.println("************************                                                                                                                                      ************************");
+    System.out.println("*  Rue de     *        *                                                                                                                                      *        *    Chance   *");
+    System.out.println("*   Paradis   *        *                                                                                                                                      *        *       ?     *");
+    System.out.println("*             *        *                                                                                                                                      *        *             *");
+    System.out.println("*     PRIX    *        *                                                                                                                                      *        *             *");
+    System.out.println("************************                                                                                                                                      ************************");
+    System.out.println("*  Avenue de  *        *                                                                                                                                      *        *  Avenue des *");
+    System.out.println("*   Neuilly   *        *                                                                                                                                      *        *Champs-Elysée*");
+    System.out.println("*             *        *                                                                                                                                      *        *             *");
+    System.out.println("*     PRIX    *        *                                                                                                                                      *        *     PRIX    *");
+    System.out.println("************************                                                                                                                                      ************************");
+    System.out.println("* Compagnie de*        *                                                                                                                                      *        *   Taxe de   *");
+    System.out.println("* distribution*        *                                                                                                                                      *        *    luxe     *");
+    System.out.println("*d'électricité*        *                                                                                                                                      *        *             *");
+    System.out.println("*     PRIX    *        *                                                                                                                                      *        *     PRIX    *");
+    System.out.println("************************                                                                                                                                      ************************");
+    System.out.println("* Boulevard de*        *                                                                                                                                      *        *  Rue de la  *");
+    System.out.println("* la Villette *        *                                                                                                                                      *        *     Paix    *");
+    System.out.println("*             *        *                                                                                                                                      *        *             *");
+    System.out.println("*     PRIX    *        *                                                                                                                                      *        *     PRIX    *");
+    System.out.println("**************************************************************************************************************************************************************************************");
+    System.out.println("*j:123456     *j:123456*              *              *              *              *              *              *              *              *              *                      *");
+    System.out.println("*             *        *              *              *              *              *              *              *              *              *              *                      *");
+    System.out.println("*   S         * En     ****************************************************************************************************************************************  D                   *");
+    System.out.println("*   i         *  Prison*    Avenue    *    Rue de    *              *    Rue de    *     Gare     *  Impôts sur  *     Rue      *   Caisse de  * Boulevard de *    E                 *");
+    System.out.println("*   m         ********** la Republique*  Courcelles  *              *   Vaugirard  * Montparnasse *  le revenu   *   Lecourbe   *   communauté *  Belleville  *      P               *");
+    System.out.println("*   p                  *              *              *    CHANCE    *              *              *              *              *              *              *        A             *");
+    System.out.println("*   l                  *              *              *              *              *              *              *              *              *              *          R           *");
+    System.out.println("*   e                  *     PRIX     *      PRIX    *       ?      *     PRIX     *     PRIX     *     PRIX     *     PRIX     *              *     PRIX     *            T         *");
+    System.out.println("*      Visite          *              *              *              *              *              *              *              *              *              *                      *");
+    System.out.println("**************************************************************************************************************************************************************************************");
     }
     
     /********************* Utilitaire *********************/
@@ -120,10 +159,9 @@ public class IHM {
             while(rep!="oui"|| rep!= "non"   ){
               
                 System.out.println ("Veuillez entrer 'oui'ou 'non'") ; 
-        
+                rep = sc.nextLine() ;
             }
         return rep ; 
-        
     }
     
     public void affichePeutPasPayer (){
@@ -142,6 +180,18 @@ public class IHM {
         System.out.println ("Argent restant aprés paiement  :" + Ar) ; 
     }
     
-    
-    
+    public String getLibRep () {
+                Scanner sc = new Scanner (System.in) ;
+                System.out.println ("Voulez vous utiliser votre carte libération") ;
+                System.out.println ("Entrer 'oui'/ 'non'") ;
+      
+                String rep = sc.nextLine() ;
+        
+                while(rep!="oui"|| rep!= "non"   ){
+              
+                System.out.println ("Veuillez entrer 'oui'ou 'non'") ;
+        
+                }
+                return rep ;
+        }
 }

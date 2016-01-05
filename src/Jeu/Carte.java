@@ -47,4 +47,11 @@ public abstract class Carte {
     
     }
     
+    /**
+     * @return the type
+     */
+    /* ??? public Joueur getJoueur() {
+        return j;
+    }*/
+    
 }
