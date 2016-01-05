@@ -25,7 +25,7 @@ public class Monopoly {
                _carreaux = new HashMap<>();
                _groupes = new HashMap<>();
             buildGamePlateau(dataFilename);
-            
+            this.lancementPartie();
 	}
         
         private void lancementPartie(){
@@ -182,10 +182,9 @@ public class Monopoly {
                                             loyers.add(j-5,Integer.parseInt(data.get(i)[j]));
                                         }
                                         
-                                        /*getGroupe(CouleurPropriete.valueOf(data.get(i)[3]))
-                                        Groupe grTemp = new Groupe(,data.get(i)[11]);*/
+                                        Groupe grTemp = new Groupe(data.get(i)[11],Integer.parseInt(data.get(i)[11]));
                                         
-                                        /* Init du carreau               numCase                                     numCase                         nom                           prix              couleur                                        loyers */
+                                        /* Init du carreau               numCase                                     numCase                         nom                           prix         couleur   oyers */
                                         _carreaux.put(Integer.parseInt(data.get(i)[1]),new ProprieteAConstruire(Integer.parseInt(data.get(i)[1]),data.get(i)[2],Integer.parseInt(data.get(i)[4]),grTemp,loyers));
                                 }
 				else if(caseType.compareTo("G") == 0){
