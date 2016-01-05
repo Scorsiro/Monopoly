@@ -122,5 +122,6 @@ public class ProprieteAConstruire extends CarreauPropriete {
         public void construire() {
 	}
 
+     
 
     }

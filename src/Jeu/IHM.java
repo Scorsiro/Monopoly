@@ -1,5 +1,6 @@
 package Jeu;
 
+import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
@@ -151,14 +152,14 @@ public class IHM {
     
     public String getAchatRep () {
         Scanner sc = new Scanner (System.in) ; 
-        System.out.println ("Voulez vous acheter la propriétée") ; 
-        System.out.println ("Entrer 'oui'/ 'non'") ;
+        System.out.println ("Voulez vous acheter la propriétée ? : \t") ; 
+        System.out.print ("Entrer 'oui'/ 'non'") ;
       
         String rep = sc.nextLine() ; 
         
             while(rep!="oui"|| rep!= "non"   ){
               
-                System.out.println ("Veuillez entrer 'oui'ou 'non'") ; 
+                System.out.println ("Veuillez entrer 'oui'ou 'non': \t") ; 
                 rep = sc.nextLine() ;
             }
         return rep ; 
@@ -213,15 +214,31 @@ public class IHM {
     public void afficheConstruire (ProprieteAConstruire p) {
 
         //affichage des propriété Puis le joueur va choisir ou il  veut construire 
-        System.out.println ("Le nom de la propriete : " + p.getNomCarreau() + "|Groupe : " + p.getGroupePropriete()+ "|Prix : " + p.getPrix()) ;  
-        Scanner sc = new Scanner(System.in) ; 
-        System.out.println("Parmis les proprietés : choisissez une propriété où vous voulez construire  ") ; 
-        
-   
+        System.out.println ("le numéro de la propriété : "+ p.getNumero() +"Le nom de la propriete : " + p.getNomCarreau() + "|Groupe : " + p.getGroupePropriete()+ "|Prix : " + p.getPrix()) ;  
+     
     }
     
+    public int getConstruireRep () {
+        
+        System.out.println("Parmis les proprietés : choisissez une propriété où vous voulez construire : Entrez son numéro !!") ; 
+        Scanner sc = new Scanner(System.in) ; 
+        int rep = sc.nextInt(); 
+        
+        /*while(rep!= p.getNumero()){
+              
+                System.out.println ("Mauvaise entrez, veuillez recommencer ! ") ;
+                rep = sc.nextInt();
+                }*/
+        try{rep = sc.nextInt();}
+            
+            catch(InputMismatchException e){
+                System.out.println("Mauvaise entrée, veuillez recommencer.");
+        }
+          return rep ;
+    }
+
     public void affichePeutPasConstruire (){
     
-        System.out.println ("Warning : y a pas de proprietés ou vous pouvez construire !! " ) ; 
+        System.out.println ("Warning : y a pas de proprietés où vous pouvez construire !! " ) ; 
     }
 }

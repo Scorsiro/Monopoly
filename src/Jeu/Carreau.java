@@ -52,19 +52,29 @@ public abstract class Carreau {
                         
                         if (nbM<5 && nbM == min) {
                         
-                        //Affichage de toutes les propriétés où le jour a la possibilité de construire 
+                            //Affichage de toutes les propriétés où le jour a la possibilité de construire 
                             
-                        this.getMonopoly().getIHM().afficheConstruire(p);
+                            this.getMonopoly().getIHM().afficheConstruire(p) ; 
+                            
+                         
+                         }
                         
-                        
-                        
-                        }
                         else {
-                        this.getMonopoly().getIHM().affichePeutPasConstruire();
+                            
+                            this.getMonopoly().getIHM().affichePeutPasConstruire();
                         }
                     
                     }
                   
+                       //Choix du joueur 
+                        
+                       int numC = this.getMonopoly().getIHM().getConstruireRep() ; 
+                       
+                       //Return le carreau avec le numC
+                       
+                        
+                       
+                       ;
                  
                 
                 
