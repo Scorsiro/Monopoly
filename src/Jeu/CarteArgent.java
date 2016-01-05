@@ -41,5 +41,11 @@ public class CarteArgent extends Carte {
     
     }
     
+    /*public int calculMontant(Joueur j ) {
+    
+    
+    
+    }*/
+    
     
 }

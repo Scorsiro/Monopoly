@@ -44,6 +44,8 @@ public abstract class Carte {
     }
     
     public void executerCarte () {
+        
+        
     
     }
     
