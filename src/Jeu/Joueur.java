@@ -233,18 +233,19 @@ public class Joueur {
     
     public void addGroupe (Groupe groupe) {
     
-        boolean gotAll = false ; 
+        boolean gotAll = true ; 
         for (int i = 0 ; i  <= groupe.getProprietes().size() ; i++) {
             
-            if(groupe.getProprietes().get(i).getProprietaire() == this) {
+            if(groupe.getProprietes().get(i).getProprietaire() != this) {
             
-                gotAll = true ;
+                gotAll = false ;
             }
     
         }
-        if (gotAll) {
+        if (!gotAll) {
         
             this.getGroupes().add(groupe) ; 
+            groupe.setProprietaire(this);
         }
     
     
