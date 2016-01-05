@@ -218,9 +218,9 @@ public class Joueur {
      
     public void addGroupe (Groupe groupe) {
         
-        for (ProprieteAConstruire pc : groupe.getProprietes() ) {
+        for (ProprieteAConstruire p : groupe.getProprietes() ) {
         
-            if (pc.getProprietaire() == this) {
+            if (p.getProprietaire() == this) {
             
                 this.getGroupes().add(groupe) ; 
                 groupe.setProprietaire(this);
