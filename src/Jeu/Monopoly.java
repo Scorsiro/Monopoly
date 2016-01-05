@@ -9,6 +9,7 @@ import java.util.Collections;
 import java.util.HashMap;
 import java.util.Random;
 import java.util.Scanner;
+import java.util.concurrent.TimeUnit;
 
 
 public class Monopoly {
@@ -84,8 +85,11 @@ public class Monopoly {
 
 	public int genererChiffreDés() {
 		
-            Random rand = new Random () ; 
-            int d1 = rand.nextInt(6) ; 
+            Random rand = new Random () ;
+            int d1 = 0;
+            while(d1 == 0){
+            d1 = rand.nextInt(7) ;
+            }
             return d1 ; 
 	}
 
@@ -109,21 +113,23 @@ public class Monopoly {
                 boolean fin = false;
                 
                 ArrayList<Integer> lanceDe = new ArrayList<>();
-                ArrayList<Integer> exaequo = new ArrayList<>();
+                ArrayList<String> exA = new ArrayList<>();
                 String nomPrem = null;
                 
+                int alea = 0;
                 int nbJoueurs=0;
+                int jMax = 0;
                 
-                while(nbJoueurs < 2 || nbJoueurs > 6){
+                while(jMax < 2 || jMax > 6){
                     System.out.print("\nEntrez le nombre de joueur désirant jouer : ");
-                    nbJoueurs = scb.nextInt();
+                    jMax = scb.nextInt();
                 }
                 
-                /* Init du joueur 0 avec pour nom vide et rang 0 (Bouche trou) */
+                /* Init du joueur 0 avec pour nom vide et rang 0 (#Bouche trou) */
                 Joueur jVide = new Joueur("vide");
                 _joueurs.add(0,jVide);
                 
-                while (nbJoueurs<6) {
+                while (nbJoueurs < jMax) {
                     nbJoueurs++;
                     System.out.println("Joueur " + nbJoueurs);
                     System.out.print("Saisissez votre nom : ");
@@ -132,33 +138,43 @@ public class Monopoly {
                     _joueurs.add(j);
                 }
                 
-                while(!fin){
-                    
-                    for(int j = 0; j<=nbJoueurs; j++){
+                    lanceDe.add(0,0);
+                    for(int j = 1; j<=nbJoueurs; j++){
                         lanceDe.add(j, genererChiffreDés()); //génère les chiffres dans l'arraylist avec les joueurs
+                        System.out.println("Joueur "+ j + " fait un " + lanceDe.get(j) + ".");
                     }
-                
+                    
                     int max = Collections.max(lanceDe); // 'max' est le chiffre max de l'arraylist
                     int freq = Collections.frequency(lanceDe, max);
                     
                     if(freq == 1){
-                        nomPrem = lanceDe.get(max).toString();// nomPrem est le nom du joueur associé au numero 'de'
+                        int temp = lanceDe.indexOf(max);
+                        if(temp==0){temp++;}
+                        nomPrem = this.getJoueurs().get(temp).getNomJoueur();
                         fin = true;
-                    } 
-                    
-                    if(freq > 1){
+                    }else if(freq > 1){
                         Random rand = new Random();
                         
-                        for(int k = 0;k<=freq;k++){
-                        exaequo.add(k,max);}
+                        exA.add(0,"vide");
+                        int i =1;
                         
-                        int deRand = rand.nextInt(exaequo.size());
-                        nomPrem = exaequo.get(deRand).toString();
+                        while(i <= jMax){
+                            if(lanceDe.get(i) == max){
+                                if(i==0){i++;}
+                                exA.add(1,this.getJoueurs().get(i).getNomJoueur());
+                            }
+                            i++;
+                        }
+                        while((alea < 1) || (alea > freq)){
+                            alea = rand.nextInt(freq+1) ;
+                        }
+                        nomPrem = exA.get(alea);
+                        
                         fin = true;
                     }
-                } 
-                sca.close();
-                scb.close();
+                System.out.println("\nLe joueurs qui commence est " + nomPrem +'.');
+                try{TimeUnit.SECONDS.sleep(5);}
+                catch(InterruptedException a){}
                 return nomPrem; 
        }
                 
