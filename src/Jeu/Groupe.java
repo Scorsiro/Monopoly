@@ -7,6 +7,7 @@ public class Groupe {
 	private CouleurPropriete _couleur;
 	private int _prixAchat;
 	public ArrayList<ProprieteAConstruire> _proprietes = new ArrayList<ProprieteAConstruire>();
+        private Joueur proprietaire = null; 
 
         Groupe(String colGroupe, int prixMaiHot){
             setCouleurPropriete(colGroupe); 
@@ -85,6 +86,20 @@ public class Groupe {
      */
     public void setCouleur(CouleurPropriete _couleur) {
         this._couleur = _couleur;
+    }
+
+    /**
+     * @return the proprietaire
+     */
+    public Joueur getProprietaire() {
+        return proprietaire;
+    }
+
+    /**
+     * @param proprietaire the proprietaire to set
+     */
+    public void setProprietaire(Joueur proprietaire) {
+        this.proprietaire = proprietaire;
     }
     
   

@@ -218,9 +218,16 @@ public class Joueur {
      
     public void addGroupe (Groupe groupe) {
         
-       
-    
-    }
+        for (ProprieteAConstruire pc : groupe.getProprietes() ) {
+        
+            if (pc.getProprietaire() == this) {
+            
+                this.getGroupes().add(groupe) ; 
+                groupe.setProprietaire(this);
+            }
+            
+        }
+     }
     
     public boolean possedeCarteLiberation () {
     

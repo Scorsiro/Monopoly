@@ -38,7 +38,7 @@ public class Monopoly {
                     nomPremJ = this.InitialiserPartie();
                 }
                 if(choix == 3){
-                    //this.lancementDemo();
+                   
                 }
             }
         }
