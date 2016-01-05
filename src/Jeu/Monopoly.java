@@ -171,6 +171,7 @@ public class Monopoly {
                         nomPrem = exA.get(alea);
                         
                         fin = true;
+                        
                     }
                 System.out.println("\nLe joueurs qui commence est " + nomPrem +'.');
                 try{TimeUnit.SECONDS.sleep(5);}
