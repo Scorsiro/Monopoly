@@ -1,5 +1,6 @@
 package Jeu;
 
+import java.util.ArrayList;
 import java.util.HashSet;
 
 public class Joueur {
@@ -15,7 +16,7 @@ public class Joueur {
         private HashSet <Compagnie> compagnies;
         private HashSet <ProprieteAConstruire> proprietes ; 
         private HashSet <CarteLibere> cartes ; 
-        private HashSet <Groupe> groupes ; 
+        private ArrayList <Groupe> groupes ; 
 
     /**
      * @return the nomJoueur
@@ -194,14 +195,14 @@ public class Joueur {
     /**
      * @return the groupes
      */
-    public HashSet <Groupe> getGroupes() {
+    public ArrayList <Groupe> getGroupes() {
         return groupes;
     }
 
     /**
      * @param groupes the groupes to set
      */
-    public void setGroupes(HashSet <Groupe> groupes) {
+    public void setGroupes(ArrayList <Groupe> groupes) {
         this.groupes = groupes;
     }
     
@@ -216,7 +217,7 @@ public class Joueur {
         this.setCash( this.getCash() + l );
     } 
      
-    public void addGroupe (Groupe groupe) {
+    /*public void addGroupe (Groupe groupe) {
         
         for (ProprieteAConstruire p : groupe.getProprietes() ) {
         
@@ -227,7 +228,20 @@ public class Joueur {
             }
             
         }
-     }
+     }*/
+    
+    
+    public void addGroupe (Groupe groupe) {
+    
+        for (int i = 0 ; i  <= groupe.getProprietes().size() ; i++) {
+    
+    
+    }
+    
+    
+    
+    
+    }
     
     public boolean possedeCarteLiberation () {
     

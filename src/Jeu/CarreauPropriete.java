@@ -6,6 +6,7 @@ public abstract class CarreauPropriete extends Carreau {
         private Joueur j;
         private int prix;
         
+        
 
         public CarreauPropriete(int numero, String nomCarreau, int prix) {
                 super(numero, nomCarreau);
@@ -48,6 +49,7 @@ public abstract class CarreauPropriete extends Carreau {
                 j.payerLoyer(this.getPrix());
                 
                 this.setProprietaire(j);
+                
                 }
                 
                

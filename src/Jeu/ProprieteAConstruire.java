@@ -93,6 +93,32 @@ public class ProprieteAConstruire extends CarreauPropriete {
         return montant ; }
         
         
+        public  void acheterPropriete(Joueur j ) {
+        
+            if (!j.peutPayer(this.getPrix())) {
+                
+                this.getMonopoly().getIHM().affichePeutPasPayer(); 
+                
+            }
+            
+            else {   
+                
+                if (this.getMonopoly().getIHM().getAchatRep() == "oui") {
+                
+                this.getNomCarreau() ; 
+                
+                j.payerLoyer(this.getPrix());
+                
+                this.setProprietaire(j);
+                this.getProprietaire().addGroupe(this.getGroupePropriete());
+                
+                }
+                
+               
+            }
+        
+        }
+        
         public void construire() {
 	}
 
