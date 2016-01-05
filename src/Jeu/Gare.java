@@ -37,6 +37,7 @@ public class Gare extends CarreauPropriete {
 
             int ar = j.calculArgentRest(montant) ; 
 
+            this.getMonopoly().getIHM().afficheCalculLoyer(ar, montant,jp.getNomJoueur());
             return montant ; 
 
         }

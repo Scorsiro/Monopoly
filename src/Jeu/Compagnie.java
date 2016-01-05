@@ -43,8 +43,9 @@ public class Compagnie extends CarreauPropriete {
             int montant = this.calculMontant() ; 
             
             int Ar = j.calculArgentRest(montant) ; 
+            
             //affichage du nom du propriétaire , montant à payer, Argent restant au joueur aprés avoir payer
-            //affiche() 
+            this.getMonopoly().getIHM().afficheCalculLoyer(Ar, montant,jp.getNomJoueur());
 
             return montant ;
         }

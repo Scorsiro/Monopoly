@@ -119,7 +119,7 @@ public class IHM {
         
             while(rep!="oui"|| rep!= "non"   ){
               
-                System.out.println ("Veuillez entre 'oui'ou 'non'") ; 
+                System.out.println ("Veuillez entrer 'oui'ou 'non'") ; 
         
             }
         return rep ; 
@@ -131,9 +131,17 @@ public class IHM {
         System.out.println ("Vous n'avez pas assez d'argent pour acheter la propriété") ; 
     }
     
-    public void afficheCalculLoyer () {
+    public void afficheCalculLoyer (int Ar, int montant ,String nomP) {
     
-        System.   
+        System.out.println ("********************************************") ; 
+        System.out.println ("************ Paiement du loyer *************") ; 
+        System.out.println ("********************************************") ; 
+      
+        System.out.println("Le propriétaire est : " + nomP);
+        System.out.println("Montant à payer " + montant );
+        System.out.println ("Argent restant aprés paiement  :" + Ar) ; 
     }
+    
+    
     
 }
