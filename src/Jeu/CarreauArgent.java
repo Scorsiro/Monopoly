@@ -21,4 +21,9 @@ public class CarreauArgent extends CarreauAction {
     private void setMontant(int _montant) {
         this._montant = _montant;
     }
+
+    @Override
+    public void action(Joueur j) {
+        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+    }
 }

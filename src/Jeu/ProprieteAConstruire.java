@@ -26,8 +26,7 @@ public class ProprieteAConstruire extends CarreauPropriete {
 	/*public Groupe getGroupeProprieté() {
 	}*/
 
-	public void action(Joueur j) {
-	}
+	
 
 	public int getNbmaison() {
 		return this._nbmaison;
@@ -53,53 +52,49 @@ public class ProprieteAConstruire extends CarreauPropriete {
 		this._prixLoyers = prixloyer;
 	}
 
-	public void construire() {
+
+
+
+        /**
+         * @return the _groupePropriete
+         */
+        public Groupe getGroupePropriete() {
+            return _groupePropriete;
+        }
+
+        /**
+         * @param _groupePropriete the _groupePropriete to set
+         */
+        public void setGroupepropriete(Groupe _groupePropriete) {
+            this._groupePropriete = _groupePropriete;
+            this._groupePropriete.getProprietes().add(this);
+        }
+
+
+
+        @Override
+        public int calculMontant() {
+
+          // return le prix à payer : les prix sont stockés dans une arraylist ( le prix dépend du nombre de maison sur la propriété 
+          return (this.getPrixLoyers().get(this.getNbmaison()) ); 
+
+        }
+
+        @Override
+        public int calculLoyer(Joueur j) {
+            Joueur jp = this.getProprietaire() ; 
+            //int nbM = this.getNbmaison() ; 
+            int montant = this.calculMontant() ; 
+
+            int Ar = j.calculArgentRest(montant) ; 
+
+            this.getMonopoly().getIHM().afficheCalculLoyer(Ar, montant, jp.getNomJoueur());
+
+        return montant ; }
+        
+        
+        public void construire() {
 	}
 
-	/*private int calculeLoyer() {
-	}
 
-
-	public int calculLoyerPropriete(int nbPropriete) {
-	}*/
-
-    /**
-     * @return the _groupePropriete
-     */
-    public Groupe getGroupePropriete() {
-        return _groupePropriete;
     }
-
-    /**
-     * @param _groupePropriete the _groupePropriete to set
-     */
-    public void setGroupepropriete(Groupe _groupePropriete) {
-        this._groupePropriete = _groupePropriete;
-        this._groupePropriete.getProprietes().add(this);
-    }
-
-    
-
-    @Override
-    public int calculMontant() {
-      
-      // return le prix à payer : les prix sont stockés dans une arraylist ( le prix dépend du nombre de maison sur la propriété 
-      return (this.getPrixLoyers().get(this.getNbmaison()) ); 
-      
-    }
-
-    @Override
-    public int calculeLoyer(Joueur j) {
-        Joueur jp = this.getProprietaire() ; 
-        //int nbM = this.getNbmaison() ; 
-        int montant = this.calculMontant() ; 
-        
-        int Ar = j.calculArgentRest(montant) ; 
-        
-        this.getMonopoly().getIHM().afficheCalculLoyer(Ar, montant, jp.getNomJoueur());
-        
-    return montant ; }
-    
-
-  
-}

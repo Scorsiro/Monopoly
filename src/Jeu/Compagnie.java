@@ -7,9 +7,7 @@ public class Compagnie extends CarreauPropriete {
                 super(numero, nomCarreau, prix);
         }
     
-	public void Action(Joueur j) {
-
-	}
+	
 
         // y a pas besoin de mettre le nombre de compagnie en pramètre 
         public int calculMontant() {
@@ -35,7 +33,7 @@ public class Compagnie extends CarreauPropriete {
 
          @Override
    
-        public int calculeLoyer(Joueur j) {
+        public int calculLoyer(Joueur j) {
        
             Joueur jp = this.getProprietaire() ; 
             int nbc = jp.getCompagnies().size() ; 
@@ -50,11 +48,14 @@ public class Compagnie extends CarreauPropriete {
             return montant ;
         }
          
-        public void acheterPropriete() {
-            
-        }
+        
          
-         
+    
+
+
+        
+        
+             
 	public void Construire() {
 
 	}     

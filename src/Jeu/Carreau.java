@@ -31,14 +31,14 @@ public abstract class Carreau {
         
         }
         
-        public void action(Joueur j ) {
-        }
+        public abstract void action(Joueur j ) ; 
+     
 
-    /**
-     * @return the monopoly
-     */
-    public Monopoly getMonopoly() {
-        return monopoly;
-    }
+        /**
+         * @return the monopoly
+         */
+        public Monopoly getMonopoly() {
+            return monopoly;
+        }
 
 }
