@@ -6,13 +6,13 @@ import java.util.HashSet;
 public class Groupe {
 	private CouleurPropriete _couleur;
 	private int _prixAchat;
-	private ArrayList<ProprieteAConstruire> _proprietes;
+	public ArrayList<ProprieteAConstruire> _proprietes = new ArrayList<ProprieteAConstruire>();
 
         Groupe(String colGroupe, int prixMaiHot){
-            setCouleurPropriete(colGroupe);
-            this._proprietes = new ArrayList<ProprieteAConstruire>();
+            setCouleurPropriete(colGroupe); 
             this.setPrixAchat(prixMaiHot);
-        }
+            
+        } 
 
         private void setCouleurPropriete(String col){
             CouleurPropriete colour = null;
