@@ -82,13 +82,23 @@ public class ProprieteAConstruire extends CarreauPropriete {
 
     @Override
     public int calculMontant() {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
+      
+      // return le prix à payer : les prix sont stockés dans une arraylist ( le prix dépend du nombre de maison sur la propriété 
+      return (this.getPrixLoyers().get(this.getNbmaison()) ); 
+      
     }
 
     @Override
     public int calculeLoyer(Joueur j) {
-        throw new UnsupportedOperationException("Not supported yet."); //To change body of generated methods, choose Tools | Templates.
-    }
+        Joueur jp = this.getProprietaire() ; 
+        //int nbM = this.getNbmaison() ; 
+        int montant = this.calculMontant() ; 
+        
+        int Ar = j.calculArgentRest(montant) ; 
+        
+        this.getMonopoly().getIHM().afficheCalculLoyer(Ar, montant, jp.getNomJoueur());
+        
+    return montant ; }
     
 
   
