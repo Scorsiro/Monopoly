@@ -180,6 +180,10 @@ public class IHM {
         System.out.println ("Argent restant aprés paiement  :" + Ar) ; 
     }
     
+   
+    
+    
+    
     public String getLibRep () {
                 Scanner sc = new Scanner (System.in) ;
                 System.out.println ("Voulez vous utiliser votre carte libération") ;
@@ -193,5 +197,28 @@ public class IHM {
                 rep = sc.nextLine() ;
                 }
                 return rep ;
-        }
+    }
+    
+    
+    public void afficheConstruire (){
+    
+            
+        System.out.println("****************************************************************");
+        System.out.println("************ Les propriétés ou vous pouvez construire **********");
+        System.out.println("****************************************************************");
+     }
+    
+    
+    
+    public void afficheP (ProprieteAConstruire p) {
+
+        
+        System.out.println ("Le nom de la propriete : " + p.getNomCarreau() + "|Groupe : " + p.getGroupePropriete()+ "|Prix : " + p.getPrix()) ;  
+   
+    }
+    
+    public void affichePeutPasConstruire (){
+    
+        System.out.println ("Warning : y a pas de proprietés ou vous pouvez construire !! " ) ; 
+    }
 }

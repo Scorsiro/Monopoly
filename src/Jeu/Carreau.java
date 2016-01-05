@@ -36,9 +36,27 @@ public abstract class Carreau {
             if (!groupes.isEmpty()) {
             
                 for(Groupe g : groupes) {
-                
-                    g.getProprietes() ; 
-                
+                    
+                    int min = g.getMinNbM();
+                    ArrayList<ProprieteAConstruire> collectP = g.getProprietes()  ; 
+                    
+                    for(ProprieteAConstruire p : collectP){
+                    
+                        int nbM = p.getNbmaison(); 
+                        
+                        if (nbM<5 && nbM == min) {
+                        
+                        this.getMonopoly().getIHM().afficheConstruire();
+                        this.getMonopoly().getIHM().afficheP(p);
+                        
+                        }
+                        else {
+                        this.getMonopoly().getIHM().affichePeutPasConstruire();
+                        }
+                    
+                    }
+                  
+                 
                 
                 
                 }
