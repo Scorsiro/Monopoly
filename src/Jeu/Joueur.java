@@ -17,12 +17,15 @@ public class Joueur {
         private HashSet <ProprieteAConstruire> proprietes ; 
         private HashSet <CarteLibere> cartes ; 
         private ArrayList <Groupe> groupes ; 
+        private Monopoly mono;
 
     /**
      * @return the nomJoueur
      */
-    public Joueur(String nomJoueur) {
+    public Joueur(String nomJoueur,Monopoly mono) {
         this.nomJoueur = nomJoueur;
+        this.mono=mono;
+        this.setPositionCourante(mono.calculPositionNum(1));
     }
 
         

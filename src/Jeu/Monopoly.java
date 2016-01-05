@@ -28,23 +28,45 @@ public class Monopoly {
                _groupes = new HashMap<>();
                _IHM = new IHM();
             buildGamePlateau(dataFilename);
-            this.lancementPartie();
+            this.lancementJeu();
 	}
         
-        private void lancementPartie(){
+        private void lancementJeu(){
             int choix = 0;
             String nomPremJ;
             while(choix != 2){
                 choix = this.getIHM().affichageMenu();
                 if(choix == 1){
                     nomPremJ = this.InitialiserPartie();
-                    this.getIHM().affichagePlateau();
+                    this.lancementPartie(nomPremJ);
                 }
                 if(choix == 3){
+                   
                    
                 }
             }
         }
+        
+        private void lancementPartie(String nomPremJ){
+            int prem;
+            while(this.getJoueurs().size() != 2){
+                prem = getIndPrem(nomPremJ);
+                for(int i = prem; i < (this.getJoueurs().size()); i++ ){
+                    this.lancerDésAvancer(this.getJoueurs().get(i));
+                    System.out.println(this.getJoueurs().get(i).getNomJoueur() + this.getJoueurs().get(i).getPositionCourante().getNumero());
+                    System.out.println(this.getJoueurs().get(i).getNomJoueur() + this.getJoueurs().get(i).getCash());
+                }
+                System.out.println("\n");
+                for(int i = 1; i < prem; i++){
+                    this.lancerDésAvancer(this.getJoueurs().get(i));
+                    System.out.println(this.getJoueurs().get(i).getNomJoueur() + this.getJoueurs().get(i).getPositionCourante().getNumero());
+                    System.out.println(this.getJoueurs().get(i).getNomJoueur() + " a " + this.getJoueurs().get(i).getCash());
+                }
+                
+            }
+        }
+        
+        
         
 	public void jouerUnCoup(Joueur j) {
 		this.lancerDésAvancer(j );
@@ -61,7 +83,8 @@ public class Monopoly {
             
             if(j.getNbDoubles() < 3) {
                 int d1 = this.genererChiffreDés() ; 
-                int d2 = this.genererChiffreDés() ; 
+                int d2 = this.genererChiffreDés() ;
+                int inter = 0;
                 j.setDes(d1+d2);
                 
                 if (d1 == d2 ) {
@@ -69,9 +92,18 @@ public class Monopoly {
                 }
                 else {j.setNbDoubles(0);}
                 
-                Carreau c = j.getPositionCourante() ; 
-                int num = c.getNumero() ; 
-                Carreau nc = this.calculPositionNum(num + d1 +d2) ; 
+                Carreau c = j.getPositionCourante() ;
+                System.out.print("coucou");
+                int num = c.getNumero(); 
+                
+                if((num + d1 + d2) > 40){
+                    inter =  (num + d1 +d2) - 40;
+                    j.nouveauTourCash();
+                } else {
+                    inter = num + d1+d2;
+                }
+                
+                Carreau nc = this.calculPositionNum(inter) ; 
                 j.setPositionCourante(nc); }
             else {
                 this.mettreEnPrison(j); 
@@ -79,11 +111,11 @@ public class Monopoly {
         } 
           
         
-         public void jouerPlusieursCoups(){
+         /*public void jouerPlusieursCoups(){
             for(Joueur j : _joueurs){
                 jouerUnCoup(j);
             }   
-         }
+         }*/
 
 	public int genererChiffreDés() {
 		
@@ -128,7 +160,7 @@ public class Monopoly {
                 }
                 
                 /* Init du joueur 0 avec pour nom vide et rang 0 (#Bouche trou) */
-                Joueur jVide = new Joueur("vide");
+                Joueur jVide = new Joueur("vide", this);
                 _joueurs.add(0,jVide);
                 
                 while (nbJoueurs < jMax) {
@@ -136,7 +168,7 @@ public class Monopoly {
                     System.out.println("Joueur " + nbJoueurs);
                     System.out.print("Saisissez votre nom : ");
                     String nom = sca.nextLine();
-                    Joueur j = new Joueur(nom);
+                    Joueur j = new Joueur(nom, this);
                     _joueurs.add(j);
                 }
                 
@@ -176,8 +208,8 @@ public class Monopoly {
                         
                     }
                 System.out.println("\nLe joueurs qui commence est " + nomPrem +'.');
-                try{TimeUnit.SECONDS.sleep(5);}
-                catch(InterruptedException a){}
+                /*try{TimeUnit.SECONDS.sleep(5);}
+                catch(InterruptedException a){}*/
                 return nomPrem; 
        }
                 
@@ -347,5 +379,14 @@ public class Monopoly {
         return _IHM;
     }
         
-        
+    private int getIndPrem(String nomPrem){
+        int i = 0, k = 0;
+        for(Joueur j : this.getJoueurs()){
+            if(nomPrem == j.getNomJoueur()){
+              k=i;  
+            }
+            i++;
+        }
+        return k;
+    }    
 }
