@@ -53,6 +53,7 @@ public class Joueur {
         
     }
     
+    //Ajouter le bonus de 200e à chaque fois que le joueur finit le tour 
     public void nouveauTourCash (){
         
         this.setCash(this.getCash()+200) ; 
