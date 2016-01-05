@@ -33,13 +33,16 @@ public abstract class CarreauPropriete extends Carreau {
         
 	public  void acheterPropriete(Joueur j ) {
         
-            if (j.peutPayer(this.getPrix())) {
-                this.getNomCarreau() ; 
+            if (!j.peutPayer(this.getPrix())) {
+                
+                
+            }
+            else {   this.getNomCarreau() ; 
                 
                 j.payerLoyer(this.getPrix());
                 
                 this.setProprietaire(j);
-                  
+                
             }
         
         }; 

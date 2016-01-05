@@ -110,11 +110,17 @@ public class IHM {
         }
     }
     
-    public String afficheAchatP () {
+    public String afficheAchatRep () {
         Scanner sc = new Scanner (System.in) ; 
         System.out.println ("Voulez vous acheter la propriétée") ; 
         String rep = sc.nextLine() ; 
         return rep ; 
+        
+    }
+    
+    public void affichePeutPasPayer (){
+    
+        System.out.println ("Vous n'avez pas assez d'argent pour acheter la propriété") ; 
     }
     
 }
