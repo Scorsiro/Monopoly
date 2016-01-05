@@ -33,7 +33,7 @@ public abstract class CarreauPropriete extends Carreau {
 	public void acheterPropriete() {
 	}
 
-	
+	/*public int calculMontant () {}
         /*public int calculeLoyer(Joueur j ) {
 	}*/
 }

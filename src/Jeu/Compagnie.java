@@ -11,7 +11,8 @@ public class Compagnie extends CarreauPropriete {
 
 	}
 
-        private int calculMontant(int nbCompagnie) {
+        // y a pas besoin de mettre le nombre de compagnie en pramètre 
+        private int calculMontant() {
             
             Joueur proprietaire = this.getProprietaire() ; 
             int montant = 0 ; 
@@ -37,10 +38,10 @@ public class Compagnie extends CarreauPropriete {
             Joueur jp = this.getProprietaire() ; 
             int nbc = jp.getCompagnies().size() ; 
             
-            int montant = this.calculMontant(nbc) ; 
+            int montant = this.calculMontant() ; 
             
             int Ar = j.calculArgentRest(montant) ; 
-            //affichage du nom du propriétaire , montant à payer, Argent restant au joueur aprés avoir payer 
+            //affichage du nom du propriétaire , montant à payer, Argent restant au joueur aprés avoir payer
             //affiche() 
 
             return montant ; }
