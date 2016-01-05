@@ -110,5 +110,11 @@ public class IHM {
         }
     }
     
+    public String afficheAchatP () {
+        Scanner sc = new Scanner (System.in) ; 
+        System.out.println ("Voulez vous acheter la propriétée") ; 
+        String rep = sc.nextLine() ; 
+        return rep ; 
+    }
     
 }

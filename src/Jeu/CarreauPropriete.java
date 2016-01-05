@@ -5,6 +5,7 @@ public abstract class CarreauPropriete extends Carreau {
 	private int loyerBase;
         private Joueur j;
         private int prix;
+        
 
         public CarreauPropriete(int numero, String nomCarreau, int prix) {
                 super(numero, nomCarreau);
@@ -30,7 +31,18 @@ public abstract class CarreauPropriete extends Carreau {
                 this.prix = prix;
         }
         
-	public abstract void acheterPropriete() ; 
+	public  void acheterPropriete(Joueur j ) {
+        
+            if (j.peutPayer(this.getPrix())) {
+                this.getNomCarreau() ; 
+                
+                j.payerLoyer(this.getPrix());
+                
+                this.setProprietaire(j);
+                  
+            }
+        
+        }; 
 
         // Les méthodes sont redéfinis dans : gare , compagnie , PropriétéAconstruire 
 	public abstract int calculMontant () ; 
