@@ -190,7 +190,7 @@ public class IHM {
                 while(rep!="oui"|| rep!= "non"   ){
               
                 System.out.println ("Veuillez entrer 'oui'ou 'non'") ;
-        
+                rep = sc.nextLine() ;
                 }
                 return rep ;
         }
