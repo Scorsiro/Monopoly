@@ -200,7 +200,7 @@ public class IHM {
     }
     
     
-    public void afficheConstruire (){
+    public void afficheP (){
     
             
         System.out.println("****************************************************************");
@@ -210,10 +210,13 @@ public class IHM {
     
     
     
-    public void afficheP (ProprieteAConstruire p) {
+    public void afficheConstruire (ProprieteAConstruire p) {
 
-        
+        //affichage des propriété Puis le joueur va choisir ou il  veut construire 
         System.out.println ("Le nom de la propriete : " + p.getNomCarreau() + "|Groupe : " + p.getGroupePropriete()+ "|Prix : " + p.getPrix()) ;  
+        Scanner sc = new Scanner(System.in) ; 
+        System.out.println("Parmis les proprietés : choisissez une propriété où vous voulez construire  ") ; 
+        
    
     }
     

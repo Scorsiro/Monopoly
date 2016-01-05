@@ -35,19 +35,28 @@ public abstract class Carreau {
             
             if (!groupes.isEmpty()) {
             
+            this.getMonopoly().getIHM().afficheP();
+            
                 for(Groupe g : groupes) {
                     
-                    int min = g.getMinNbM();
-                    ArrayList<ProprieteAConstruire> collectP = g.getProprietes()  ; 
+                    int min = g.getMinNbM() ; // le minimum des maisons sur les propriétés appartenant au groupe 
                     
-                    for(ProprieteAConstruire p : collectP){
+                    ArrayList<ProprieteAConstruire> collectP = g.getProprietes()  ; // toutes les propriétes du groupe  
+                    
+                    
+                    //Pour chaque propriété on vérifie qu'elle a un nombre min de maison par rapport aux autres et que ça doit pas dépasser 4
+                    
+                    for(ProprieteAConstruire p : collectP){ 
                     
                         int nbM = p.getNbmaison(); 
                         
                         if (nbM<5 && nbM == min) {
                         
-                        this.getMonopoly().getIHM().afficheConstruire();
-                        this.getMonopoly().getIHM().afficheP(p);
+                        //Affichage de toutes les propriétés où le jour a la possibilité de construire 
+                            
+                        this.getMonopoly().getIHM().afficheConstruire(p);
+                        
+                        
                         
                         }
                         else {
