@@ -131,4 +131,9 @@ public class IHM {
         System.out.println ("Vous n'avez pas assez d'argent pour acheter la propriété") ; 
     }
     
+    public void afficheCalculLoyer () {
+    
+        System.   
+    }
+    
 }

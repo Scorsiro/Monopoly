@@ -10,7 +10,7 @@ public class Joueur {
 	private boolean prison = false;
 	private int nbTourPrison = 0;
         private Carreau positionCourante;
-        private CouleurPropriete nbProprieteGroupe;
+        private CouleurPropriete couleur;
         private HashSet<Gare> gares;
         private HashSet <Compagnie> compagnies;
         private HashSet <ProprieteAConstruire> proprietes ; 
@@ -124,15 +124,15 @@ public class Joueur {
     /**
      * @return the nbProprieteGroupe
      */
-    public CouleurPropriete getNbProprieteGroupe() {
-        return nbProprieteGroupe;
+    public CouleurPropriete getCouleur() {
+        return couleur;
     }
 
     /**
      * @param nbProprieteGroupe the nbProprieteGroupe to set
      */
-    public void setNbProprieteGroupe(CouleurPropriete nbProprieteGroupe) {
-        this.nbProprieteGroupe = nbProprieteGroupe;
+    public void setCouleur(CouleurPropriete couleur) {
+        this.couleur = couleur;
     }
 
     /**
