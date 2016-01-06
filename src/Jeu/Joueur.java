@@ -23,6 +23,11 @@ public class Joueur {
      * @return the nomJoueur
      */
     public Joueur(String nomJoueur,Monopoly mono) {
+        gares = new HashSet();
+        compagnies = new HashSet();
+        proprietes = new HashSet();
+        cartes = new HashSet();
+        groupes = new ArrayList();
         this.nomJoueur = nomJoueur;
         this.mono=mono;
         this.setPositionCourante(mono.calculPositionNum(1));

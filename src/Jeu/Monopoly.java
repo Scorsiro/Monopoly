@@ -220,7 +220,7 @@ public class Monopoly {
                         fin = true;
                         
                     }
-                System.out.println("\nLe joueurs qui commence est " + nomPrem +'.');
+                System.out.println("\nLe joueurs qui commence est " + nomPrem +".\n\n");
                 /*try{TimeUnit.SECONDS.sleep(5);}
                 catch(InterruptedException a){}*/
                 return nomPrem; 
@@ -270,7 +270,7 @@ public class Monopoly {
                                         
                                         
                                         /* Init du carreau               numCase                                     numCase                         nom                           prix         couleur   oyers */
-                                        _carreaux.put(Integer.parseInt(data.get(i)[1]),new ProprieteAConstruire(Integer.parseInt(data.get(i)[1]),data.get(i)[2],Integer.parseInt(data.get(i)[5]),this.getGroupes().get(CouleurPropriete.valueOf(data.get(i)[3])),loyers,this));
+                                        _carreaux.put(Integer.parseInt(data.get(i)[1]),new ProprieteAConstruire(Integer.parseInt(data.get(i)[1]),data.get(i)[2],Integer.parseInt(data.get(i)[4]),this.getGroupes().get(CouleurPropriete.valueOf(data.get(i)[3])),loyers,this));
                                 }
 				else if(caseType.compareTo("G") == 0){
 					//System.out.println("Gare :\t" + data.get(i)[2] + "\t@ case " + data.get(i)[1]);
@@ -393,7 +393,9 @@ public class Monopoly {
     public void tirerUneCarte(){
       
       
-        Carte c = this.genererCarte() ; 
+        Carte c = this.genererCarte() ;
+        
+        this.getIHM().afficheCarte(c);
         c.executerCarte();
         // remettre la carte au dérnier indice 
         this.getCartes().remove(c) ; 

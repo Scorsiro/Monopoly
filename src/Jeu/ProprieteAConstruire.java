@@ -113,7 +113,7 @@ public class ProprieteAConstruire extends CarreauPropriete {
                 this.getProprietaire().addGroupe(this.getGroupePropriete());
                 
                 }else{
-                    System.out.println("Coucou");
+                    //System.out.println("Coucou");
                 }
             }
        

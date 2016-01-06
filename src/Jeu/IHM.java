@@ -81,7 +81,7 @@ public class IHM {
       System.out.print("*           Gratuit    *              *              *              *              *              *              *              *              *              *         Prison       *"); System.out.println("**************************");
       System.out.print("*                      ****************************************************************************************************************************************                      *"); System.out.println("   Joueur 2 : " + mono.getJoueurs().get(2).getNomJoueur());
       System.out.print("*                      *  M:0    H:0  *              *  M:0    H:0  *  M:0    H:0  *              *  M:0    H:0  *  M:0    H:0  *              *  M:0    H:0  *                      *"); System.out.println("      Solde : " + mono.getJoueurs().get(2).getCash());
-      System.out.print("*                      *  J:3         *              *              *              *              *              *              *              *              *                      *"); System.out.println("   Position : " + mono.getJoueurs().get(2).getPositionCourante().getNomCarreau()); 
+      System.out.print("*                      *J:323232  P:  *              *              *              *              *              *              *              *              *                      *"); System.out.println("   Position : " + mono.getJoueurs().get(2).getPositionCourante().getNomCarreau()); 
       System.out.print("**************************************************************************************************************************************************************************************"); System.out.println("**************************");
       System.out.print("* Place       * M:0    *                                                                                                                                      * M:0    * Avenue de   *");if(mono.getJoueurs().size()>3){System.out.println("   Joueur 3 : " + mono.getJoueurs().get(3).getNomJoueur());} else{System.out.println("");}
       System.out.print("*   Pigalle   * H:0    *                                                                                                                                      * H:0    *    Breteuil *");if(mono.getJoueurs().size()>3){System.out.println("      Solde : " + mono.getJoueurs().get(3).getCash());}else{System.out.println("");}
@@ -145,11 +145,11 @@ public class IHM {
     
     
     public void afficheArriveeCase(int d1, int d2, Carreau anCase, Carreau ncCase, Joueur j){
-        System.out.println("Tour du joueur " + j.getNomJoueur());
+        System.out.println("\n\nTour du joueur " + j.getNomJoueur());
         System.out.println("Valeur du premier dé : " + d1 +
                          "\n Valeur du second dé : " + d2);
         System.out.println("Ancienne position : " + anCase.getNomCarreau() +
-                         "\nNouvelle position : " + ncCase.getNomCarreau());
+                         "\nNouvelle position : " + ncCase.getNomCarreau()+"\n\n");
     }
     
     public void affichePrison(){
@@ -260,4 +260,10 @@ public class IHM {
     
         System.out.println ("Warning : y a pas de proprietés où vous pouvez construire !! " ) ; 
     }
+    
+    public void afficheCarte (Carte c){
+    
+        System.out.println ("Vous avez tirer la carte " + c.getNom() + c.getType()) ; 
+    }
+    
 }
