@@ -253,7 +253,7 @@ public class Joueur {
             }
     
         }
-        if (!gotAll) {
+        if (gotAll) {
         
             this.getGroupes().add(groupe) ; 
             groupe.setProprietaire(this);

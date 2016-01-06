@@ -35,7 +35,7 @@ public abstract class Carreau {
             
             ArrayList <Groupe> groupes = j.getGroupes() ; 
             
-            if (!groupes.isEmpty()) {
+            if (groupes!=null) {
             
             this.getMonopoly().getIHM().afficheP();
             
@@ -121,6 +121,7 @@ public abstract class Carreau {
             
             
             }
+            else System.out.println("Vous n'avez aucun groupe !");
             
             
         
