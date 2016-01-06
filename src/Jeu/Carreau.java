@@ -9,9 +9,10 @@ public abstract class Carreau {
         
 	private Monopoly monopoly;
 
-        public Carreau(int numero, String nomCarreau) {
+        public Carreau(int numero, String nomCarreau,Monopoly mono) {
             this.numero = numero;
             this.nomCarreau = nomCarreau;
+            monopoly = mono;
         }
 
         public int getNumero() {

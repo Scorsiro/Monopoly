@@ -2,9 +2,11 @@ package Jeu;
 
 public class CarreauMouvement extends CarreauAction {
 
-    public CarreauMouvement(int numero, String nomCarreau) {
-        super(numero, nomCarreau);
+    public CarreauMouvement(int numero, String nomCarreau, Monopoly mono) {
+        super(numero, nomCarreau, mono);
     }
+
+    
 
     @Override
     public void action(Joueur j) {

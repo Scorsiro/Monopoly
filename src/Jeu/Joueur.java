@@ -245,7 +245,7 @@ public class Joueur {
     public void addGroupe (Groupe groupe) {
     
         boolean gotAll = true ; 
-        for (int i = 0 ; i  <= groupe.getProprietes().size() ; i++) {
+        for (int i = 0 ; i  <= groupe.getProprietes().size()-1 ; i++) {
             
             if(groupe.getProprietes().get(i).getProprietaire() != this) {
             

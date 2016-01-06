@@ -8,8 +8,8 @@ public abstract class CarreauPropriete extends Carreau {
         
         
 
-        public CarreauPropriete(int numero, String nomCarreau, int prix) {
-                super(numero, nomCarreau);
+        public CarreauPropriete(int numero, String nomCarreau, int prix, Monopoly mono) {
+                super(numero, nomCarreau,mono);
                 this.prix = prix;
         }
 
@@ -62,7 +62,7 @@ public abstract class CarreauPropriete extends Carreau {
             Joueur jP = this.getProprietaire() ; 
             
             if (jP == null ) {
-                if(veutAcheter())
+                //if(veutAcheter())
                 this.acheterPropriete(j);
             }
             else if (jP != j) {

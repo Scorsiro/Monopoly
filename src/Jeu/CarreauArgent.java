@@ -3,8 +3,8 @@ package Jeu;
 public class CarreauArgent extends CarreauAction {
 	private int _montant;
 
-    public CarreauArgent(int numero, String nomCarreau, int montant) {
-        super(numero, nomCarreau);
+    public CarreauArgent(int numero, String nomCarreau, int montant, Monopoly mono) {
+        super(numero, nomCarreau,mono);
         setMontant(montant);
     }
 

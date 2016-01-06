@@ -154,17 +154,18 @@ public class IHM {
     }
     
     public String getAchatRep () {
-        Scanner sc = new Scanner (System.in) ; 
-        System.out.println ("Voulez vous acheter la propriétée ? : \t") ; 
-        System.out.print ("Entrer 'oui'/ 'non'") ;
+        Scanner scc = new Scanner (System.in) ; 
+        System.out.print ("Voulez vous acheter la propriétée ? : \t") ; 
+        System.out.println ("Entrer 'oui'/ 'non' : ") ;
+        String rep = null;
       
-        String rep = sc.nextLine() ; 
+        rep = scc.next() ; 
         
-            while(rep!="oui"|| rep!= "non"   ){
+            /*while("oui".equals(rep) || "non".equals(rep)   ){
               
-                System.out.println ("Veuillez entrer 'oui'ou 'non': \t") ; 
-                rep = sc.nextLine() ;
-            }
+                System.out.print ("Veuillez entrer 'oui'ou 'non': \t") ; 
+                rep = scc.next() ;
+            }*/
         return rep ; 
     }
     

@@ -13,8 +13,8 @@ public class ProprieteAConstruire extends CarreauPropriete {
 	private ArrayList<Integer> _prixLoyers;
 	private Groupe _groupePropriete;
 
-        public ProprieteAConstruire(int numero, String nomCarreau, int prix, Groupe g,ArrayList<Integer> loyers) {
-                super(numero, nomCarreau, prix);
+        public ProprieteAConstruire(int numero, String nomCarreau, int prix, Groupe g,ArrayList<Integer> loyers, Monopoly mono) {
+                super(numero, nomCarreau, prix, mono);
                 
                 this._prixLoyers = new ArrayList<>();
                 
@@ -103,7 +103,7 @@ public class ProprieteAConstruire extends CarreauPropriete {
             
             else {   
                 
-                if (this.getMonopoly().getIHM().getAchatRep() == "oui") {
+                if ("oui".equals(this.getMonopoly().getIHM().getAchatRep())) {
                 
                 this.getNomCarreau() ; 
                 
@@ -112,10 +112,14 @@ public class ProprieteAConstruire extends CarreauPropriete {
                 this.setProprietaire(j);
                 this.getProprietaire().addGroupe(this.getGroupePropriete());
                 
+                }else{
+                    System.out.println("Coucou");
                 }
             }
-        
+       
         }
+        
+        
         
         public void construire() {
 	

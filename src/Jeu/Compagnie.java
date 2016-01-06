@@ -3,8 +3,8 @@ package Jeu;
 public class Compagnie extends CarreauPropriete {
 
     
-        public Compagnie(int numero, String nomCarreau, int prix) {
-                super(numero, nomCarreau, prix);
+        public Compagnie(int numero, String nomCarreau, int prix,Monopoly mono) {
+                super(numero, nomCarreau, prix, mono);
         }
     
 	
