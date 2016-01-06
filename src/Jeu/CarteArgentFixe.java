@@ -11,6 +11,10 @@ package Jeu;
  * @author adlit
  */
 public class CarteArgentFixe extends CarteArgent {
+
+    public CarteArgentFixe(int montant) {
+        super(montant);
+    }
     
     
     

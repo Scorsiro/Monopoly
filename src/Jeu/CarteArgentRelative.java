@@ -11,8 +11,13 @@ package Jeu;
  * @author adlit
  */
 public class CarteArgentRelative extends CarteArgent {
+
+   
+    public CarteArgentRelative(int montant) {
+        super(montant);
+    }
     
-        // Dans le cas où la carte tirée est une carte Argent qui demande de faire des réparation sur toutes les maisons 
+    // Dans le cas où la carte tirée est une carte Argent qui demande de faire des réparation sur toutes les maisons 
     //25e pour chaque maison et 100e pour chaque hotel 
     
     
