@@ -20,6 +20,15 @@ public abstract class Carte {
     }
     private Monopoly monopoly ; 
 
+    public Carte(String nom, String type) {
+        this.nom = nom;
+        this.type = type;
+    }
+    
+    
+    
+    
+
     /**
      * @return the nom
      */

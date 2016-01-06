@@ -62,7 +62,7 @@ public abstract class CarreauPropriete extends Carreau {
             Joueur jP = this.getProprietaire() ; 
             
             if (jP == null ) {
-            
+                if(veutAcheter())
                 this.acheterPropriete(j);
             }
             else if (jP != j) {

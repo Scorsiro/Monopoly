@@ -12,11 +12,14 @@ package Jeu;
  */
 public class CarteArgent extends Carte {
     
-    private int montant ; 
+    
+    private int montant ;
 
-    public CarteArgent(int montant) {
+    public CarteArgent(String nom, String type,int montant) {
+        super(nom,type);
         this.montant = montant;
     }
+
 
     /**
      * @return the montant

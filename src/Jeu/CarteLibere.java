@@ -12,9 +12,34 @@ package Jeu;
  */
 public class CarteLibere extends Carte {
     
-    public void executerCarte () {
     
+    
+    public CarteLibere(String nom, String type) {
+        super(nom, type);
+    }
+    
+    
+    public void executerCarte (Joueur j) {
+    
+            boolean fin = false;
+            
+            j.possedeCarteLiberation();
+            j.addCarte(this);
+            
+            while(fin != true){
+                if(j.isPrison()){
+                    if(j.getMono().getIHM().getLibRep() == "oui") {
+                        j.setPrison(false);
+                    } else {
+                        fin = true;
+                    }
+                } else {
+                    fin = true;
+                }
+            }
     
     }
     
 }
+
+

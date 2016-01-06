@@ -295,6 +295,13 @@ public class Joueur {
     
         this.getCartes().remove(c) ; 
     }
+
+    /**
+     * @return the mono
+     */
+    public Monopoly getMono() {
+        return mono;
+    }
     
    
 }

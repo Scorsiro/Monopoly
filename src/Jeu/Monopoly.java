@@ -22,12 +22,13 @@ public class Monopoly {
         private HashMap<CouleurPropriete,Groupe> _groupes;
         
         /* Constructor */
-        public Monopoly(String dataFilename){
+        public Monopoly(String dataFilename, String dataCarteFilename){
 	       _joueurs = new ArrayList <> () ;  
                _carreaux = new HashMap<>();
                _groupes = new HashMap<>();
                _IHM = new IHM();
             buildGamePlateau(dataFilename);
+            this.buildCarte(dataCarteFilename);
             this.lancementJeu();
 	}
         
@@ -300,7 +301,52 @@ public class Monopoly {
 		return data;
 	}
 
-  
+  /***************************** Init Game Cartes *****************************/
+                private void buildCarte(String dataFilename){           
+        try{
+                    ArrayList<String[]> dataCarte = readDataFileb(dataFilename, ",");
+                        
+                    for(int i=1; i<dataCarte.size(); ++i){
+                String caseType = dataCarte.get(i)[0];
+                                
+            if(caseType.compareTo("Ca") == 0){
+
+                        /* Init de la carte                    nom                type                           gain/perte       */
+                        _cartes.add(new CarteArgent(dataCarte.get(i)[3],dataCarte.get(i)[1],Integer.parseInt(dataCarte.get(i)[2])));
+                        
+                        } else if(caseType.compareTo("Cm") == 0){
+                         /* Init de la carte                    nom                      type                           deplacement                        numcase*/
+                        _cartes.add(new CarteMouvement(dataCarte.get(i)[4],dataCarte.get(i)[1],Integer.parseInt(dataCarte.get(i)[2]),Integer.parseInt(dataCarte.get(i)[3])));       
+            
+                        } else if(caseType.compareTo("Cl") == 0){
+                         /* Init de la carte                nom                type         */
+                        _cartes.add(new CarteLibere(dataCarte.get(i)[2],dataCarte.get(i)[1]));
+                        
+                        }
+            
+                        }
+                        
+                    }  catch(FileNotFoundException e){
+            System.err.println("[buildCarte()] : File is not found!");
+        }
+        catch(IOException e){
+            System.err.println("[buildCarte()] : Error while reading file!");
+        }
+    }
+        
+        private ArrayList<String[]> readDataFileb(String filename, String token) throws FileNotFoundException, IOException
+    {
+        ArrayList<String[]> dataCarte = new ArrayList<String[]>();
+        
+        BufferedReader reader  = new BufferedReader(new FileReader(filename));
+        String line = null;
+        while((line = reader.readLine()) != null){
+            dataCarte.add(line.split(token));
+        }
+        reader.close();
+        
+        return dataCarte;
+    } 
                 
     public ArrayList<Carte> getCartes() {
                    
