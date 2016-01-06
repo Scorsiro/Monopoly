@@ -71,35 +71,34 @@ public class IHM {
         return choix;
     }
 	
-    public void affichagePlateau(){
-    this.espacement();
+    public void affichagePlateau(Monopoly mono){
     System.out.println("**************************************************************************************************************************************************************************************");
     System.out.println("*                      *    Avenue    *              *   Boulevard  *    Avenue    *     Gare     *   Faubourg   *   Place de   * Compagnie de *    Rue la    *                      *");
-    System.out.println("*                      *   Matignon   *              *  Malesherbes * Henri-Martin *    du Nord   *Saint-Honnoré *   la Bourse  * distribution *    fayette   *  Allez               *");
-    System.out.println("*      Parc            *              *    CHANCE    *              *              *              *              *              *              *              *                      *");
-    System.out.println("*                      *              *              *              *              *              *              *              *              *              *      en              *");
-    System.out.println("*                      *     PRIX     *       ?      *     PRIX     *     PRIX     *     PRIX     *     PRIX     *     PRIX     *     PRIX     *     PRIX     *                      *");
-    System.out.println("*           Gratuit    *              *              *              *              *              *              *              *              *              *         Prison       *");
-    System.out.println("*                      ****************************************************************************************************************************************                      *");
-    System.out.println("*                      *  M:0    H:0  *              *  M:0    H:0  *  M:0    H:0  *              *  M:0    H:0  *  M:0    H:0  *              *  M:0    H:0  *                      *");
-    System.out.println("*                      *  J:3         *              *              *              *              *              *              *              *              *                      *");  
-    System.out.println("**************************************************************************************************************************************************************************************");
-    System.out.println("* Place       * M:0    *                                                                                                                                      * M:0    * Avenue de   *");
-    System.out.println("*   Pigalle   * H:0    *                                                                                                                                      * H:0    *    Breteuil *");
-    System.out.println("*             *J:123456*                                                                                                                                      *j:123456*             *");
-    System.out.println("*   PRIX      *        *                                                                                                                                      *        *     PRIX    *");
-    System.out.println("************************                                                                                                                                      ************************");
-    System.out.println("*  Boulevard  *        *                                                                                                                                      *        * Avenue      *");
-    System.out.println("* Saint-Michel*        *                                                                                                                                      *        *      Foch   *");
-    System.out.println("*             *        *                                                                                                                                      *        *             *");
-    System.out.println("*     PRIX    *        *                                                                                                                                      *        *     PRIX    *");
-    System.out.println("************************                                                                                                                                      ************************");
-    System.out.println("*   Caisse    *        *                                                                                                                                      *        * Caisse de   *");
-    System.out.println("*     de      *        *                                                                                                                                      *        *  Communauté *");
-    System.out.println("* Communauté  *        *                                                                                                                                      *        *             *");
-    System.out.println("*     PRIX    *        *                                                                                                                                      *        *             *");
-    System.out.println("************************                                                                                                                                      ************************");
-    System.out.println("*   Avenue    *        *                                                                                                                                      *        *Boulevard des*");
+      System.out.print("*                      *   Matignon   *              *  Malesherbes * Henri-Martin *    du Nord   *Saint-Honnoré *   la Bourse  * distribution *    fayette   *  Allez               *"); System.out.println("**************************");
+      System.out.print("*      Parc            *              *    CHANCE    *              *              *              *              *              *              *              *                      *"); System.out.println("   Joueur 1 : " + mono.getJoueurs().get(1).getNomJoueur());
+      System.out.print("*                      *              *              *              *              *              *              *              *              *              *      en              *"); System.out.println("      Solde : " + mono.getJoueurs().get(1).getCash());
+      System.out.print("*                      *     PRIX     *       ?      *     PRIX     *     PRIX     *     PRIX     *     PRIX     *     PRIX     *     PRIX     *     PRIX     *                      *"); System.out.println("   Position : " + mono.getJoueurs().get(1).getPositionCourante().getNomCarreau());
+      System.out.print("*           Gratuit    *              *              *              *              *              *              *              *              *              *         Prison       *"); System.out.println("**************************");
+      System.out.print("*                      ****************************************************************************************************************************************                      *"); System.out.println("   Joueur 2 : " + mono.getJoueurs().get(2).getNomJoueur());
+      System.out.print("*                      *  M:0    H:0  *              *  M:0    H:0  *  M:0    H:0  *              *  M:0    H:0  *  M:0    H:0  *              *  M:0    H:0  *                      *"); System.out.println("      Solde : " + mono.getJoueurs().get(2).getCash());
+      System.out.print("*                      *  J:3         *              *              *              *              *              *              *              *              *                      *"); System.out.println("   Position : " + mono.getJoueurs().get(2).getPositionCourante().getNomCarreau()); 
+      System.out.print("**************************************************************************************************************************************************************************************"); System.out.println("**************************");
+      System.out.print("* Place       * M:0    *                                                                                                                                      * M:0    * Avenue de   *");if(mono.getJoueurs().size()>3){System.out.println("   Joueur 3 : " + mono.getJoueurs().get(3).getNomJoueur());} else{System.out.println("");}
+      System.out.print("*   Pigalle   * H:0    *                                                                                                                                      * H:0    *    Breteuil *");if(mono.getJoueurs().size()>3){System.out.println("      Solde : " + mono.getJoueurs().get(3).getCash());}else{System.out.println("");}
+      System.out.print("*             *J:123456*                                                                                                                                      *j:123456*             *");if(mono.getJoueurs().size()>3){System.out.println("   Position : " + mono.getJoueurs().get(3).getPositionCourante().getNomCarreau());}else{System.out.println("");} 
+      System.out.print("*   PRIX      *        *                                                                                                                                      *        *     PRIX    *");if(mono.getJoueurs().size()>3){System.out.println("**************************");}else{System.out.println("");}
+      System.out.print("************************                                                                                                                                      ************************");if(mono.getJoueurs().size()>4){System.out.println("   Joueur 4 : " + mono.getJoueurs().get(4).getNomJoueur());} else{System.out.println("");}
+      System.out.print("*  Boulevard  *        *                                                                                                                                      *        * Avenue      *");if(mono.getJoueurs().size()>4){System.out.println("      Solde : " + mono.getJoueurs().get(4).getCash());}else{System.out.println("");}
+      System.out.print("* Saint-Michel*        *                                                                                                                                      *        *      Foch   *");if(mono.getJoueurs().size()>4){System.out.println("   Position : " + mono.getJoueurs().get(4).getPositionCourante().getNomCarreau());}else{System.out.println("");}
+      System.out.print("*             *        *                                                                                                                                      *        *             *");if(mono.getJoueurs().size()>4){System.out.println("**************************");}else{System.out.println("");}
+      System.out.print("*     PRIX    *        *                                                                                                                                      *        *     PRIX    *");if(mono.getJoueurs().size()>5){System.out.println("   Joueur 5 : " + mono.getJoueurs().get(5).getNomJoueur());} else{System.out.println("");}
+      System.out.print("************************                                                                                                                                      ************************");if(mono.getJoueurs().size()>5){System.out.println("    Solde : " + mono.getJoueurs().get(5).getCash());}else{System.out.println("");}
+      System.out.print("*   Caisse    *        *                                                                                                                                      *        * Caisse de   *");if(mono.getJoueurs().size()>5){System.out.println(" Position : " + mono.getJoueurs().get(5).getPositionCourante().getNomCarreau());}else{System.out.println("");}
+      System.out.print("*     de      *        *                                                                                                                                      *        *  Communauté *");if(mono.getJoueurs().size()>5){System.out.println("**************************");}else{System.out.println("");}
+      System.out.print("* Communauté  *        *                                                                                                                                      *        *             *");if(mono.getJoueurs().size()>6){System.out.println("   Joueur 6 : " + mono.getJoueurs().get(6).getNomJoueur());} else{System.out.println("");}
+      System.out.print("*     PRIX    *        *                                                                                                                                      *        *             *");if(mono.getJoueurs().size()>6){System.out.println("      Solde : " + mono.getJoueurs().get(6).getCash());}else{System.out.println("");}
+      System.out.print("************************                                                                                                                                      ************************");if(mono.getJoueurs().size()>6){System.out.println("   Position : " + mono.getJoueurs().get(6).getPositionCourante().getNomCarreau());}else{System.out.println("");}
+      System.out.print("*   Avenue    *        *                                                                                                                                      *        *Boulevard des*");if(mono.getJoueurs().size()>6){System.out.println("**************************");}else{System.out.println("");}
     System.out.println("*    Mozart   *        *                                                                                                                                      *        *  Capucines  *");
     System.out.println("*             *        *                                                                                                                                      *        *             *");
     System.out.println("*     PRIX    *        *                                                                                                                                      *        *     PRIX    *");
@@ -139,6 +138,7 @@ public class IHM {
     System.out.println("*   e                  *     PRIX     *      PRIX    *       ?      *     PRIX     *     PRIX     *     PRIX     *     PRIX     *              *     PRIX     *            T         *");
     System.out.println("*      Visite          *              *              *              *              *              *              *              *              *              *                      *");
     System.out.println("**************************************************************************************************************************************************************************************");
+    
     }
     
     public void afficheArriveeCase(int d1, int d2, Carreau anCase, Carreau ncCase, Joueur j){
@@ -212,7 +212,6 @@ public class IHM {
         catch(InterruptedException a){}
     }
     
-
     
     public void afficheP (){
     
