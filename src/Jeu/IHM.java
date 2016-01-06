@@ -141,12 +141,12 @@ public class IHM {
     System.out.println("**************************************************************************************************************************************************************************************");
     }
     
-    public void afficheArriveeCase(int d1, int d2, Carreau nvCase, Carreau anCase, Joueur j){
+    public void afficheArriveeCase(int d1, int d2, Carreau anCase, Carreau ncCase, Joueur j){
         System.out.println("Tour du joueur " + j.getNomJoueur());
         System.out.println("Valeur du premier dé : " + d1 +
-                           " Valeur du second dé : " + d2);
+                         "\n Valeur du second dé : " + d2);
         System.out.println("Ancienne position : " + anCase.getNomCarreau() +
-                           "Nouvelle position : " + nvCase.getNomCarreau());
+                         "\nNouvelle position : " + ncCase.getNomCarreau());
     }
     
     public void affichePrison(){
