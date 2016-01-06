@@ -9,13 +9,13 @@ public class Groupe {
 	public ArrayList<ProprieteAConstruire> _proprietes = new ArrayList<ProprieteAConstruire>();
         private Joueur proprietaire = null; 
 
-        Groupe(String colGroupe, int prixMaiHot){
-            setCouleurPropriete(colGroupe); 
+        Groupe(CouleurPropriete colGroupe, int prixMaiHot){
+            setCouleur(colGroupe); 
             this.setPrixAchatMaiHot(prixMaiHot);
             
         } 
 
-        private void setCouleurPropriete(String col){
+       /* private void setCouleurPropriete(String col){
             CouleurPropriete colour = null;
             if(col == "bleuFonce"){
                  colour=CouleurPropriete.bleuFonce;
@@ -35,7 +35,7 @@ public class Groupe {
                 colour=CouleurPropriete.rouge;   
             }
             setCouleur(colour);
-        }
+        }*/
 
 	/*public HashSet<ProprieteAConstruire> getProprietes() {
 		
