@@ -56,7 +56,6 @@ public class Monopoly {
                 /* boucle commençant par le premier qui a été tiré au sort. */ 
                 for(int i = prem; i < (this.getJoueurs().size()); i++ ){
                     Joueur jTemp = this.getJoueurs().get(i);
-                    this.getIHM().affichagePlateau(this);
                     this.jouerUnCoup(jTemp);
                     
                     
@@ -67,7 +66,6 @@ public class Monopoly {
                 System.out.println("\n");
                 for(int i = 1; i < prem; i++){
                     Joueur jTemp = this.getJoueurs().get(i);
-                    this.getIHM().affichagePlateau(this);
                     this.jouerUnCoup(jTemp);
                     
                     
