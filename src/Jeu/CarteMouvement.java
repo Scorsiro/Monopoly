@@ -39,28 +39,34 @@ public class CarteMouvement extends Carte{
         this.numCase = numCase;
     }
     
-    public void executerCarte (Joueur j) { //pas fini
+    public void executerCarte (Joueur j) {
         
-        this.getDeplacement();
-        Carreau c = null;
+        Carreau c;
+        
         if(this.getDeplacement() != 0){
             int deplace = j.getPositionCourante().getNumero() + this.getDeplacement();
-            
+            c = j.getMono().calculPositionNum(deplace);
+            j.setPositionCourante(c);
             
         } else {
-            c.setNumero(numCase);
+            c = j.getMono().calculPositionNum(this.getNumCase());
             j.setPositionCourante(c);
-            //j.getPositionCourante().setNumero(numCase);
+            
+                if(passageDepart(j)){
+                    j.nouveauTourCash();
+                }
         }
-        
-        if(passageDepart()){
-            j.nouveauTourCash();
-        }
-        
+
     }
     
-    public boolean passageDepart () {
-        return passageD;
+    public boolean passageDepart (Joueur j) {
+        
+        Carreau c = j.getPositionCourante() ;
+        int num = c.getNumero();
+                
+        return (num > this.getNumCase());
+        
     }
+
 
 }
