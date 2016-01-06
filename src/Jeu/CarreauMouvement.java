@@ -10,5 +10,6 @@ public class CarreauMouvement extends CarreauAction {
     public void action(Joueur j) {
         
         this.getMonopoly().mettreEnPrison(j); 
+        this.getMonopoly().getIHM().affichePrison();
     }
 }
