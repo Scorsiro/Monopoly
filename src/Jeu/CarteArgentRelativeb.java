@@ -12,7 +12,7 @@ package Jeu;
  */
 public class CarteArgentRelativeb extends CarteArgent {
     
-    public CarteArgentRelative(int montant) {
+    public CarteArgentRelativeb(int montant) {
         super(montant);
     }
     
@@ -42,13 +42,11 @@ public class CarteArgentRelativeb extends CarteArgent {
     public int calculMontantAnniv (Joueur j ) {
         int montant = 0 ; 
         
-        for(Joueur joueur : this.getMonopoly().getJoueurs() && joueur  != j) {
-            joueur.payerLoyer(10);
+        for(Joueur joueur : this.getMonopoly().getJoueurs()) {
+            if(joueur != j){
             montant = montant + 10 ; 
-        
+            }
         }
-       
-        j.recevoirLoyer(montant);
         return montant ; 
    }
 }

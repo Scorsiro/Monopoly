@@ -57,7 +57,7 @@ public abstract class CarreauPropriete extends Carreau {
         
         }
         
-        public void action(Joueur j) {
+       public void action(Joueur j) {
             
             Joueur jP = this.getProprietaire() ; 
             
