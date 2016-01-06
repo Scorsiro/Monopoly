@@ -271,7 +271,6 @@ public class Monopoly {
                                         }
                                         
                                         
-                                        System.out.print("Dafuq");
                                         /* Init du carreau               numCase                                     numCase                         nom                           prix         couleur   oyers */
                                         _carreaux.put(Integer.parseInt(data.get(i)[1]),new ProprieteAConstruire(Integer.parseInt(data.get(i)[1]),data.get(i)[2],Integer.parseInt(data.get(i)[5]),this.getGroupes().get(CouleurPropriete.valueOf(data.get(i)[3])),loyers,this));
                                 }
