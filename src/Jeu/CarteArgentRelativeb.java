@@ -8,11 +8,10 @@ package Jeu;
 
 /**
  *
- * @author adlit
+ * @author prudhomj
  */
-public class CarteArgentRelative extends CarteArgent {
-
-   
+public class CarteArgentRelativeb extends CarteArgent {
+    
     public CarteArgentRelative(int montant) {
         super(montant);
     }
