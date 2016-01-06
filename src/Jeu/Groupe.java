@@ -5,13 +5,13 @@ import java.util.HashSet;
 
 public class Groupe {
 	private CouleurPropriete _couleur;
-	private int _prixAchat;
+	private int _prixAchatMaiHot;
 	public ArrayList<ProprieteAConstruire> _proprietes = new ArrayList<ProprieteAConstruire>();
         private Joueur proprietaire = null; 
 
         Groupe(String colGroupe, int prixMaiHot){
             setCouleurPropriete(colGroupe); 
-            this.setPrixAchat(prixMaiHot);
+            this.setPrixAchatMaiHot(prixMaiHot);
             
         } 
 
@@ -44,15 +44,15 @@ public class Groupe {
     /**
      * @return the _prixAchatMaison
      */
-    public int getPrixAchat() {
-        return _prixAchat;
+    public int getPrixAchatMaiHot() {
+        return _prixAchatMaiHot;
     }
 
     /**
      * @param _prixAchatMaison the _prixAchatMaison to set
      */
-    public void setPrixAchat(int prixAchat) {
-        this._prixAchat = prixAchat;
+    public void setPrixAchatMaiHot(int prixAchat) {
+        this._prixAchatMaiHot = prixAchat;
     }
 
     /**

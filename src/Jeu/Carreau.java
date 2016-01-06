@@ -1,6 +1,7 @@
 package Jeu;
 
 import java.util.ArrayList;
+import java.util.HashSet;
 
 public abstract class Carreau {
 	private int numero;
@@ -65,24 +66,60 @@ public abstract class Carreau {
                         }
                     
                     }
+                }
+                
                   
-                       //Choix du joueur 
-                        
+                       //Choix du joueur
+                       Boolean mauvaiseSaisie = true;
+                       while (mauvaiseSaisie){
                        int numC = this.getMonopoly().getIHM().getConstruireRep() ; 
                        
                        //Return le carreau avec le numC pour incrémenter le nbmaison ... 
                        
-                        
                        
-                       ;
-                 
+                       Carreau c = this.getMonopoly().getCarreaux().get(numC);
+                       //ProprieteAConstruire p = this.getMonopoly().get
+                       
+                       HashSet<ProprieteAConstruire> collec = j.getProprietes();
+                       /*Boolean trouve = false;
+                       int i=0;
+                       while (!trouve && i<collec.size()) {
+                          
+                       }
+                       */
+                       
+                       //obligé de faire comme ça car pas de HashMap
+                       for (ProprieteAConstruire p : collec){
+                           if (p.getNumero()==numC) {
+                               ProprieteAConstruire pc = p;
+                               Groupe gc = p.getGroupePropriete();
+                               if (pc.getProprietaire()==j && j.getGroupes().contains(gc)){
+                                   mauvaiseSaisie=false;
+                                   int prix = gc.getPrixAchatMaiHot();
+                                   if (j.peutPayer(prix)){
+                                       j.payerLoyer(prix);
+                                       if (pc.getNbmaison()<4){
+                                           pc.setNbmaison(pc.getNbmaison()+1);
+                                       }
+                                       else {
+                                           pc.setNbmaison(0);
+                                           pc.setHotel(true);
+                                       }
+                                   }
+                                   else this.getMonopoly().mettreEnFaillite(j);
+                               }
+                               else {System.out.println("Mauvaise saisie !"); }
+                           }
+                       }
+                
+            }
                 
                 
-                }
+                
+            
             
             
             }
-            
             
             
         
