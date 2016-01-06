@@ -378,6 +378,7 @@ public class Monopoly {
                   
         Random rand = new Random ();
         int c = rand.nextInt(_cartes.size());
+        System.out.println(this.getCartes().get(c).getNom());
         return _cartes.get(c);
     }
     

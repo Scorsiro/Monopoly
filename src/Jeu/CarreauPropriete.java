@@ -42,7 +42,7 @@ public abstract class CarreauPropriete extends Carreau {
             
             else {   
                 
-                if (this.getMonopoly().getIHM().getAchatRep() == "oui") {
+                if (this.getMonopoly().getIHM().getAchatRep().equals("oui")) {
                 
                 this.getNomCarreau() ; 
                 
