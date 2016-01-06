@@ -286,29 +286,42 @@ public class Monopoly {
 		return data;
 	}
 
-    public void tirerUneCarte(){}
+  
                 
-                public ArrayList<Carte> getCartes() {
-                    return _cartes;
-                }
+    public ArrayList<Carte> getCartes() {
+                   
+        return _cartes;
+    }
     
     public Carte genererCarte() {
-                    this.getCartes();
-                    this.melangerCarte();
-                    Random rand = new Random ();
-                    int c = rand.nextInt(_cartes.size());
-                    return _cartes.get(c);
-                }
+                  
+        Random rand = new Random ();
+        int c = rand.nextInt(_cartes.size());
+        return _cartes.get(c);
+    }
     
-    public void melangerCarte(){
-                    Collections.shuffle(_cartes);
-                }    
+    /*public void melangerCarte(){
+                    
+        Collections.shuffle(this.getCartes());
+    } */   
      
     public void mettreEnFaillite(Joueur j){
-                    _joueurs.remove(j);
-                 }
+                   
+        _joueurs.remove(j);
+    }
     
     
+    public void tirerUneCarte(){
+      
+      
+        Carte c = this.genererCarte() ; 
+        c.executerCarte();
+        // remettre la carte au dérnier indice 
+        this.getCartes().remove(c) ; 
+        this.getCartes().add(c); 
+      
+      
+    }
     
     /**
      * @return the _nbMaisons

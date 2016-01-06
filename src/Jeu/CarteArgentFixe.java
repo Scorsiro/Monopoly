@@ -12,4 +12,8 @@ package Jeu;
  */
 public class CarteArgentFixe extends CarteArgent {
     
+    
+    
+    
+    
 }
