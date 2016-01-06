@@ -12,9 +12,11 @@ package Jeu;
  */
 public class CarteArgentFixe extends CarteArgent {
 
-    public CarteArgentFixe(int montant) {
-        super(montant);
+    public CarteArgentFixe(String nom, String type, int montant) {
+        super(nom, type, montant);
     }
+
+    
     
     
    public int calculMontant () {

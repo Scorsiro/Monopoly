@@ -11,10 +11,12 @@ package Jeu;
  * @author prudhomj
  */
 public class CarteArgentRelativeb extends CarteArgent {
-    
-    public CarteArgentRelativeb(int montant) {
-        super(montant);
+
+    public CarteArgentRelativeb(String nom, String type, int montant) {
+        super(nom, type, montant);
     }
+    
+  
     
     // Dans le cas où la carte tirée est une carte Argent qui demande de faire des réparation sur toutes les maisons 
     //25e pour chaque maison et 100e pour chaque hotel 
