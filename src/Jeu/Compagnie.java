@@ -36,7 +36,7 @@ public class Compagnie extends CarreauPropriete {
         public int calculLoyer(Joueur j) {
        
             Joueur jp = this.getProprietaire() ; 
-            int nbc = jp.getCompagnies().size() ; 
+            int nbc = jp.getCompagnies().size()-1 ; 
             
             int montant = this.calculMontant() ; 
             

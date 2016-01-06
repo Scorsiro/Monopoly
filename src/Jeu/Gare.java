@@ -11,7 +11,7 @@ public class Gare extends CarreauPropriete {
         public int calculMontant () {
         
             Joueur jp = this.getProprietaire() ; 
-            int nbgare = jp.getCompagnies().size() ; 
+            int nbgare = jp.getCompagnies().size()-1 ; 
  
             
             int montant = 25 * nbgare ; 

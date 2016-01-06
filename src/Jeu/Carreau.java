@@ -121,7 +121,7 @@ public abstract class Carreau {
             
             
             }
-            else System.out.println("Vous n'avez aucun groupe !");
+            else System.out.println("Vous ne pouvez pas construire !");
             
             
         

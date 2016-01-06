@@ -67,10 +67,10 @@ public abstract class CarreauPropriete extends Carreau {
             }
             else if (jP != j) {
             
-                this.calculLoyer(j) ; 
+                int montant = this.calculLoyer(j) ; 
 
-                j.payerLoyer(this.calculLoyer(j));
-                jP.recevoirLoyer(this.calculLoyer(j));
+                j.payerLoyer(montant);
+                jP.recevoirLoyer(montant);
             }
             
             this.construire(j);
