@@ -17,7 +17,11 @@ public class CarteArgentFixe extends CarteArgent {
     }
     
     
-    
+   public int calculMontant () {
+   
+       return this.getMontant() ; 
+       
+   }
     
     
 }
