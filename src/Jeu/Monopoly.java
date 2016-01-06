@@ -238,6 +238,27 @@ public class Monopoly {
                         ArrayList<Integer> loyers = new ArrayList<>();
 			ArrayList<String[]> data = readDataFile(dataFilename, ",");
                         
+                        for (CouleurPropriete c : CouleurPropriete.values()){
+                            if (c.equals(CouleurPropriete.bleuFonce) || c.equals(CouleurPropriete.vert)){
+                                Groupe g = new Groupe(c,200);
+                                this.getGroupes().put(c, g);
+                            }
+                            else if (c.equals(CouleurPropriete.orange) || c.equals(CouleurPropriete.violet)){
+                                Groupe g = new Groupe(c,100);
+                                this.getGroupes().put(c, g);
+                            }
+                            else if (c.equals(CouleurPropriete.mauve) || c.equals(CouleurPropriete.bleuCiel)){
+                                Groupe g = new Groupe(c,50);
+                                this.getGroupes().put(c, g);
+                            }
+                            else if (c.equals(CouleurPropriete.jaune) || c.equals(CouleurPropriete.rouge)){
+                                Groupe g = new Groupe(c,150);
+                                this.getGroupes().put(c, g);
+                            }
+                            
+                        }
+                            
+                        
 			/* Creation des différents carreaux */
 			for(int i=0; i<data.size(); ++i){
 				String caseType = data.get(i)[0];
@@ -249,10 +270,10 @@ public class Monopoly {
                                             loyers.add(j-5,Integer.parseInt(data.get(i)[j]));
                                         }
                                         
-                                        Groupe grTemp = new Groupe(data.get(i)[11],Integer.parseInt(data.get(i)[11]));
+                                        
                                         
                                         /* Init du carreau               numCase                                     numCase                         nom                           prix         couleur   oyers */
-                                        _carreaux.put(Integer.parseInt(data.get(i)[1]),new ProprieteAConstruire(Integer.parseInt(data.get(i)[1]),data.get(i)[2],Integer.parseInt(data.get(i)[4]),grTemp,loyers));
+                                        _carreaux.put(Integer.parseInt(data.get(i)[1]),new ProprieteAConstruire(Integer.parseInt(data.get(i)[2]),data.get(i)[3],Integer.parseInt(data.get(i)[5]),this.getGroupes().get(CouleurPropriete.valueOf(data.get(i)[4])),loyers));
                                 }
 				else if(caseType.compareTo("G") == 0){
 					//System.out.println("Gare :\t" + data.get(i)[2] + "\t@ case " + data.get(i)[1]);
