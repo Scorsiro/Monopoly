@@ -15,6 +15,11 @@ public abstract class Carte {
     private String nom ; 
     private String type ; 
 
+    public Monopoly getMonopoly() {
+        return monopoly;
+    }
+    private Monopoly monopoly ; 
+
     /**
      * @return the nom
      */

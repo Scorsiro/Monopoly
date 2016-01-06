@@ -32,20 +32,9 @@ public class CarteArgent extends Carte {
         this.montant = montant;
     }
     
-    /*public int calculMontant (Joueur j ) {
-    
-    }*/
-    
-    
     public void executerCarte () {
+        
+        
     
     }
-    
-    /*public int calculMontant(Joueur j ) {
-    
-    
-    
-    }*/
-    
-    
 }

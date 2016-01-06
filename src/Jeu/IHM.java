@@ -52,8 +52,7 @@ public class IHM {
                 System.out.println("Mauvaise entrée, veuillez recommencer.");
                 
                 /*Délais pour laisser le temps à l'utilisateur de lire les messages d'erreurs */
-                try{TimeUnit.SECONDS.sleep(1);}
-                catch(InterruptedException a){}
+                this.delay(1);
                 
                 /* On vide le buffer */
                 choix =0;
@@ -142,12 +141,16 @@ public class IHM {
     System.out.println("**************************************************************************************************************************************************************************************");
     }
     
-    /********************* Utilitaire *********************/
+    public void afficheArriveeCase(int d1, int d2, Carreau nvCase, Carreau anCase, Joueur j){
+        System.out.println("Tour du joueur " + j.getNomJoueur());
+        System.out.println("Valeur du premier dé : " + d1 +
+                           " Valeur du second dé : " + d2);
+        System.out.println("Ancienne position : " + anCase.getNomCarreau() +
+                           "Nouvelle position : " + nvCase.getNomCarreau());
+    }
     
-    private void espacement(){
-        for(int i = 0; i<=25; i++){
-            System.out.println("\n");
-        }
+    public void affichePrison(){
+        System.out.println("Vous êtes en prison.");
     }
     
     public String getAchatRep () {
@@ -181,10 +184,6 @@ public class IHM {
         System.out.println ("Argent restant aprés paiement  :" + Ar) ; 
     }
     
-   
-    
-    
-    
     public String getLibRep () {
                 Scanner sc = new Scanner (System.in) ;
                 System.out.println ("Voulez vous utiliser votre carte libération") ;
@@ -199,7 +198,20 @@ public class IHM {
                 }
                 return rep ;
     }
+    /********************* Utilitaire *********************/
     
+    private void espacement(){
+        for(int i = 0; i<=25; i++){
+            System.out.println("\n");
+        }
+    } 
+    
+    private void delay(int temps){
+        try{TimeUnit.SECONDS.sleep(temps);}
+        catch(InterruptedException a){}
+    }
+    
+
     
     public void afficheP (){
     

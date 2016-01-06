@@ -50,17 +50,30 @@ public class Monopoly {
         private void lancementPartie(String nomPremJ){
             int prem;
             while(this.getJoueurs().size() != 2){
+                /* Donne l'indice du premier joueur devant commencer à jouer. */
                 prem = getIndPrem(nomPremJ);
+                /* boucle commençant par le premier qui a été tiré au sort. */ 
                 for(int i = prem; i < (this.getJoueurs().size()); i++ ){
-                    this.lancerDésAvancer(this.getJoueurs().get(i));
+                    Joueur jTemp = this.getJoueurs().get(i);
+                    this.getIHM().affichagePlateau();
+                    this.jouerUnCoup(jTemp);
+                    
+                    
+                    /* Facultatif à mettre dans l'IHM
                     System.out.println(this.getJoueurs().get(i).getNomJoueur() + this.getJoueurs().get(i).getPositionCourante().getNumero());
-                    System.out.println(this.getJoueurs().get(i).getNomJoueur() + this.getJoueurs().get(i).getCash());
+                    System.out.println(this.getJoueurs().get(i).getNomJoueur() + this.getJoueurs().get(i).getCash()); */
                 }
                 System.out.println("\n");
                 for(int i = 1; i < prem; i++){
-                    this.lancerDésAvancer(this.getJoueurs().get(i));
+                    Joueur jTemp = this.getJoueurs().get(i);
+                    this.getIHM().affichagePlateau();
+                    this.jouerUnCoup(jTemp);
+                    
+                    
+                    
+                    /* Facultatif à mettre dans l'IHM
                     System.out.println(this.getJoueurs().get(i).getNomJoueur() + this.getJoueurs().get(i).getPositionCourante().getNumero());
-                    System.out.println(this.getJoueurs().get(i).getNomJoueur() + " a " + this.getJoueurs().get(i).getCash());
+                    System.out.println(this.getJoueurs().get(i).getNomJoueur() + " a " + this.getJoueurs().get(i).getCash()); */
                 }
                 
             }
@@ -70,16 +83,15 @@ public class Monopoly {
         
 	public void jouerUnCoup(Joueur j) {
 		this.lancerDésAvancer(j );
+                this.getIHM().affichagePlateau();
+                j.getPositionCourante().action(j);
                 
                 while (j.getNbDoubles() != 0  ) {
                     this.lancerDésAvancer(j);
                 
                 }
-                
-                
-	}
-
-	private void lancerDésAvancer(Joueur j) {
+        }
+                private void lancerDésAvancer(Joueur j) {
             
             if(j.getNbDoubles() < 3) {
                 int d1 = this.genererChiffreDés() ; 
@@ -93,21 +105,23 @@ public class Monopoly {
                 else {j.setNbDoubles(0);}
                 
                 Carreau c = j.getPositionCourante() ;
-                System.out.print("coucou");
                 int num = c.getNumero(); 
                 
+                /*Si la nouvelle position sort du plateau, on fait la différence, et on l'ajoute à la case départ + argent*/
                 if((num + d1 + d2) > 40){
                     inter =  (num + d1 +d2) - 40;
                     j.nouveauTourCash();
                 } else {
                     inter = num + d1+d2;
-                }
-                
+                } 
                 Carreau nc = this.calculPositionNum(inter) ; 
-                j.setPositionCourante(nc); }
+                j.setPositionCourante(nc);   
+                this.getIHM().afficheArriveeCase(d1, d2, c, nc, j);
+                }
             else {
                 this.mettreEnPrison(j); 
             }  
+            
         } 
           
         
@@ -286,29 +300,42 @@ public class Monopoly {
 		return data;
 	}
 
-    public void tirerUneCarte(){}
+  
                 
-                public ArrayList<Carte> getCartes() {
-                    return _cartes;
-                }
+    public ArrayList<Carte> getCartes() {
+                   
+        return _cartes;
+    }
     
     public Carte genererCarte() {
-                    this.getCartes();
-                    this.melangerCarte();
-                    Random rand = new Random ();
-                    int c = rand.nextInt(_cartes.size());
-                    return _cartes.get(c);
-                }
+                  
+        Random rand = new Random ();
+        int c = rand.nextInt(_cartes.size());
+        return _cartes.get(c);
+    }
     
-    public void melangerCarte(){
-                    Collections.shuffle(_cartes);
-                }    
+    /*public void melangerCarte(){
+                    
+        Collections.shuffle(this.getCartes());
+    } */   
      
     public void mettreEnFaillite(Joueur j){
-                    _joueurs.remove(j);
-                 }
+                   
+        _joueurs.remove(j);
+    }
     
     
+    public void tirerUneCarte(){
+      
+      
+        Carte c = this.genererCarte() ; 
+        c.executerCarte();
+        // remettre la carte au dérnier indice 
+        this.getCartes().remove(c) ; 
+        this.getCartes().add(c); 
+      
+      
+    }
     
     /**
      * @return the _nbMaisons
