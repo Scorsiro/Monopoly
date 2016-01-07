@@ -51,7 +51,7 @@ public abstract class CarreauPropriete extends Carreau {
             }
             
             while(rep != 3){
-                rep = mono.getIHM().AfficheMenuPA();
+                rep = mono.getIHM().afficheCadreChoix();
                 if(rep == 1){
                     if (jP == null ) {
                         this.acheterPropriete(j);
