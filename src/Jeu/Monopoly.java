@@ -118,7 +118,7 @@ public class Monopoly {
                 this.getIHM().affichagePlateau(this);
                 j.getPositionCourante().action(j);
                 
-                while (j.getNbDoubles() != 0  ) {
+                while (j.getNbDoubles() != 0 && !j.isPrison() ) {
                     this.lancerDésAvancerTest(j);
                 
                 }
