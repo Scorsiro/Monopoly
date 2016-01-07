@@ -242,7 +242,7 @@ public class IHM {
         
         System.out.println("Parmis les proprietés : choisissez une propriété où vous voulez construire : Entrez son numéro !!") ; 
         Scanner sc = new Scanner(System.in) ; 
-        int rep = sc.nextInt(); 
+        int rep = 0; 
         
         /*while(rep!= p.getNumero()){
               
