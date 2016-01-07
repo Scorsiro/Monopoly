@@ -44,12 +44,11 @@ public abstract class CarreauPropriete extends Carreau {
             Joueur jP = this.getProprietaire() ; 
             int rep = 0;
                 
-            if (jP != j) {
+            if (jP != j && jP != null) {
                 int montant = this.calculLoyer(j) ; 
                 j.payerLoyer(montant);
                 jP.recevoirLoyer(montant);
             }
-            
             while(rep != 3){
                 rep = mono.getIHM().afficheCadreChoix();
                 if(rep == 1){
@@ -62,7 +61,7 @@ public abstract class CarreauPropriete extends Carreau {
                     this.construire(j);
                 }
             }     
-        }
+       }
 
         // Les méthodes sont redéfinis dans : gare , compagnie , PropriétéAconstruire 
 	public abstract int calculMontant () ; 

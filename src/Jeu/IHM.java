@@ -289,10 +289,7 @@ public class IHM {
         System.out.println ("Warning : y a pas de proprietés où vous pouvez construire !! " ) ; 
     }
     
-    public void afficheCarte (Carte c){
-    
-        System.out.println ("Vous avez tirer la carte " + c.getNom() + c.getType()) ; 
-    }
+   
     
     public void affichePasAcheter () {
     
@@ -348,7 +345,7 @@ public class IHM {
         Scanner sc = new Scanner (System.in) ;
         int rep = 0;
         
-        while(rep!=3){
+        while(rep < 1 || rep > 3){
       
         System.out.println("========================================================") ;
         System.out.println("= 1 - Acheter | 2 - Construire | 3 - Passez au suivant =") ;

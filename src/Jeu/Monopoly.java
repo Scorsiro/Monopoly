@@ -7,15 +7,13 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
-import java.util.Iterator;
 import java.util.Random;
 import java.util.Scanner;
-import java.util.concurrent.TimeUnit;
 
 
 public class Monopoly {
-	private final int _nbMaisons = 32;
-	private final int _nbHotels = 12;
+    private final int _nbMaisons = 32;
+    private final int _nbHotels = 12;
         private ArrayList<Joueur> _joueurs ; //  = new ArrayList <> () ;
         private HashMap<Integer, Carreau> _carreaux  ; //= new HashMap<>() ;
         private ArrayList<Joueur> _joueursFaillite ;
@@ -25,7 +23,7 @@ public class Monopoly {
         
         /* Constructor */
         public Monopoly(String dataFilename, String dataCarteFilename){
-	       _joueurs = new ArrayList <> () ;
+           _joueurs = new ArrayList <> () ;
                _joueursFaillite = new ArrayList <> () ;
                _carreaux = new HashMap<>();
                _groupes = new HashMap<>();
@@ -33,7 +31,7 @@ public class Monopoly {
             buildGamePlateau(dataFilename);
             this.buildCarte(dataCarteFilename);
             this.lancementJeu();
-	}
+    }
         
         private void lancementJeu(){
             int choix = 0;
@@ -73,7 +71,7 @@ public class Monopoly {
             while(GagnantPartie() == null){
                 /* Donne l'indice du premier joueur devant commencer à jouer. */
                 prem = getIndPrem(nomPremJ);
-                /* boucle commençant par le premier qui a été tiré au sort. */ 
+                /* boucle commençant par le premier qui a été tiré au sort. */
                 for(int i = prem; i < (this.getJoueurs().size()); i++ ){
                     Joueur jTemp = this.getJoueurs().get(i);
                     this.jouerUnCoupTest(jTemp);
@@ -101,8 +99,8 @@ public class Monopoly {
         
         
         
-	public void jouerUnCoup(Joueur j) {
-		this.lancerDésAvancer(j );
+    public void jouerUnCoup(Joueur j) {
+        this.lancerDésAvancer(j );
                 this.getIHM().affichagePlateau(this);
                 j.getPositionCourante().action(j);
                 
@@ -116,7 +114,7 @@ public class Monopoly {
                 System.out.println("\n\n"+j.getNomJoueur()+" - Appuyer su une touche pour jouer : ");
                 Scanner sc = new Scanner(System.in);
                 sc.nextLine();
-		this.lancerDésAvancerTest(j );
+        this.lancerDésAvancerTest(j );
                 this.getIHM().affichagePlateau(this);
                 j.getPositionCourante().action(j);
                 
@@ -135,7 +133,7 @@ public class Monopoly {
             }        
             
             if(j.getNbDoubles() < 3) {
-                int d1 = this.genererChiffreDés() ; 
+                int d1 = this.genererChiffreDés() ;
                 int d2 = this.genererChiffreDés() ;
                 int inter = 0;
                 j.setDes(d1+d2);
@@ -146,7 +144,7 @@ public class Monopoly {
                 else {j.setNbDoubles(0);}
                 
                 Carreau c = j.getPositionCourante() ;
-                int num = c.getNumero(); 
+                int num = c.getNumero();
                 
                 /*Si la nouvelle position sort du plateau, on fait la différence, et on l'ajoute à la case départ + argent*/
                 if((num + d1 + d2) > 40){
@@ -154,59 +152,79 @@ public class Monopoly {
                     j.nouveauTourCash();
                 } else {
                     inter = num + d1+d2;
-                } 
-                Carreau nc = this.calculPositionNum(inter) ; 
+                }
+                Carreau nc = this.calculPositionNum(inter) ;
                 j.setPositionCourante(nc);   
                 this.getIHM().afficheArriveeCase(d1, d2, c, nc, j);
                 }
             else {
-                this.mettreEnPrison(j); 
+                this.mettreEnPrison(j);
             }  
             
-        } 
+        }
         
                 
                 private void lancerDésAvancerTest(Joueur j) {
                     
             if(j.isPrison()){
-                if(!j.getCartes().isEmpty()){
-                    j.getCartes().get(0).executerCarte(j);
-                    
+                j.setNbTourPrison(j.getNbTourPrison()+1);
+                
+                if (j.getNbTourPrison()==3){
+                    j.setPrison(false);
+                    System.out.println("Vous sortez de prison ! Vous payez 50 euros !");
+                    j.payerLoyer(50);
+                    j.setNbTourPrison(0);
+                }
+                else{
+                    if(!j.getCartes().isEmpty()){
+                        j.getCartes().get(0).executerCarte(j);
+                    }
                 }
             }        
             
-                Scanner sc = new Scanner(System.in);
+            Scanner sc = new Scanner(System.in);
             if(j.getNbDoubles() < 3) {
                 System.out.println("Saisir les chiffres des dés :");
                 System.out.print("d1 : ");
-                int d1 = sc.nextInt(); 
-                System.out.print("d2 = ");
+                int d1 = sc.nextInt();
+                System.out.print("d2 : ");
                 int d2 = sc.nextInt();
                 int inter = 0;
                 j.setDes(d1+d2);
                 
                 if (d1 == d2 ) {
                     j.setNbDoubles(j.getNbDoubles() + 1 );
+                    if (j.isPrison()){
+                        j.setPrison(false);
+                        System.out.println("Vous sortez de prison !");
+                    }
                 }
                 else {j.setNbDoubles(0);}
                 
                 Carreau c = j.getPositionCourante() ;
-                int num = c.getNumero(); 
+                int num = c.getNumero();
+                //System.out.println("ICIIIII : " +num);
                 
                 /*Si la nouvelle position sort du plateau, on fait la différence, et on l'ajoute à la case départ + argent*/
-                if((num + d1 + d2) > 40){
-                    inter =  (num + d1 +d2) - 40;
-                    j.nouveauTourCash();
-                } else {
-                    inter = num + d1+d2;
-                } 
-                Carreau nc = this.calculPositionNum(inter) ; 
-                j.setPositionCourante(nc);   
-                this.getIHM().afficheArriveeCase(d1, d2, c, nc, j);
-                }
+                if (!j.isPrison()){
+                    if((num + d1 + d2) > 40){
+                        inter =  (num + d1 +d2) - 40;
+                        j.nouveauTourCash();
+                    }
+                    else {
+                        inter = num + d1+d2;
+                    }
+                    Carreau nc = this.calculPositionNum(inter) ;
+                    j.setPositionCourante(nc);   
+                    this.getIHM().afficheArriveeCase(d1, d2, c, nc, j);
+                    }
+            }
             else {
-                this.mettreEnPrison(j); 
-            }  
+                this.mettreEnPrison(j);
+                this.getIHM().affichePrison();
+                }
+                
+              
             
         }
         
@@ -216,28 +234,28 @@ public class Monopoly {
             }   
          }*/
 
-	public int genererChiffreDés() {
-		
+    public int genererChiffreDés() {
+        
             Random rand = new Random () ;
             int d1 = 0;
             while(d1 == 0){
             d1 = rand.nextInt(7) ;
             }
-            return d1 ; 
-	}
+            return d1 ;
+    }
 
-	public Carreau calculPositionNum(int num) {
+    public Carreau calculPositionNum(int num) {
        
-              return this.getCarreaux().get(num) ; 
+              return this.getCarreaux().get(num) ;
 
-	}
+    }
 
-	public void mettreEnPrison(Joueur j) {
+    public void mettreEnPrison(Joueur j) {
            
             j.setPositionCourante(this.calculPositionNum(11));
             j.setPrison(true);
-            j.setNbDoubles(0) ; 
-	}
+            j.setNbDoubles(0) ;
+    }
         
          /***************************** Init Partie *****************************/
        public String InitialiserPartie(){
@@ -255,7 +273,7 @@ public class Monopoly {
                 
                 while(jMax < 2 || jMax > 6){
                    // System.out.print("\nEntrez le nombre de joueur désirant jouer : ");
-                    this.getIHM().afficheNbJoueur(); 
+                    this.getIHM().afficheNbJoueur();
                     jMax = scb.nextInt();
                 }
                 
@@ -268,7 +286,7 @@ public class Monopoly {
                     /*System.out.println("Joueur " + nbJoueurs);
                     System.out.print("Saisissez votre nom : ");
                     String nom = sca.nextLine();*/
-                    String nom = this.getIHM().entrerNbJoueur(nbJoueurs) ; 
+                    String nom = this.getIHM().entrerNbJoueur(nbJoueurs) ;
                     Joueur j = new Joueur(nom, this);
                     _joueurs.add(j);
                 }
@@ -313,7 +331,7 @@ public class Monopoly {
                 this.getIHM().affichePremJ(nomPrem);
                 /*try{TimeUnit.SECONDS.sleep(5);}
                 catch(InterruptedException a){}*/
-                return nomPrem; 
+                return nomPrem;
        }
                 
                 
@@ -321,10 +339,10 @@ public class Monopoly {
         
         /***************************** Init Game Plateau *****************************/
         private void buildGamePlateau(String dataFilename)
-	{           
-		try{
+    {           
+        try{
                         //ArrayList<Integer> loyers = new ArrayList<>();
-			ArrayList<String[]> data = readDataFile(dataFilename, ",");
+            ArrayList<String[]> data = readDataFile(dataFilename, ",");
                         
                         for (CouleurPropriete c : CouleurPropriete.values()){
                             if (c.equals(CouleurPropriete.bleuFonce) || c.equals(CouleurPropriete.vert)){
@@ -347,11 +365,11 @@ public class Monopoly {
                         }
                             
                         
-			/* Creation des différents carreaux */
-			for(int i=0; i<data.size(); ++i){
-				String caseType = data.get(i)[0];
-				if(caseType.compareTo("P") == 0){
-					//System.out.println("Propriété :\t" + data.get(i)[2] + "\t@ case " + data.get(i)[1]);
+            /* Creation des différents carreaux */
+            for(int i=0; i<data.size(); ++i){
+                String caseType = data.get(i)[0];
+                if(caseType.compareTo("P") == 0){
+                    //System.out.println("Propriété :\t" + data.get(i)[2] + "\t@ case " + data.get(i)[1]);
                                         
                                         // Ajouts des differents loyers dans l'ArrayList (Les valeurs des loyers sont dans les case 5 à 10 du fichier.)
                                         ArrayList<Integer> loyers = new ArrayList<>();
@@ -364,54 +382,54 @@ public class Monopoly {
                                         /* Init du carreau               numCase                                     numCase                         nom                           prix         couleur   oyers */
                                         _carreaux.put(Integer.parseInt(data.get(i)[1]),new ProprieteAConstruire(Integer.parseInt(data.get(i)[1]),data.get(i)[2],Integer.parseInt(data.get(i)[4]),this.getGroupes().get(CouleurPropriete.valueOf(data.get(i)[3])),loyers,this));
                                 }
-				else if(caseType.compareTo("G") == 0){
-					//System.out.println("Gare :\t" + data.get(i)[2] + "\t@ case " + data.get(i)[1]);
+                else if(caseType.compareTo("G") == 0){
+                    //System.out.println("Gare :\t" + data.get(i)[2] + "\t@ case " + data.get(i)[1]);
                                         _carreaux.put(Integer.parseInt(data.get(i)[1]),new Gare(Integer.parseInt(data.get(i)[1]),data.get(i)[2],Integer.parseInt(data.get(i)[3]),this));       
-				}
-				else if(caseType.compareTo("C") == 0){
-					//System.out.println("Compagnie :\t" + data.get(i)[2] + "\t@ case " + data.get(i)[1]);
+                }
+                else if(caseType.compareTo("C") == 0){
+                    //System.out.println("Compagnie :\t" + data.get(i)[2] + "\t@ case " + data.get(i)[1]);
                                         _carreaux.put(Integer.parseInt(data.get(i)[1]),new Compagnie(Integer.parseInt(data.get(i)[1]),data.get(i)[2],Integer.parseInt(data.get(i)[3]),this));  
-				}
-				else if(caseType.compareTo("CT") == 0){
-					//System.out.println("Case Tirage :\t" + data.get(i)[2] + "\t@ case " + data.get(i)[1]);
+                }
+                else if(caseType.compareTo("CT") == 0){
+                    //System.out.println("Case Tirage :\t" + data.get(i)[2] + "\t@ case " + data.get(i)[1]);
                                         _carreaux.put(Integer.parseInt(data.get(i)[1]),new CarreauTirage(Integer.parseInt(data.get(i)[1]),data.get(i)[2],this));
-				}
-				else if(caseType.compareTo("CA") == 0){
-					//System.out.println("Case Argent :\t" + data.get(i)[2] + "\t@ case " + data.get(i)[1]);
+                }
+                else if(caseType.compareTo("CA") == 0){
+                    //System.out.println("Case Argent :\t" + data.get(i)[2] + "\t@ case " + data.get(i)[1]);
                                         _carreaux.put(Integer.parseInt(data.get(i)[1]),new CarreauArgent(Integer.parseInt(data.get(i)[1]),data.get(i)[2],Integer.parseInt(data.get(i)[3]),this));
-				}
-				else if(caseType.compareTo("CM") == 0){
-					//System.out.println("Case Mouvement :\t" + data.get(i)[2] + "\t@ case " + data.get(i)[1]);
+                }
+                else if(caseType.compareTo("CM") == 0){
+                    //System.out.println("Case Mouvement :\t" + data.get(i)[2] + "\t@ case " + data.get(i)[1]);
                                         _carreaux.put(Integer.parseInt(data.get(i)[1]),new CarreauMouvement(Integer.parseInt(data.get(i)[1]),data.get(i)[2],this));
-				}
+                }
                                 //else{
-					//System.err.println("[buildGamePleateau()] : Invalid Data type");}
-			}
-			
-		} 
-		catch(FileNotFoundException e){
-			//System.err.println("[buildGamePlateau()] : File is not found!");
+                    //System.err.println("[buildGamePleateau()] : Invalid Data type");}
+            }
+            
+        }
+        catch(FileNotFoundException e){
+            //System.err.println("[buildGamePlateau()] : File is not found!");
                         this.getIHM().errorNotFound();
-		}
-		catch(IOException e){
-			//System.err.println("[buildGamePlateau()] : Error while reading file!");
+        }
+        catch(IOException e){
+            //System.err.println("[buildGamePlateau()] : Error while reading file!");
                         this.getIHM().errorReading();
-		}
-	}
+        }
+    }
         
         private ArrayList<String[]> readDataFile(String filename, String token) throws FileNotFoundException, IOException
-	{
-		ArrayList<String[]> data = new ArrayList<String[]>();
-		
-		BufferedReader reader  = new BufferedReader(new FileReader(filename));
-		String line = null;
-		while((line = reader.readLine()) != null){
-			data.add(line.split(token));
-		}
-		reader.close();
-		
-		return data;
-	}
+    {
+        ArrayList<String[]> data = new ArrayList<String[]>();
+        
+        BufferedReader reader  = new BufferedReader(new FileReader(filename));
+        String line = null;
+        while((line = reader.readLine()) != null){
+            data.add(line.split(token));
+        }
+        reader.close();
+        
+        return data;
+    }
 
   /***************************** Init Game Cartes *****************************/
                 private void buildCarte(String dataFilename){           
@@ -471,7 +489,7 @@ public class Monopoly {
         reader.close();
         
         return dataCarte;
-    } 
+    }
                 
     public ArrayList<Carte> getCartes() {
                    
@@ -508,15 +526,15 @@ public class Monopoly {
 
         Carte c = this.genererCarte() ;
         
-        this.getIHM().afficheCarte(c);
+        //this.getIHM().afficheCarte(c);
         if(c.getType().equals("Libere")){
             j.addCarte( (CarteLibere) c);
         } else {
         c.executerCarte(j);
 
-        // remettre la carte au dérnier indice 
-        this.getCartes().remove(c) ; 
-        this.getCartes().add(c); 
+        // remettre la carte au dérnier indice
+        this.getCartes().remove(c) ;
+        this.getCartes().add(c);
         
         }  
       
@@ -581,7 +599,7 @@ public class Monopoly {
     
     public Groupe getGroupe (CouleurPropriete c ) {
     
-    return this.getGroupes().get(c) ; 
+    return this.getGroupes().get(c) ;
     }
     
     /**
@@ -609,7 +627,7 @@ public class Monopoly {
     private int getIndPrem(String nomPrem){
         int i = 0, k = 0;
         for(Joueur j : this.getJoueurs()){
-            if(nomPrem == j.getNomJoueur()){
+            if(nomPrem.equals(j.getNomJoueur())){
               k=i;  
             }
             i++;
@@ -617,3 +635,5 @@ public class Monopoly {
         return k;
     }    
 }
+
+

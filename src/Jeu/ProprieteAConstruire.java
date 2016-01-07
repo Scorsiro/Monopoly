@@ -115,8 +115,8 @@ public class ProprieteAConstruire extends CarreauPropriete {
             }
             
             else {   
-                
-                if (this.getMonopoly().getIHM().getAchatRep() == 1) {
+                int rep = this.getMonopoly().getIHM().getAchatRep();
+                if (rep == 1) {
                 
                     this.getNomCarreau() ; 
 
