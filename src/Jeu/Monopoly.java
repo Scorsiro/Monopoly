@@ -465,7 +465,11 @@ public class Monopoly {
      
     public void mettreEnFaillite(Joueur j){
                    
-        _joueurs.remove(j);
+            j.setFaillite(true);
+         
+            for (ProprieteAConstruire p : j.getProprietes()) {
+                p.setProprietaire(null);
+            }
     }
     
     

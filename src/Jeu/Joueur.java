@@ -9,6 +9,9 @@ public class Joueur {
 	private int nbDoubles = 0;
         private int des = 0;
 	private boolean prison = false;
+        private boolean faillite = false ; 
+
+   
 	private int nbTourPrison = 0;
         private Carreau positionCourante;
         private CouleurPropriete couleur;
@@ -34,6 +37,14 @@ public class Joueur {
     }
 
         
+    public boolean isFaillite() {
+        return faillite;
+    }
+
+    public void setFaillite(boolean faillite) {
+        this.faillite = faillite;
+    }
+    
     
     public String getNomJoueur() {
         return nomJoueur;
