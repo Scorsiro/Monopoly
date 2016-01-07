@@ -111,7 +111,7 @@ public class Monopoly {
         }
         
         public void jouerUnCoupTest(Joueur j) {
-                System.out.println("\n\n"+j.getNomJoueur()+" - Appuyer su une touche pour jouer : ");
+                System.out.println("\n\n"+j.getNomJoueur()+" - Appuyer sur une touche pour jouer : ");
                 Scanner sc = new Scanner(System.in);
                 sc.nextLine();
         this.lancerDésAvancerTest(j );
