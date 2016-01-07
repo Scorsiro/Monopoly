@@ -64,7 +64,7 @@ public abstract class CarreauPropriete extends Carreau {
        }
 
         // Les méthodes sont redéfinis dans : gare , compagnie , PropriétéAconstruire 
-	public abstract int calculMontant () ; 
+	public abstract int calculMontant (Joueur j) ; 
        
         public abstract int calculLoyer(Joueur j ) ; 
         

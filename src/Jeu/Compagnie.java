@@ -10,14 +10,13 @@ public class Compagnie extends CarreauPropriete {
 	
 
         // y a pas besoin de mettre le nombre de compagnie en pramètre 
-        public int calculMontant() {
+        public int calculMontant(Joueur j) {
             
-            Joueur proprietaire = this.getProprietaire() ; 
             int montant = 0 ; 
             //le propriètaire possède une carte compagnie ==> montant = 4 fois le montant des dés 
                 if (this.getProprietaire().getCompagnies().size() == 1 ) {
                 
-                    montant = 4 * this.getProprietaire().getDes(); 
+                    montant = 4 * j.getDes(); 
                    
                 }
                 
@@ -25,7 +24,7 @@ public class Compagnie extends CarreauPropriete {
                 
                 if ( this.getProprietaire().getCompagnies().size() == 2 ) {
         
-                    montant = 10* this.getProprietaire().getDes() ; 
+                    montant = 10* j.getDes() ; 
                 }
                 
             return montant  ; }
@@ -35,9 +34,9 @@ public class Compagnie extends CarreauPropriete {
         public int calculLoyer(Joueur j) {
        
             Joueur jp = this.getProprietaire() ; 
-            int nbc = jp.getCompagnies().size()-1 ; 
             
-            int montant = this.calculMontant() ; 
+            
+            int montant = this.calculMontant(j) ; 
             
             int Ar = j.calculArgentRest(montant) ; 
             

@@ -73,7 +73,7 @@ public class ProprieteAConstruire extends CarreauPropriete {
 
 
         @Override
-        public int calculMontant() {
+        public int calculMontant(Joueur j) {
 
           // return le prix à payer : les prix sont stockés dans une arraylist ( le prix dépend du nombre de maison sur la propriété)
           // Si y a un hotel sur la propriété on retourne le prix dans la position 5 dans l'arrayList 
@@ -97,7 +97,7 @@ public class ProprieteAConstruire extends CarreauPropriete {
         public int calculLoyer(Joueur j) {
             Joueur jp = this.getProprietaire() ; 
             //int nbM = this.getNbmaison() ; 
-            int montant = this.calculMontant() ; 
+            int montant = this.calculMontant(j) ; 
 
             int Ar = j.calculArgentRest(montant) ; 
 

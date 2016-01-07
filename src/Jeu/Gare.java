@@ -8,7 +8,7 @@ public class Gare extends CarreauPropriete {
         }
         
 
-        public int calculMontant () {
+        public int calculMontant (Joueur j) {
         
             Joueur jp = this.getProprietaire() ; 
             int nbgare = jp.getGares().size() ; 
@@ -27,7 +27,7 @@ public class Gare extends CarreauPropriete {
              
             Joueur jp = this.getProprietaire() ; 
 
-            int montant = this.calculMontant() ; 
+            int montant = this.calculMontant(j) ; 
 
             int ar = j.calculArgentRest(montant) ; 
 
