@@ -75,8 +75,21 @@ public class ProprieteAConstruire extends CarreauPropriete {
         @Override
         public int calculMontant() {
 
-          // return le prix à payer : les prix sont stockés dans une arraylist ( le prix dépend du nombre de maison sur la propriété 
-          return (this.getPrixLoyers().get(this.getNbmaison()) ); 
+          // return le prix à payer : les prix sont stockés dans une arraylist ( le prix dépend du nombre de maison sur la propriété)
+          // Si y a un hotel sur la propriété on retourne le prix dans la position 5 dans l'arrayList 
+            int montant = 0 ; 
+            
+            if(this.getHotel()){
+            
+                montant = this.getPrixLoyers().get(5) ; 
+            
+            }
+            else {
+            
+                montant = this.getPrixLoyers().get(this.getNbmaison()) ; 
+            }
+            
+          return montant ; 
 
         }
 
@@ -105,15 +118,18 @@ public class ProprieteAConstruire extends CarreauPropriete {
                 
                 if ("oui".equals(this.getMonopoly().getIHM().getAchatRep())) {
                 
-                this.getNomCarreau() ; 
+                    this.getNomCarreau() ; 
+
+                    j.payerLoyer(this.getPrix());
+                   
+                    this.setProprietaire(j);
+                    this.getProprietaire().addGroupe(this.getGroupePropriete());
+
+                }
                 
-                j.payerLoyer(this.getPrix());
-                
-                this.setProprietaire(j);
-                this.getProprietaire().addGroupe(this.getGroupePropriete());
-                
-                }else{
-                    //System.out.println("Coucou");
+                else if ("non".equals(this.getMonopoly().getIHM().getAchatRep())){
+                       
+                        
                 }
             }
        

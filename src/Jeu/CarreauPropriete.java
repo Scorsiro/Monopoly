@@ -64,6 +64,7 @@ public abstract class CarreauPropriete extends Carreau {
             if (jP == null ) {
                 //if(veutAcheter())
                 this.acheterPropriete(j);
+                
             }
             else if (jP != j) {
             
