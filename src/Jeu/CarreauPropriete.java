@@ -44,44 +44,39 @@ public abstract class CarreauPropriete extends Carreau {
             
             else {   
                 
-                if (this.getMonopoly().getIHM().getAchatRep().equals("oui")) {
-                
+                if (this.getMonopoly().getIHM().getAchatRep() == 1) {
                 this.getNomCarreau() ; 
-                
                 j.payerLoyer(this.getPrix());
                 
                 this.setProprietaire(j);
-                
-                }
-                
-               
+                } 
             }
-        
         }
         
+        @Override
        public void action(Joueur j) {
             
             Joueur jP = this.getProprietaire() ; 
-            int rep = 0;
-            rep = mono.getIHM().AfficheMenuPA();
-            
+            int rep = -1;
+                
             if (jP != j) {
                 int montant = this.calculLoyer(j) ; 
                 j.payerLoyer(montant);
                 jP.recevoirLoyer(montant);
             }
             
-            if(rep == 1){
-                if (jP == null ) {
-                    this.acheterPropriete(j);
-                }else{
-                    mono.getIHM().affichePasAcheter;
+            while(rep != 0){
+                rep = mono.getIHM().AfficheMenuPA();
+                if(rep == 1){
+                    if (jP == null ) {
+                        this.acheterPropriete(j);
+                    }else{
+                        mono.getIHM().affichePasAcheter();
+                    }
+                }else if( rep == 2){
+                    this.construire(j);
                 }
-            }else if( rep == 2){
-                this.construire(j);
-            }
-            
-            
+            }     
         }
 
         // Les méthodes sont redéfinis dans : gare , compagnie , PropriétéAconstruire 
