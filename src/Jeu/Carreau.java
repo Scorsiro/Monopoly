@@ -52,7 +52,7 @@ public abstract class Carreau {
                     
                         int nbM = p.getNbmaison(); 
                         
-                        if (nbM<5 && nbM == min) {
+                        if (nbM<5 && nbM == min && !p.getHotel()) {
                         
                             //Affichage de toutes les propriétés où le jour a la possibilité de construire 
                             

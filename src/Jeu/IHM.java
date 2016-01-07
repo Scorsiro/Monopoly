@@ -147,7 +147,7 @@ public class IHM {
     System.out.println("*   e                  *     120€     *      100€    *       ?      *     100€     *     200€     *     200€     *      60€     *              *      60€     *            T         *");
     System.out.println("*      Visite          *              *              *              *              *              *              *              *              *              *                      *");
     System.out.println("**************************************************************************************************************************************************************************************");
-    
+    //Joueur c = ((CarreauPropriete)mono.getCarreaux().get(2)).getProprietaire().;
     
     }
     
@@ -164,7 +164,18 @@ public class IHM {
             }
     }
     
-    
+    private void affP(int numCase, Monopoly mono){
+        boolean trouve = false;
+        for(int i = 1; i<mono.getJoueurs().size(); i++){
+           if(((CarreauPropriete)mono.getCarreaux().get(numCase)).getProprietaire() == mono.getJoueurs().get(i)){
+               System.out.print(i);
+               trouve = true;
+           } 
+        }
+        if(!trouve){
+           System.out.print(" "); 
+        }
+    }
     
     public void afficheArriveeCase(int d1, int d2, Carreau anCase, Carreau ncCase, Joueur j){
         System.out.println("\n\nTour du joueur " + j.getNomJoueur());
@@ -301,7 +312,7 @@ public class IHM {
     
     public void affichePasAcheter () {
     
-        System.out.println("Ok,vous ne voulez pas acheter cette propriété! On passe au tour suivant ");
+        System.out.println("Vous ne pouvez pas acheter cette propriété!");
     
     }
     
