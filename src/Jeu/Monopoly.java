@@ -7,6 +7,7 @@ import java.io.IOException;
 import java.util.ArrayList;
 import java.util.Collections;
 import java.util.HashMap;
+import java.util.Iterator;
 import java.util.Random;
 import java.util.Scanner;
 import java.util.concurrent.TimeUnit;
@@ -87,10 +88,17 @@ public class Monopoly {
                 
                 while (j.getNbDoubles() != 0  ) {
                     this.lancerDésAvancer(j);
-                    System.out.println("COUCOUC");
+                
                 }
         }
                 private void lancerDésAvancer(Joueur j) {
+                    
+            if(j.isPrison()){
+                if(!j.getCartes().isEmpty()){
+                    j.getCartes().get(0).executerCarte(j);
+                    
+                }
+            }        
             
             if(j.getNbDoubles() < 3) {
                 int d1 = this.genererChiffreDés() ; 
@@ -99,7 +107,7 @@ public class Monopoly {
                 j.setDes(d1+d2);
                 
                 if (d1 == d2 ) {
-                    j.setNbDoubles(j.getNbDoubles() + d1 );
+                    j.setNbDoubles(j.getNbDoubles() + 1 );
                 }
                 else {j.setNbDoubles(0);}
                 
@@ -324,25 +332,38 @@ public class Monopoly {
         try{
                     ArrayList<String[]> dataCarte = readDataFileb(dataFilename, ",");
                         
-                    for(int i=1; i<dataCarte.size(); ++i){
+                    for(int i=0; i<dataCarte.size(); ++i){
                 String caseType = dataCarte.get(i)[0];
                                 
-            if(caseType.compareTo("Ca") == 0){
+            if(caseType.compareTo("Car") == 0){
 
-                        /* Init de la carte                    nom                type                           gain/perte       */
-                        _cartes.add(new CarteArgent(dataCarte.get(i)[3],dataCarte.get(i)[1],Integer.parseInt(dataCarte.get(i)[2])));
+                        /* Init de carte argent relatif         nom                type                           gain/perte       */
+                        _cartes.add(new CarteArgentRelativeb(dataCarte.get(i)[3],dataCarte.get(i)[1],Integer.parseInt(dataCarte.get(i)[2])));
                         
-                        } else if(caseType.compareTo("Cm") == 0){
-                         /* Init de la carte                    nom                      type                           deplacement                        numcase*/
-                        _cartes.add(new CarteMouvement(dataCarte.get(i)[4],dataCarte.get(i)[1],Integer.parseInt(dataCarte.get(i)[2]),Integer.parseInt(dataCarte.get(i)[3])));       
+                        } else if(caseType.compareTo("Caf") == 0){
+                            
+                        /* Init de carte argent fixe            nom                type                           gain/perte       */
+                        _cartes.add(new CarteArgentFixe(dataCarte.get(i)[3],dataCarte.get(i)[1],Integer.parseInt(dataCarte.get(i)[2])));
+                        
+                        } else if(caseType.compareTo("Cmf") == 0){
+                            
+                         /* Init de la carte mouvement fixe         nom                      type                           deplacement                        numcase*/
+                        _cartes.add(new CarteMouvementFixe(dataCarte.get(i)[4],dataCarte.get(i)[1],Integer.parseInt(dataCarte.get(i)[2]),Integer.parseInt(dataCarte.get(i)[3])));       
             
+                        } else if(caseType.compareTo("Cmr") == 0){
+                            
+                         /* Init de la carte mouvement relative           nom                      type                           deplacement                        numcase*/
+                        _cartes.add(new CarteMouvementRelative(dataCarte.get(i)[4],dataCarte.get(i)[1],Integer.parseInt(dataCarte.get(i)[2]),Integer.parseInt(dataCarte.get(i)[3])));                   
+                        
                         } else if(caseType.compareTo("Cl") == 0){
-                         /* Init de la carte                nom                type         */
+                            
+                         /* Init de la carte liberation        nom                type         */
                         _cartes.add(new CarteLibere(dataCarte.get(i)[2],dataCarte.get(i)[1]));
                         
                         }
             
                         }
+
                         
                     }  catch(FileNotFoundException e){
             System.err.println("[buildCarte()] : File is not found!");
@@ -390,17 +411,23 @@ public class Monopoly {
     }
     
     
-    public void tirerUneCarte(){
+    public void tirerUneCarte(Joueur j ){
       
       
+
         Carte c = this.genererCarte() ;
         
         this.getIHM().afficheCarte(c);
-        c.executerCarte();
+        if(c.getType().equals("Libere")){
+            j.addCarte( (CarteLibere) c);
+        } else {
+        c.executerCarte(j);
+
         // remettre la carte au dérnier indice 
         this.getCartes().remove(c) ; 
         this.getCartes().add(c); 
-      
+        
+        }  
       
     }
     
