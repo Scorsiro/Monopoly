@@ -34,10 +34,4 @@ public abstract class CarteArgent extends Carte {
     public void setMontant(int montant) {
         this.montant = montant;
     }
-    
-    public void executerCarte () {
-        
-        
-    
-    }
 }

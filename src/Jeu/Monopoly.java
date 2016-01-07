@@ -39,7 +39,7 @@ public class Monopoly {
             while(choix != 2){
                 choix = this.getIHM().affichageMenu();
                 if(choix == 1){
-                    nomPremJ = this.InitialiserPartie();
+                    nomPremJ = this.initialiserPartie();
                     this.lancementPartie(nomPremJ);
                 }
                 if(choix == 3){
@@ -50,7 +50,7 @@ public class Monopoly {
         }
         
         
-        private Joueur GagnantPartie(){
+        private Joueur gagnantPartie(){
             
             Joueur gagnant = null;
             
@@ -68,7 +68,7 @@ public class Monopoly {
         
         private void lancementPartie(String nomPremJ){
             int prem;
-            while(GagnantPartie() == null){
+            while(gagnantPartie() == null){
                 /* Donne l'indice du premier joueur devant commencer à jouer. */
                 prem = getIndPrem(nomPremJ);
                 /* boucle commençant par le premier qui a été tiré au sort. */
@@ -94,7 +94,7 @@ public class Monopoly {
                 }
                 
             }
-            this.getIHM().afficheGagnant(GagnantPartie());
+            this.getIHM().afficheGagnant(gagnantPartie());
         }
         
         
@@ -258,7 +258,7 @@ public class Monopoly {
     }
         
          /***************************** Init Partie *****************************/
-       public String InitialiserPartie(){
+       public String initialiserPartie(){
                 Scanner sca = new Scanner(System.in);
                 Scanner scb = new Scanner(System.in);
                 boolean fin = false;
