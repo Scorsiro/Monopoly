@@ -120,7 +120,8 @@ public class Monopoly {
                 
                 while (j.getNbDoubles() != 0 && !j.isPrison() ) {
                     this.lancerDésAvancerTest(j);
-                
+                    this.getIHM().affichagePlateau(this);
+                    j.getPositionCourante().action(j);
                 }
         }
                 private void lancerDésAvancer(Joueur j) {
