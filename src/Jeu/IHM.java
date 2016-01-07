@@ -1,5 +1,6 @@
 package Jeu;
 
+import java.io.FileNotFoundException;
 import java.util.ArrayList;
 import java.util.InputMismatchException;
 import java.util.Scanner;
@@ -265,5 +266,54 @@ public class IHM {
     
         System.out.println ("Vous avez tirer la carte " + c.getNom() + c.getType()) ; 
     }
+    
+    public void affichePasAcheter () {
+    
+        System.out.println("Ok,vous ne voulez pas acheter cette propriété! On passe au tour suivant ");
+    
+    }
+    
+    public void afficheNbJoueur () {
+            
+        System.out.print("\nEntrez le nombre de joueur désirant jouer : ");
+            
+    }
+    
+    public String entrerNbJoueur (int nbJoueurs) {
+    
+        System.out.println("Joueur " + nbJoueurs);
+        System.out.print("Saisissez votre nom : ");
+        Scanner sc = new Scanner (System.in) ; 
+        String nom = sc.next() ; 
+        
+        return nom;
+    }
+    
+    public void affichePremJ (String nomPrem ) {
+    
+        System.out.println("\nLe joueurs qui commence est " + nomPrem +".\n\n");
+    }
+    
+    public void afficheDes (int j , int des ) {
+    
+     System.out.println("Joueur "+ j + " fait un " + des + ".");
+    
+    }
+    
+    public void errorNotFound () {
+    
+        System.err.println("[buildGamePlateau()] : File is not found!");
+    }
+    
+    public void errorReading () {
+    
+        System.err.println("[buildGamePlateau()] : Error while reading file!");
+    }
+    
+   /* public void afficheMauvaiseEntree () {
+    
+        System.out.println("Veuillez entrer 'oui'ou 'non': \t");
+    
+    }*/
     
 }

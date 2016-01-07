@@ -128,9 +128,16 @@ public class ProprieteAConstruire extends CarreauPropriete {
                 }
                 
                 else if ("non".equals(this.getMonopoly().getIHM().getAchatRep())){
+                    
+                    this.getMonopoly().getIHM().affichePasAcheter();
                        
-                        
                 }
+                
+                /*else {
+                
+                    this.getMonopoly().getIHM().afficheMauvaiseEntree();
+                
+                }*/
             }
        
         }

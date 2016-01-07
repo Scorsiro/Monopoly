@@ -234,7 +234,8 @@ public class Monopoly {
                 int jMax = 0;
                 
                 while(jMax < 2 || jMax > 6){
-                    System.out.print("\nEntrez le nombre de joueur désirant jouer : ");
+                   // System.out.print("\nEntrez le nombre de joueur désirant jouer : ");
+                    this.getIHM().afficheNbJoueur(); 
                     jMax = scb.nextInt();
                 }
                 
@@ -244,9 +245,10 @@ public class Monopoly {
                 
                 while (nbJoueurs < jMax) {
                     nbJoueurs++;
-                    System.out.println("Joueur " + nbJoueurs);
+                    /*System.out.println("Joueur " + nbJoueurs);
                     System.out.print("Saisissez votre nom : ");
-                    String nom = sca.nextLine();
+                    String nom = sca.nextLine();*/
+                    String nom = this.getIHM().entrerNbJoueur(nbJoueurs) ; 
                     Joueur j = new Joueur(nom, this);
                     _joueurs.add(j);
                 }
@@ -254,7 +256,8 @@ public class Monopoly {
                     lanceDe.add(0,0);
                     for(int j = 1; j<=nbJoueurs; j++){
                         lanceDe.add(j, genererChiffreDés()); //génère les chiffres dans l'arraylist avec les joueurs
-                        System.out.println("Joueur "+ j + " fait un " + lanceDe.get(j) + ".");
+                        //System.out.println("Joueur "+ j + " fait un " + lanceDe.get(j) + ".");
+                        this.getIHM().afficheDes( j , lanceDe.get(j));
                     }
                     
                     int max = Collections.max(lanceDe); // 'max' est le chiffre max de l'arraylist
@@ -286,7 +289,8 @@ public class Monopoly {
                         fin = true;
                         
                     }
-                System.out.println("\nLe joueurs qui commence est " + nomPrem +".\n\n");
+                //System.out.println("\nLe joueurs qui commence est " + nomPrem +".\n\n");
+                this.getIHM().affichePremJ(nomPrem);
                 /*try{TimeUnit.SECONDS.sleep(5);}
                 catch(InterruptedException a){}*/
                 return nomPrem; 
@@ -366,10 +370,12 @@ public class Monopoly {
 			
 		} 
 		catch(FileNotFoundException e){
-			System.err.println("[buildGamePlateau()] : File is not found!");
+			//System.err.println("[buildGamePlateau()] : File is not found!");
+                        this.getIHM().errorNotFound();
 		}
 		catch(IOException e){
-			System.err.println("[buildGamePlateau()] : Error while reading file!");
+			//System.err.println("[buildGamePlateau()] : Error while reading file!");
+                        this.getIHM().errorReading();
 		}
 	}
         
