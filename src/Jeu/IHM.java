@@ -343,4 +343,28 @@ public class IHM {
     
     }*/
     
+   public int afficheCadreChoix(){
+       
+        Scanner sc = new Scanner (System.in) ;
+        int rep = 0;
+        
+        while(rep!=3){
+      
+        System.out.println("========================================================") ;
+        System.out.println("= 1 - Acheter | 2 - Construire | 3 - Passez au suivant =") ;
+        System.out.println("========================================================") ;
+        System.out.println("=             Quel est votre choix ?                   =") ;
+        System.out.println("========================================================") ;
+        
+        rep = sc.nextInt() ;   
+        
+        }
+        
+        return rep;
+       
+       
+       
+       
+       
+   }
 }
