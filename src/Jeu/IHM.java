@@ -171,13 +171,26 @@ public class IHM {
         System.out.println("Vous êtes en prison.");
     }
     
-    public String getAchatRep () {
+    public void afficheGagnant(Joueur j){
+        System.out.println("*****************");
+          System.out.print("*  *         *  *");                       
+          System.out.print("*        *      *");                       
+          System.out.print("*     *         *         LE GAGNANT EST" + j.getNomJoueur() + '.');
+          System.out.print("*    0     *    *");                        
+          System.out.print("*  --#--        *");                        
+          System.out.print("*   /\\          *");                        
+          System.out.print("*  /  \\         *");                        
+        System.out.println("*****************");   
+    }
+    
+    public int getAchatRep () {
         Scanner scc = new Scanner (System.in) ; 
         System.out.print ("Voulez vous acheter la propriétée ? : \t") ; 
-        System.out.println ("Entrer 'oui'/ 'non' : ") ;
-        String rep = null;
+        System.out.println ("Entrer '1. oui' | '2. non' : ") ;
+        int rep = 0;
       
-        rep = scc.next() ; 
+        
+        rep = scc.nextInt(); 
         
             /*while("oui".equals(rep) || "non".equals(rep)   ){
               

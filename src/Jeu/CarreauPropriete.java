@@ -5,12 +5,14 @@ public abstract class CarreauPropriete extends Carreau {
 	private int loyerBase;
         private Joueur j;
         private int prix;
+        Monopoly mono;
         
         
 
         public CarreauPropriete(int numero, String nomCarreau, int prix, Monopoly mono) {
                 super(numero, nomCarreau,mono);
                 this.prix = prix;
+                this.mono = mono;
         }
 
 
@@ -60,21 +62,26 @@ public abstract class CarreauPropriete extends Carreau {
        public void action(Joueur j) {
             
             Joueur jP = this.getProprietaire() ; 
+            int rep = 0;
+            rep = mono.getIHM().AfficheMenuPA();
             
-            if (jP == null ) {
-                //if(veutAcheter())
-                this.acheterPropriete(j);
-                
-            }
-            else if (jP != j) {
-            
+            if (jP != j) {
                 int montant = this.calculLoyer(j) ; 
-
                 j.payerLoyer(montant);
                 jP.recevoirLoyer(montant);
             }
             
-            this.construire(j);
+            if(rep == 1){
+                if (jP == null ) {
+                    this.acheterPropriete(j);
+                }else{
+                    mono.getIHM().affichePasAcheter;
+                }
+            }else if( rep == 2){
+                this.construire(j);
+            }
+            
+            
         }
 
         // Les méthodes sont redéfinis dans : gare , compagnie , PropriétéAconstruire 

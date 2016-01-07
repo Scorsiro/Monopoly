@@ -70,7 +70,7 @@ public class Monopoly {
         
         private void lancementPartie(String nomPremJ){
             int prem;
-            while(this.getJoueurs().size() != 2){
+            while(GagnantPartie() == null){
                 /* Donne l'indice du premier joueur devant commencer à jouer. */
                 prem = getIndPrem(nomPremJ);
                 /* boucle commençant par le premier qui a été tiré au sort. */ 
@@ -96,6 +96,7 @@ public class Monopoly {
                 }
                 
             }
+            this.getIHM().afficheGagnant(GagnantPartie());
         }
         
         
