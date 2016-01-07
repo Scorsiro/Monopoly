@@ -10,7 +10,7 @@ package Jeu;
  *
  * @author adlit
  */
-public class CarteArgent extends Carte {
+public abstract class CarteArgent extends Carte {
     
     
     private int montant ;

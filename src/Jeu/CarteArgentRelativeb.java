@@ -42,13 +42,49 @@ public class CarteArgentRelativeb extends CarteArgent {
     // tous les joueur doivent donné 10e au joueur j 
     
     public int calculMontantAnniv (Joueur j ) {
-        int montant = 0 ; 
+        //int montant = 0 ; 
         
-        for(Joueur joueur : this.getMonopoly().getJoueurs()) {
+        /*for(Joueur joueur : this.getMonopoly().getJoueurs()) {
             if(joueur != j){
             montant = montant + 10 ; 
             }
-        }
-        return montant ; 
+            
+        }*/
+        
+        
+        
+        return (j.getMono().getJoueurs().size()-1) * 10 ; 
    }
+
+    
+    public void executerCarte (Joueur j) {
+            
+      
+        // 0 correspond aux cartes répartions
+        
+        if(this.getMontant() == 0 ){
+            
+            int montant = this.calculMontantRepa(j);
+            
+            if(j.peutPayer(montant)){
+                int aR = j.calculArgentRest(montant);
+                j.setCash(aR);
+            } else {
+                j.getMono().mettreEnFaillite(j);
+            }
+            
+            // 1 correspond a la carte anniversaire
+        } else if (this.getMontant() == 1) {
+             
+            int montant = this.calculMontantAnniv(j);
+            j.recevoirLoyer(montant);
+            
+            for(int i = 1;i < this.getMonopoly().getJoueurs().size(); i++){
+                this.getMonopoly().getJoueurs().get(i).payerLoyer(10);
+            }
+        }
+    
+ 
+    }
+
 }

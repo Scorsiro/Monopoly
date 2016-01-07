@@ -19,26 +19,34 @@ public class CarteLibere extends Carte {
     }
     
     
-    public void executerCarte (Joueur j) {
-    
-            boolean fin = false;
+  
+
+    @Override
+    public void executerCarte(Joueur j ) {
+              boolean fin = false;
             
-            j.possedeCarteLiberation();
-            j.addCarte(this);
             
-            while(fin != true){
+            //j.addCarte(this);
+
                 if(j.isPrison()){
-                    if(j.getMono().getIHM().getLibRep() == "oui") {
+                    if(j.getMono().getIHM().getLibRep().equals("oui")) {
                         j.setPrison(false);
-                    } else {
-                        fin = true;
-                    }
-                } else {
-                    fin = true;
+                        if(j.getCartes().size() == 1){
+                            j.getCartes().remove(1);
+                        } else {
+                            j.getCartes().remove(2);    
+                        }
                 }
-            }
     
+                }
     }
+    
+    /*public void addCarte(Joueur j) {
+        j.addCarte(this);
+    }*/
+    
+    
+    
     
 }
 

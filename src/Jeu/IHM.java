@@ -195,7 +195,7 @@ public class IHM {
       
                 String rep = sc.nextLine() ;
         
-                while(rep!="oui"|| rep!= "non"   ){
+                while(rep.equals("oui")|| rep.equals("non")  ){
               
                 System.out.println ("Veuillez entrer 'oui'ou 'non'") ;
                 rep = sc.nextLine() ;

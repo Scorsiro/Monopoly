@@ -16,4 +16,24 @@ public class CarteMouvementFixe extends CarteMouvement  {
         super(nom, type, deplacement, numCase);
     }
     
+   
+
+    @Override
+    public void executerCarte(Joueur j ) {
+          Carreau c;
+        
+        if(this.getDeplacement() != 0){
+            int deplace = j.getPositionCourante().getNumero() + this.getDeplacement();
+            c = j.getMono().calculPositionNum(deplace);
+            j.setPositionCourante(c);
+            
+        } else if (this.getDeplacement() == 0 && this.getNumCase() != 11){
+            c = j.getMono().calculPositionNum(this.getNumCase());
+            j.setPositionCourante(c);
+            
+                if(passageDepart(j)){
+                    j.nouveauTourCash();
+                }
+        }
+    }
 }

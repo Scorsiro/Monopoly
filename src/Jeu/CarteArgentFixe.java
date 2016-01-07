@@ -25,6 +25,19 @@ public class CarteArgentFixe extends CarteArgent {
        
        
    }
+   
+   
+   public void executerCarte (Joueur j) {
+        
+        int montant = this.calculMontant();
+        j.getCash();
+        if(j.peutPayer(montant)){
+            int aR = j.calculArgentRest(montant);
+            j.setCash(aR);
+        } else {
+            j.getMono().mettreEnFaillite(j);
+        }
+    }
     
     
 }

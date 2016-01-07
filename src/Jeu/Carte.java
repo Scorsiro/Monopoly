@@ -57,17 +57,7 @@ public abstract class Carte {
         this.type = type;
     }
     
-    public void executerCarte () {
-        
-        
-    
-    }
-    
-    /**
-     * @return the type
-     */
-    /* ??? public Joueur getJoueur() {
-        return j;
-    }*/
+    public abstract void executerCarte (Joueur j) ; 
+
     
 }

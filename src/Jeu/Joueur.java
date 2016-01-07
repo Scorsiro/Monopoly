@@ -15,7 +15,7 @@ public class Joueur {
         private HashSet<Gare> gares;
         private HashSet <Compagnie> compagnies;
         private HashSet <ProprieteAConstruire> proprietes ; 
-        private HashSet <CarteLibere> cartes ; 
+        private ArrayList <CarteLibere> cartes ; 
         private ArrayList <Groupe> groupes ; 
         private Monopoly mono;
 
@@ -26,7 +26,7 @@ public class Joueur {
         gares = new HashSet();
         compagnies = new HashSet();
         proprietes = new HashSet();
-        cartes = new HashSet();
+        cartes = new ArrayList();
         groupes = new ArrayList();
         this.nomJoueur = nomJoueur;
         this.mono=mono;
@@ -197,14 +197,14 @@ public class Joueur {
     /**
      * @return the cartes
      */
-    public HashSet <CarteLibere> getCartes() {
+    public ArrayList <CarteLibere> getCartes() {
         return cartes;
     }
 
     /**
      * @param cartes the cartes to set
      */
-    public void setCartes(HashSet <CarteLibere> cartes) {
+    public void setCartes(ArrayList <CarteLibere> cartes) {
         this.cartes = cartes;
     }
 

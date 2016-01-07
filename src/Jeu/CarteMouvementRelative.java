@@ -16,4 +16,19 @@ public class CarteMouvementRelative extends CarteMouvement {
         super(nom, type, deplacement, numCase);
     }
     
+    
+    
+
+    @Override
+    public void executerCarte(Joueur j ) {
+          Carreau c;
+        
+        if(this.getNumCase() == 11){
+            j.getMono().mettreEnPrison(j);        
+        }
+
+    }
+    
+    
+    
 }

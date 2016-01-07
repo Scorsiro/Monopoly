@@ -11,7 +11,7 @@ package Jeu;
  * @author adlit
  */
 
-public class CarteMouvement extends Carte{
+public abstract class CarteMouvement extends Carte{
     
     private int deplacement;
     private int numCase;
@@ -39,25 +39,7 @@ public class CarteMouvement extends Carte{
         this.numCase = numCase;
     }
     
-    public void executerCarte (Joueur j) {
-        
-        Carreau c;
-        
-        if(this.getDeplacement() != 0){
-            int deplace = j.getPositionCourante().getNumero() + this.getDeplacement();
-            c = j.getMono().calculPositionNum(deplace);
-            j.setPositionCourante(c);
-            
-        } else {
-            c = j.getMono().calculPositionNum(this.getNumCase());
-            j.setPositionCourante(c);
-            
-                if(passageDepart(j)){
-                    j.nouveauTourCash();
-                }
-        }
-
-    }
+    
     
     public boolean passageDepart (Joueur j) {
         
@@ -67,6 +49,4 @@ public class CarteMouvement extends Carte{
         return (num > this.getNumCase());
         
     }
-
-
 }
