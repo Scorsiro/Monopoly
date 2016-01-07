@@ -32,7 +32,6 @@ public class Compagnie extends CarreauPropriete {
        
 
          @Override
-   
         public int calculLoyer(Joueur j) {
        
             Joueur jp = this.getProprietaire() ; 
@@ -54,6 +53,7 @@ public class Compagnie extends CarreauPropriete {
 
 
 
+        @Override
           public  void acheterPropriete(Joueur j ) {
         
             if (!j.peutPayer(this.getPrix())) {
@@ -79,17 +79,7 @@ public class Compagnie extends CarreauPropriete {
                     
                     this.getMonopoly().getIHM().affichePasAcheter();
                        
-                }
-                
-                
+                } 
             }
-       
         }
-        
-        
-             
-	public void Construire() {
-
-	}     
-
-}
+    }

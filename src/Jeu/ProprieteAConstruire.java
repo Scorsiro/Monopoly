@@ -106,6 +106,7 @@ public class ProprieteAConstruire extends CarreauPropriete {
         return montant ; }
         
         
+        @Override
         public  void acheterPropriete(Joueur j ) {
         
             if (!j.peutPayer(this.getPrix())) {
@@ -139,13 +140,4 @@ public class ProprieteAConstruire extends CarreauPropriete {
             }
        
         }
-        
-        
-        
-        public void construire() {
-	
-        }
-
-     
-
     }

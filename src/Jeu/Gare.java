@@ -23,7 +23,6 @@ public class Gare extends CarreauPropriete {
 
   
         @Override
-
         public int calculLoyer(Joueur j) {
              
             Joueur jp = this.getProprietaire() ; 
@@ -40,6 +39,7 @@ public class Gare extends CarreauPropriete {
        
       
 
+        @Override
           public  void acheterPropriete(Joueur j ) {
         
             if (!j.peutPayer(this.getPrix())) {
@@ -71,7 +71,4 @@ public class Gare extends CarreauPropriete {
             }
        
         }
-
-        public void construire() {
-	}
 }
