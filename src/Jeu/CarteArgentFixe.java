@@ -28,6 +28,7 @@ public class CarteArgentFixe extends CarteArgent {
    
    
     
+    @Override
     public void executerCarte (Joueur j) {
         
         int montant = this.calculMontant();
