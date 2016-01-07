@@ -2,7 +2,7 @@ package Jeu;
 
 public abstract class CarreauPropriete extends Carreau {
     
-	private int loyerBase;
+
         private Joueur j;
         private int prix;
         Monopoly mono;
