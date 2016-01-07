@@ -87,7 +87,7 @@ public class Monopoly {
                 
                 while (j.getNbDoubles() != 0  ) {
                     this.lancerDésAvancer(j);
-                
+                    System.out.println("COUCOUC");
                 }
         }
                 private void lancerDésAvancer(Joueur j) {
