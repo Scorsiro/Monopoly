@@ -57,7 +57,7 @@ public class Monopoly {
                 /* boucle commençant par le premier qui a été tiré au sort. */ 
                 for(int i = prem; i < (this.getJoueurs().size()); i++ ){
                     Joueur jTemp = this.getJoueurs().get(i);
-                    this.jouerUnCoup(jTemp);
+                    this.jouerUnCoupTest(jTemp);
                     
                     
                     /* Facultatif à mettre dans l'IHM
@@ -67,7 +67,7 @@ public class Monopoly {
                 System.out.println("\n");
                 for(int i = 1; i < prem; i++){
                     Joueur jTemp = this.getJoueurs().get(i);
-                    this.jouerUnCoup(jTemp);
+                    this.jouerUnCoupTest(jTemp);
                     
                     
                     
@@ -88,6 +88,20 @@ public class Monopoly {
                 
                 while (j.getNbDoubles() != 0  ) {
                     this.lancerDésAvancer(j);
+                
+                }
+        }
+        
+        public void jouerUnCoupTest(Joueur j) {
+                System.out.println("\n\n"+j.getNomJoueur()+" - Appuyer su une touche pour jouer : ");
+                Scanner sc = new Scanner(System.in);
+                sc.nextLine();
+		this.lancerDésAvancerTest(j );
+                this.getIHM().affichagePlateau(this);
+                j.getPositionCourante().action(j);
+                
+                while (j.getNbDoubles() != 0  ) {
+                    this.lancerDésAvancerTest(j);
                 
                 }
         }
@@ -130,7 +144,51 @@ public class Monopoly {
             }  
             
         } 
-          
+        
+                
+                private void lancerDésAvancerTest(Joueur j) {
+                    
+            if(j.isPrison()){
+                if(!j.getCartes().isEmpty()){
+                    j.getCartes().get(0).executerCarte(j);
+                    
+                }
+            }        
+            
+                Scanner sc = new Scanner(System.in);
+            if(j.getNbDoubles() < 3) {
+                System.out.println("Saisir les chiffres des dés :");
+                System.out.print("d1 : ");
+                int d1 = sc.nextInt(); 
+                System.out.print("d2 = ");
+                int d2 = sc.nextInt();
+                int inter = 0;
+                j.setDes(d1+d2);
+                
+                if (d1 == d2 ) {
+                    j.setNbDoubles(j.getNbDoubles() + 1 );
+                }
+                else {j.setNbDoubles(0);}
+                
+                Carreau c = j.getPositionCourante() ;
+                int num = c.getNumero(); 
+                
+                /*Si la nouvelle position sort du plateau, on fait la différence, et on l'ajoute à la case départ + argent*/
+                if((num + d1 + d2) > 40){
+                    inter =  (num + d1 +d2) - 40;
+                    j.nouveauTourCash();
+                } else {
+                    inter = num + d1+d2;
+                } 
+                Carreau nc = this.calculPositionNum(inter) ; 
+                j.setPositionCourante(nc);   
+                this.getIHM().afficheArriveeCase(d1, d2, c, nc, j);
+                }
+            else {
+                this.mettreEnPrison(j); 
+            }  
+            
+        }
         
          /*public void jouerPlusieursCoups(){
             for(Joueur j : _joueurs){
