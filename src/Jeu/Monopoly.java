@@ -299,7 +299,7 @@ public class Monopoly {
         private void buildGamePlateau(String dataFilename)
 	{           
 		try{
-                        ArrayList<Integer> loyers = new ArrayList<>();
+                        //ArrayList<Integer> loyers = new ArrayList<>();
 			ArrayList<String[]> data = readDataFile(dataFilename, ",");
                         
                         for (CouleurPropriete c : CouleurPropriete.values()){
@@ -330,7 +330,9 @@ public class Monopoly {
 					//System.out.println("Propriété :\t" + data.get(i)[2] + "\t@ case " + data.get(i)[1]);
                                         
                                         // Ajouts des differents loyers dans l'ArrayList (Les valeurs des loyers sont dans les case 5 à 10 du fichier.)
+                                        ArrayList<Integer> loyers = new ArrayList<>();
                                         for(int j = 5; j<=10; j++){
+                                            
                                             loyers.add(j-5,Integer.parseInt(data.get(i)[j]));
                                         }
                                         
