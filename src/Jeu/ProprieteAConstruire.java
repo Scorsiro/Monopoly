@@ -116,28 +116,26 @@ public class ProprieteAConstruire extends CarreauPropriete {
             
             else {   
                 
-                if ("oui".equals(this.getMonopoly().getIHM().getAchatRep())) {
+                if (this.getMonopoly().getIHM().getAchatRep() == 1) {
                 
                     this.getNomCarreau() ; 
 
                     j.payerLoyer(this.getPrix());
                    
                     this.setProprietaire(j);
+                    j.getProprietes().add(this); 
                     this.getProprietaire().addGroupe(this.getGroupePropriete());
+                    
 
                 }
                 
-                else if ("non".equals(this.getMonopoly().getIHM().getAchatRep())){
+                else {
                     
                     this.getMonopoly().getIHM().affichePasAcheter();
                        
                 }
                 
-                /*else {
                 
-                    this.getMonopoly().getIHM().afficheMauvaiseEntree();
-                
-                }*/
             }
        
         }

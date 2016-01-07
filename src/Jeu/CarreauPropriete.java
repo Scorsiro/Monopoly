@@ -34,30 +34,15 @@ public abstract class CarreauPropriete extends Carreau {
                 this.prix = prix;
         }
         
-	public  void acheterPropriete(Joueur j ) {
+	
+ 
         
-            if (!j.peutPayer(this.getPrix())) {
-                
-                this.getMonopoly().getIHM().affichePeutPasPayer(); 
-                
-            }
-            
-            else {   
-                
-                if (this.getMonopoly().getIHM().getAchatRep() == 1) {
-                this.getNomCarreau() ; 
-                j.payerLoyer(this.getPrix());
-                
-                this.setProprietaire(j);
-                } 
-            }
-        }
         
         @Override
        public void action(Joueur j) {
             
             Joueur jP = this.getProprietaire() ; 
-            int rep = -1;
+            int rep = 0;
                 
             if (jP != j) {
                 int montant = this.calculLoyer(j) ; 
@@ -65,7 +50,7 @@ public abstract class CarreauPropriete extends Carreau {
                 jP.recevoirLoyer(montant);
             }
             
-            while(rep != 0){
+            while(rep != 3){
                 rep = mono.getIHM().AfficheMenuPA();
                 if(rep == 1){
                     if (jP == null ) {
@@ -84,7 +69,7 @@ public abstract class CarreauPropriete extends Carreau {
        
         public abstract int calculLoyer(Joueur j ) ; 
         
-  
+        public abstract void acheterPropriete(Joueur j ) ;
         
        
         

@@ -53,6 +53,38 @@ public class Compagnie extends CarreauPropriete {
     
 
 
+
+          public  void acheterPropriete(Joueur j ) {
+        
+            if (!j.peutPayer(this.getPrix())) {
+                
+                this.getMonopoly().getIHM().affichePeutPasPayer(); 
+                
+            }
+            
+            else {   
+                
+                if (1 ==this.getMonopoly().getIHM().getAchatRep()) {
+                
+                    this.getNomCarreau() ; 
+
+                    j.payerLoyer(this.getPrix());
+                   
+                    this.setProprietaire(j);
+                    j.getCompagnies().add(this); 
+
+                }
+                
+                else {
+                    
+                    this.getMonopoly().getIHM().affichePasAcheter();
+                       
+                }
+                
+                
+            }
+       
+        }
         
         
              
