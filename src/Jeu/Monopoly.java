@@ -18,13 +18,15 @@ public class Monopoly {
 	private final int _nbHotels = 12;
         private ArrayList<Joueur> _joueurs ; //  = new ArrayList <> () ;
         private HashMap<Integer, Carreau> _carreaux  ; //= new HashMap<>() ;
+        private ArrayList<Joueur> _joueursFaillite ;
         ArrayList<Carte> _cartes = new ArrayList<>();
         private IHM _IHM;
         private HashMap<CouleurPropriete,Groupe> _groupes;
         
         /* Constructor */
         public Monopoly(String dataFilename, String dataCarteFilename){
-	       _joueurs = new ArrayList <> () ;  
+	       _joueurs = new ArrayList <> () ;
+               _joueursFaillite = new ArrayList <> () ;
                _carreaux = new HashMap<>();
                _groupes = new HashMap<>();
                _IHM = new IHM();
@@ -48,6 +50,23 @@ public class Monopoly {
                 }
             }
         }
+        
+        
+        private Joueur GagnantPartie(){
+            
+            Joueur gagnant = null;
+            
+            if(this.getJoueursFaillite().size() == (this.getJoueurs().size()-1)){
+                for(Joueur j : this.getJoueurs()){
+                    if(j.isFaillite() == false){
+                        gagnant = j;
+                    }
+                }
+            }
+                return gagnant;
+        }
+    
+
         
         private void lancementPartie(String nomPremJ){
             int prem;
@@ -474,6 +493,7 @@ public class Monopoly {
     public void mettreEnFaillite(Joueur j){
                    
             j.setFaillite(true);
+            j.getMono().getJoueursFaillite().add(j);
          
             for (ProprieteAConstruire p : j.getProprietes()) {
                 p.setProprietaire(null);
@@ -562,6 +582,21 @@ public class Monopoly {
     
     return this.getGroupes().get(c) ; 
     }
+    
+    /**
+     * @return the _joueursFaillite
+     */
+    public ArrayList<Joueur> getJoueursFaillite() {
+        return _joueursFaillite;
+    }
+
+    /**
+     * @param _joueursFaillite the _joueursFaillite to set
+     */
+    public void setJoueursFaillite(ArrayList<Joueur> _joueursFaillite) {
+        this._joueursFaillite = _joueursFaillite;
+    }
+    
 
     /**
      * @return the _IHM

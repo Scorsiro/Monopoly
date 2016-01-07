@@ -19,7 +19,7 @@ public class CarteArgentFixe extends CarteArgent {
     
     
     
-   public int calculMontant () {
+    public int calculMontant () {
    
        return this.getMontant() ; 
        
@@ -27,17 +27,18 @@ public class CarteArgentFixe extends CarteArgent {
    }
    
    
-   public void executerCarte (Joueur j) {
+    
+    public void executerCarte (Joueur j) {
         
         int montant = this.calculMontant();
-        j.getCash();
+        
         if(j.peutPayer(montant)){
-            int aR = j.calculArgentRest(montant);
+            int aR = j.getCash() + montant ; // le montant des cartes est soit positif soit négatif
             j.setCash(aR);
         } else {
             j.getMono().mettreEnFaillite(j);
         }
     }
-    
+
     
 }
