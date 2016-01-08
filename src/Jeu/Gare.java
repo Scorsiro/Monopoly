@@ -40,8 +40,8 @@ public class Gare extends CarreauPropriete {
       
 
         @Override
-          public  void acheterPropriete(Joueur j ) {
-        
+        public  void acheterPropriete(Joueur j ) {
+        if (this.getProprietaire()==null){
             if (!j.peutPayer(this.getPrix())) {
                 
                 this.getMonopoly().getIHM().affichePeutPasPayer(); 
@@ -58,6 +58,7 @@ public class Gare extends CarreauPropriete {
                    
                     this.setProprietaire(j);
                    j.getGares().add(this); 
+                   System.out.println("Vous venez d'acheter la propriete : "+this.getNomCarreau());
 
                 }
                 
@@ -69,6 +70,6 @@ public class Gare extends CarreauPropriete {
                 
                 
             }
-       
+        } else this.getMonopoly().getIHM().affichePeutPasAcheter();
         }
 }

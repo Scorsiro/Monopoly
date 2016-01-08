@@ -80,7 +80,7 @@ public class CarteArgentRelativeb extends CarteArgent {
             int montant = this.calculMontantAnniv(j);
             j.recevoirLoyer(montant);
             
-            for(int i = 1;i < this.getMonopoly().getJoueurs().size(); i++){
+            for(int i = 1;i < this.getMonopoly().getJoueurs().size(); i++){//exception levée null pointer exception (à cause du joueur 0 ?)
                 this.getMonopoly().getJoueurs().get(i).payerLoyer(10);
             }
         }

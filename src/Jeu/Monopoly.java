@@ -100,17 +100,22 @@ public class Monopoly {
         
         
     public void jouerUnCoup(Joueur j) {
+        System.out.println("\n\n"+j.getNomJoueur()+" - Appuyer sur une touche pour jouer : ");
+                Scanner sc = new Scanner(System.in);
+                sc.nextLine();
         this.lancerDésAvancer(j );
                 this.getIHM().affichagePlateau(this);
                 j.getPositionCourante().action(j);
                 
-                while (j.getNbDoubles() != 0  ) {
+                while (j.getNbDoubles() != 0 && !j.isPrison() ) {
                     this.lancerDésAvancer(j);
-                
+                    this.getIHM().affichagePlateau(this);
+                    j.getPositionCourante().action(j);
                 }
         }
         
         public void jouerUnCoupTest(Joueur j) {
+                
                 System.out.println("\n\n"+j.getNomJoueur()+" - Appuyer sur une touche pour jouer : ");
                 Scanner sc = new Scanner(System.in);
                 sc.nextLine();
@@ -125,15 +130,25 @@ public class Monopoly {
                 }
         }
                 private void lancerDésAvancer(Joueur j) {
-                    
-            if(j.isPrison()){
-                if(!j.getCartes().isEmpty()){
-                    j.getCartes().get(0).executerCarte(j);
-                    
+                if(j.isPrison()){
+                j.setNbTourPrison(j.getNbTourPrison()+1);
+                
+                if (j.getNbTourPrison()==3){
+                    j.setPrison(false);
+                    System.out.println("Vous sortez de prison ! Vous payez 50 euros !");
+                    j.payerLoyer(50);
+                    j.setNbTourPrison(0);
+                }
+                else{
+                    if(!j.getCartes().isEmpty()){
+                        j.getCartes().get(0).executerCarte(j);
+                    }
                 }
             }        
             
+            Scanner sc = new Scanner(System.in);
             if(j.getNbDoubles() < 3) {
+                System.out.println("Vous avez fait un double : Vous Rejouez !");
                 int d1 = this.genererChiffreDés() ;
                 int d2 = this.genererChiffreDés() ;
                 int inter = 0;
@@ -141,26 +156,38 @@ public class Monopoly {
                 
                 if (d1 == d2 ) {
                     j.setNbDoubles(j.getNbDoubles() + 1 );
+                    if (j.isPrison()){
+                        j.setPrison(false);
+                        System.out.println("Vous sortez de prison !");
+                    }
                 }
                 else {j.setNbDoubles(0);}
                 
                 Carreau c = j.getPositionCourante() ;
                 int num = c.getNumero();
+                //System.out.println("ICIIIII : " +num);
                 
                 /*Si la nouvelle position sort du plateau, on fait la différence, et on l'ajoute à la case départ + argent*/
-                if((num + d1 + d2) > 40){
-                    inter =  (num + d1 +d2) - 40;
-                    j.nouveauTourCash();
-                } else {
-                    inter = num + d1+d2;
-                }
-                Carreau nc = this.calculPositionNum(inter) ;
-                j.setPositionCourante(nc);   
-                this.getIHM().afficheArriveeCase(d1, d2, c, nc, j);
-                }
+                if (!j.isPrison()){
+                    if((num + d1 + d2) > 40){
+                        inter =  (num + d1 +d2) - 40;
+                        j.nouveauTourCash();
+                    }
+                    else {
+                        inter = num + d1+d2;
+                    }
+                    Carreau nc = this.calculPositionNum(inter) ;
+                    j.setPositionCourante(nc);   
+                    this.getIHM().afficheArriveeCase(d1, d2, c, nc, j);
+                    }
+            }
             else {
+                System.out.println("Vous avez fait 3 doubles !");
                 this.mettreEnPrison(j);
-            }  
+                this.getIHM().affichePrison();
+                }    
+            
+              
             
         }
         
@@ -185,6 +212,7 @@ public class Monopoly {
             
             Scanner sc = new Scanner(System.in);
             if(j.getNbDoubles() < 3) {
+                if (j.getNbDoubles()!=0){System.out.println("Vous avez fait un double : Vous Rejouez !");}
                 System.out.println("Saisir les chiffres des dés :");
                 System.out.print("d1 : ");
                 int d1 = sc.nextInt();
@@ -221,6 +249,7 @@ public class Monopoly {
                     }
             }
             else {
+                System.out.println("Vous avez fait 3 doubles !");
                 this.mettreEnPrison(j);
                 this.getIHM().affichePrison();
                 }

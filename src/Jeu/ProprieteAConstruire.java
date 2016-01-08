@@ -108,7 +108,7 @@ public class ProprieteAConstruire extends CarreauPropriete {
         
         @Override
         public  void acheterPropriete(Joueur j ) {
-        
+        if (this.getProprietaire()==null){
             if (!j.peutPayer(this.getPrix())) {
                 
                 this.getMonopoly().getIHM().affichePeutPasPayer(); 
@@ -126,6 +126,8 @@ public class ProprieteAConstruire extends CarreauPropriete {
                     this.setProprietaire(j);
                     j.getProprietes().add(this); 
                     this.getProprietaire().addGroupe(this.getGroupePropriete());
+                    System.out.println("Vous venez d'acheter la propriete : "+this.getNomCarreau());
+                    this.getMonopoly().getIHM().afficheCarteProprieteAC(this);
                     
 
                 }
@@ -138,6 +140,6 @@ public class ProprieteAConstruire extends CarreauPropriete {
                 
                 
             }
-       
+        } else this.getMonopoly().getIHM().affichePeutPasAcheter();
         }
     }

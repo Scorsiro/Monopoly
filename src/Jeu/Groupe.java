@@ -109,7 +109,7 @@ public class Groupe {
         
         for(ProprieteAConstruire p : this.getProprietes()) {
     
-            if(p.getNbmaison() < min ) {
+            if(p.getNbmaison() < min && !p.getHotel()) {
             
             min = p.getNbmaison() ; 
             

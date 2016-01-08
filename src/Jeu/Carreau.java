@@ -39,6 +39,8 @@ public abstract class Carreau {
             
             this.getMonopoly().getIHM().afficheP();
             
+                boolean peutConstruire = false;
+                
                 for(Groupe g : groupes) {
                     
                     int min = g.getMinNbM() ; // le minimum des maisons sur les propriétés appartenant au groupe 
@@ -57,18 +59,20 @@ public abstract class Carreau {
                             //Affichage de toutes les propriétés où le jour a la possibilité de construire 
                             
                             this.getMonopoly().getIHM().afficheConstruire(p) ; 
-                            
+                            peutConstruire=true;
                          
-                         }
-                        
-                        else {
-                            
-                            this.getMonopoly().getIHM().affichePeutPasConstruire();
                         }
-                    
+                        
+                        //else {
+                            
+                         //   this.getMonopoly().getIHM().affichePeutPasConstruire();
                     }
+                    
+                    
                 }
                 
+                
+                if (peutConstruire) {
                   
                        //Choix du joueur
                        Boolean mauvaiseSaisie = true;
@@ -94,7 +98,7 @@ public abstract class Carreau {
                            if (p.getNumero()==numC) {
                                ProprieteAConstruire pc = p;
                                Groupe gc = p.getGroupePropriete();
-                               if (pc.getProprietaire()==j && j.getGroupes().contains(gc)){
+                               if (pc.getProprietaire()==j && j.getGroupes().contains(gc) && gc.getMinNbM()==pc.getNbmaison() && !pc.getHotel() && pc.getNbmaison()<5){
                                    mauvaiseSaisie=false;
                                    int prix = gc.getPrixAchatMaiHot();
                                    if (j.peutPayer(prix)){
@@ -106,26 +110,34 @@ public abstract class Carreau {
                                            pc.setNbmaison(0);
                                            pc.setHotel(true);
                                        }
+                                       this.getMonopoly().getIHM().afficheCarteProprieteAC(pc);
                                    }
-                                   else this.getMonopoly().mettreEnFaillite(j);
+                                   else {
+                                       this.getMonopoly().getIHM().affichePeutPasPayer();
+                                       mauvaiseSaisie=false;
+                                   }
                                }
-                               else {System.out.println("Mauvaise saisie !"); }
+                               //else {System.out.println("Mauvaise saisie !"); }
                            }
+                           //else {System.out.println("Mauvaise saisie !"); }
                        }
                 
+            
+                if (mauvaiseSaisie){
+                    System.out.println("Mauvaise saisie !"); 
+                }
+                }       
+                
+            
+            
+            
             }
-                
-                
-                
+            else this.getMonopoly().getIHM().affichePeutPasConstruire();
             
-            
-            
-            }
-            else System.out.println("Vous ne pouvez pas construire !");
-            
-            
-        
+            } 
+            else this.getMonopoly().getIHM().affichePeutPasConstruire();
         }
+        
         
         public abstract void action(Joueur j ) ; 
      

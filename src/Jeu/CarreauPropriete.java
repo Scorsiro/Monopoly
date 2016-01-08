@@ -13,6 +13,7 @@ public abstract class CarreauPropriete extends Carreau {
                 super(numero, nomCarreau,mono);
                 this.prix = prix;
                 this.mono = mono;
+                //this.j = null;
         }
 
 
@@ -55,7 +56,7 @@ public abstract class CarreauPropriete extends Carreau {
                     if (jP == null ) {
                         this.acheterPropriete(j);
                     }else{
-                        mono.getIHM().affichePasAcheter();
+                        mono.getIHM().affichePeutPasAcheter();
                     }
                 }else if( rep == 2){
                     this.construire(j);

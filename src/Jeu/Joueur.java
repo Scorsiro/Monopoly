@@ -75,7 +75,8 @@ public class Joueur {
     //Ajouter le bonus de 200e à chaque fois que le joueur finit le tour 
     public void nouveauTourCash (){
         
-        this.setCash(this.getCash()+200) ; 
+        this.setCash(this.getCash()+200) ;
+        System.out.println("Vous passez par la case Départ, vous recevez 200 euros !");
     
     }
 

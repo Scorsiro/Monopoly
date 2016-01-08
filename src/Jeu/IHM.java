@@ -89,17 +89,17 @@ public class IHM {
       System.out.print("*                      *     220€     *       ?      *     220€     *     240€     *     200€     *     260€     *     260€     *     150€     *     280€     *                      *"); System.out.println("   Position : " + mono.getJoueurs().get(1).getPositionCourante().getNomCarreau());
       System.out.print("*           Gratuit    *              *              *              *              *              *              *              *              *              *         Prison       *"); System.out.println("**************************");
       System.out.print("*                      ****************************************************************************************************************************************                      *"); System.out.println("   Joueur 2 : " + mono.getJoueurs().get(2).getNomJoueur());
-      System.out.print("*                      *"+B_RED+"              "+B_RESET+"*              *"+B_RED+"              "+B_RESET+"*"+B_RED+"              "+B_RESET+"*              *"+B_YELLOW+"              "+B_RESET+"*"+B_YELLOW+"              "+B_RESET+"*              *"+B_YELLOW+"              "+B_RESET+"*                      *"); System.out.println("      Solde : " + mono.getJoueurs().get(2).getCash());
-      System.out.print("*  J:");affJ(21,mono);System.out.print("            *"+B_RED+"J:");affJ(22,mono);System.out.print("      "+B_RESET+"*J:");affJ(23,mono);System.out.print("      *"+B_RED+"J:");affJ(24,mono);System.out.print("      "+B_RESET+"*"+B_RED+"J:");affJ(25,mono);System.out.print("      "+B_RESET+"*J:");affJ(26,mono);System.out.print("      *"+B_YELLOW+"J:");affJ(27,mono);System.out.print("      "+B_RESET+"*"+B_YELLOW+"J:");affJ(28,mono);System.out.print("      "+B_RESET+"*J:");affJ(29,mono);System.out.print("      *"+B_YELLOW+"J:");affJ(30,mono);System.out.print("      "+B_RESET+"*J:");affJ(31,mono);System.out.print("              *"); System.out.println("   Position : " + mono.getJoueurs().get(2).getPositionCourante().getNomCarreau()); 
+      System.out.print("*                      *"+B_RED+"   P:");affP(22,mono);System.out.print("   "+B_RESET+"*              *"+B_RED+"   P:");affP(24,mono);System.out.print("   "+B_RESET+"*"+B_RED+"   P:");affP(25,mono);System.out.print("   "+B_RESET+"*"+"   P:");affP(26,mono);System.out.print("   "+"*"+B_YELLOW+"   P:");affP(27,mono);System.out.print("   "+B_RESET+"*"+B_YELLOW+"   P:");affP(28,mono);System.out.print("   "+B_RESET+"*"+"   P:");affP(29,mono);System.out.print("   "+"*"+B_YELLOW+"   P:");affP(30,mono);System.out.print("   "+B_RESET+"*                      *"); System.out.println("      Solde : " + mono.getJoueurs().get(2).getCash());
+      System.out.print("*  J:");affJ(21,mono);System.out.print("            *"+B_RED+"   J:");affJ(22,mono);System.out.print("   "+B_RESET+"*   J:");affJ(23,mono);System.out.print("   *"+B_RED+"   J:");affJ(24,mono);System.out.print("   "+B_RESET+"*"+B_RED+"   J:");affJ(25,mono);System.out.print("   "+B_RESET+"*   J:");affJ(26,mono);System.out.print("   *"+B_YELLOW+"   J:");affJ(27,mono);System.out.print("   "+B_RESET+"*"+B_YELLOW+"   J:");affJ(28,mono);System.out.print("   "+B_RESET+"*   J:");affJ(29,mono);System.out.print("   *"+B_YELLOW+"   J:");affJ(30,mono);System.out.print("   "+B_RESET+"*   J:");affJ(31,mono);System.out.print("           *"); System.out.println("   Position : " + mono.getJoueurs().get(2).getPositionCourante().getNomCarreau()); 
       System.out.print("**************************************************************************************************************************************************************************************"); System.out.println("**************************");
       System.out.print("* Place       *"+B_GREY+"        "+B_RESET+"*                                                                                                                                      *"+B_GREEN+"        "+B_RESET+"* Avenue de   *");if(mono.getJoueurs().size()>3){System.out.println("   Joueur 3 : " + mono.getJoueurs().get(3).getNomJoueur());} else{System.out.println("");}
       System.out.print("*   Pigalle   *"+B_GREY+"J:");affJ(20,mono);System.out.print(B_RESET+"*                                                                                                                                      *"+B_GREEN+"J:");affJ(32,mono);System.out.print(""+B_RESET+"*    Breteuil *");if(mono.getJoueurs().size()>3){System.out.println("      Solde : " + mono.getJoueurs().get(3).getCash());}else{System.out.println("");}
-      System.out.print("*             *"+B_GREY+"        "+B_RESET+"*                                                                                                                                      *"+B_GREEN+"        "+B_RESET+"*             *");if(mono.getJoueurs().size()>3){System.out.println("   Position : " + mono.getJoueurs().get(3).getPositionCourante().getNomCarreau());}else{System.out.println("");} 
+      System.out.print("*             *"+B_GREY+"P:");affP(20,mono);System.out.print(B_RESET+"*                                                                                                                                      *"+B_GREEN+"P:");affP(32,mono);System.out.print(""+B_RESET+"*             *");if(mono.getJoueurs().size()>3){System.out.println("   Position : " + mono.getJoueurs().get(3).getPositionCourante().getNomCarreau());}else{System.out.println("");} 
       System.out.print("*     200€    *"+B_GREY+"        "+B_RESET+"*                                                                                                                                      *"+B_GREEN+"        "+B_RESET+"*     300€    *");if(mono.getJoueurs().size()>3){System.out.println("**************************");}else{System.out.println("");}
       System.out.print("************************                                                                                                                                      ************************");if(mono.getJoueurs().size()>4){System.out.println("   Joueur 4 : " + mono.getJoueurs().get(4).getNomJoueur());} else{System.out.println("");}
       System.out.print("*  Boulevard  *"+B_GREY+"        "+B_RESET+"*                                                                                                                                      *"+B_GREEN+"        "+B_RESET+"* Avenue      *");if(mono.getJoueurs().size()>4){System.out.println("      Solde : " + mono.getJoueurs().get(4).getCash());}else{System.out.println("");}
       System.out.print("* Saint-Michel*"+B_GREY+"J:");affJ(19,mono);System.out.print(B_RESET+"*                                                                                                                                      *"+B_GREEN+"J:");affJ(33,mono);System.out.print(""+B_RESET+"*      Foch   *");if(mono.getJoueurs().size()>4){System.out.println("   Position : " + mono.getJoueurs().get(4).getPositionCourante().getNomCarreau());}else{System.out.println("");}
-      System.out.print("*             *"+B_GREY+"        "+B_RESET+"*                                                                                                                                      *"+B_GREEN+"        "+B_RESET+"*             *");if(mono.getJoueurs().size()>4){System.out.println("**************************");}else{System.out.println("");}
+      System.out.print("*             *"+B_GREY+"P:");affP(19,mono);System.out.print(B_RESET+"*                                                                                                                                      *"+B_GREEN+"P:");affP(33,mono);System.out.print(""+B_RESET+"*             *");if(mono.getJoueurs().size()>4){System.out.println("**************************");}else{System.out.println("");}
       System.out.print("*     180€    *"+B_GREY+"        "+B_RESET+"*                                                                                                                                      *"+B_GREEN+"        "+B_RESET+"*     300€    *");if(mono.getJoueurs().size()>5){System.out.println("   Joueur 5 : " + mono.getJoueurs().get(5).getNomJoueur());} else{System.out.println("");}
       System.out.print("************************                                                                                                                                      ************************");if(mono.getJoueurs().size()>5){System.out.println("    Solde : " + mono.getJoueurs().get(5).getCash());}else{System.out.println("");}
       System.out.print("*   Caisse    *        *                                                                                                                                      *        * Caisse de   *");if(mono.getJoueurs().size()>5){System.out.println(" Position : " + mono.getJoueurs().get(5).getPositionCourante().getNomCarreau());}else{System.out.println("");}
@@ -109,36 +109,36 @@ public class IHM {
       System.out.print("************************                                                                                                                                      ************************");if(mono.getJoueurs().size()>6){System.out.println("   Position : " + mono.getJoueurs().get(6).getPositionCourante().getNomCarreau());}else{System.out.println("");}
       System.out.print("*   Avenue    *"+B_GREY+"        "+B_RESET+"*                                                                                                                                      *"+B_GREEN+"        "+B_RESET+"*Boulevard des*");if(mono.getJoueurs().size()>6){System.out.println("**************************");}else{System.out.println("");}
       System.out.print("*    Mozart   *"+B_GREY+"J:");affJ(17,mono);System.out.print(B_RESET+"*                                                                                                                                      *"+B_GREEN+"J:");affJ(35,mono);System.out.println(""+B_RESET+"*  Capucines  *");
-    System.out.println("*             *"+B_GREY+"        "+B_RESET+"*                                                                                                                                      *"+B_GREEN+"        "+B_RESET+"*             *");
+      System.out.print("*             *"+B_GREY+"P:");affP(17,mono);System.out.print(B_RESET+"*                                                                                                                                      *"+B_GREEN+"P:");affP(35,mono);System.out.println(""+B_RESET+"*             *");
     System.out.println("*     180€    *"+B_GREY+"        "+B_RESET+"*                                                                                                                                      *"+B_GREEN+"        "+B_RESET+"*     320€    *");
     System.out.println("************************                                                                                                                                      ************************");
     System.out.println("*   Gare de   *        *                                                                                                                                      *        *     Gare    *");
       System.out.print("*     Lyon    *J:");affJ(16,mono);System.out.print("*                                                                                                                                      *J:");affJ(36,mono);System.out.println("*Saint-Lazaire*");
-    System.out.println("*             *        *                                                                                                                                      *        *             *");
+      System.out.print("*             *P:");affP(16,mono);System.out.print("*                                                                                                                                      *P:");affP(36,mono);System.out.println("*             *");
     System.out.println("*     200€    *        *                                                                                                                                      *        *     200€    *");
     System.out.println("************************                                                                                                                                      ************************");
     System.out.println("*  Rue de     *        *                                                                                                                                      *        *    Chance   *");
       System.out.print("*   Paradis   *J:");affJ(15,mono);System.out.print("*                                                                                                                                      *J:");affJ(37,mono);System.out.println("*       ?     *");
-    System.out.println("*             *        *                                                                                                                                      *        *             *");
+      System.out.print("*             *P:");affP(15,mono);System.out.println("*                                                                                                                                      *        *             *");
     System.out.println("*     160€    *        *                                                                                                                                      *        *             *");
     System.out.println("************************                                                                                                                                      ************************");
     System.out.println("*  Avenue de  *        *                                                                                                                                      *"+B_BLUE+"        "+B_RESET+"*  Avenue des *");
       System.out.print("*   Neuilly   *J:");affJ(14,mono);System.out.print("*                                                                                                                                      *"+B_BLUE+"J:");affJ(38,mono);System.out.println(""+B_RESET+"*Champs-Elysée*");
-    System.out.println("*             *        *                                                                                                                                      *"+B_BLUE+"        "+B_RESET+"*             *");
+      System.out.print("*             *P:");affP(14,mono);System.out.print("*                                                                                                                                      *"+B_BLUE+"P:");affP(38,mono);System.out.println(""+B_RESET+"*             *");
     System.out.println("*     140€    *        *                                                                                                                                      *"+B_BLUE+"        "+B_RESET+"*     350€    *");
     System.out.println("************************                                                                                                                                      ************************");
     System.out.println("* Compagnie de*        *                                                                                                                                      *        *   Taxe de   *");
       System.out.print("* distribution*J:");affJ(13,mono);System.out.print("*                                                                                                                                      *J:");affJ(39,mono);System.out.println("*    luxe     *");
-    System.out.println("*d'électricité*        *                                                                                                                                      *        *             *");
+      System.out.print("*d'électricité*P:");affP(13,mono);System.out.println("*                                                                                                                                      *        *             *");
     System.out.println("*     150€    *        *                                                                                                                                      *        *     100€    *");
     System.out.println("************************                                                                                                                                      ************************");
     System.out.println("* Boulevard de*        *                                                                                                                                      *"+B_BLUE+"        "+B_RESET+"*  Rue de la  *");
       System.out.print("* la Villette *J:");affJ(12,mono);System.out.print("*                                                                                                                                      *"+B_BLUE+"J:");affJ(40,mono);System.out.println(""+B_RESET+"*     Paix    *");
-    System.out.println("*             *        *                                                                                                                                      *"+B_BLUE+"        "+B_RESET+"*             *");
+      System.out.print("*             *P:");affP(12,mono);System.out.print("*                                                                                                                                      *"+B_BLUE+"P:");affP(40,mono);System.out.println(""+B_RESET+"*             *");
     System.out.println("*     140€    *        *                                                                                                                                      *"+B_BLUE+"        "+B_RESET+"*     400€    *");
     System.out.println("**************************************************************************************************************************************************************************************");
       System.out.print("*   J:");affJ(11,mono);System.out.print("  *        *"+B_CYAN+"   J:");affJ(10,mono);System.out.print("   "+B_RESET+"*"+B_CYAN+"   J:");affJ(9,mono);System.out.print("   "+B_RESET+"*   J:");affJ(8,mono);System.out.print("   *"+B_CYAN+"   J:");affJ(7,mono);System.out.print("   "+B_RESET+"*   J:");affJ(6,mono);System.out.print("   *   J:");affJ(5,mono);System.out.print("   *"+B_PURPLE+"   J:");affJ(4,mono);System.out.print("   "+B_RESET+"*   J:");affJ(3,mono);System.out.print("   *"+B_PURPLE+"   J:");affJ(2,mono);System.out.print("   "+B_RESET+"* J:");affJ(1,mono);System.out.println("             *");
-    System.out.println("*             *        *"+B_CYAN+"              "+B_RESET+"*"+B_CYAN+"              "+B_RESET+"*              *"+B_CYAN+"              "+B_RESET+"*              *              *"+B_PURPLE+"              "+B_RESET+"*              *"+B_PURPLE+"              "+B_RESET+"*                      *");
+      System.out.print("*             *        *"+B_CYAN+"   P:");affP(10,mono);System.out.print("   "+B_RESET+"*"+B_CYAN+"   P:");affP(9,mono);System.out.print("   "+B_RESET+"*              *"+B_CYAN+"   P:");affP(7,mono);System.out.print("   "+B_RESET+"*"+"   P:");affP(6,mono);System.out.print("   "+"*              *"+B_PURPLE+"   P:");affP(4,mono);System.out.print("   "+B_RESET+"*              *"+B_PURPLE+"   P:");affP(2,mono);System.out.println("   "+B_RESET+"*                      *");
     System.out.println("*   S         * En     ****************************************************************************************************************************************  D                   *");
     System.out.println("*   i         *  Prison*    Avenue    *    Rue de    *              *    Rue de    *     Gare     *  Impôts sur  *     Rue      *   Caisse de  * Boulevard de *    E                 *");
     System.out.println("*   m         ********** la Republique*  Courcelles  *              *   Vaugirard  * Montparnasse *  le revenu   *   Lecourbe   *   communauté *  Belleville  *      P               *");
@@ -151,6 +151,7 @@ public class IHM {
     
     }
     
+    //affiche les numéros des joueurs présents sur la case numCase
     private void affJ(int numCase, Monopoly mono){
         int nbJoueur = 0;
         for(int i = 1; i<mono.getJoueurs().size(); i++){
@@ -164,6 +165,7 @@ public class IHM {
             }
     }
     
+    //affiche le numéro du joueur proprietaire du Carreau de numéro de case numCase
     private void affP(int numCase, Monopoly mono){
         boolean trouve = false;
         for(int i = 1; i<mono.getJoueurs().size(); i++){
@@ -172,6 +174,7 @@ public class IHM {
                trouve = true;
            } 
         }
+        System.out.print("     ");
         if(!trouve){
            System.out.print(" "); 
         }
@@ -312,7 +315,13 @@ public class IHM {
     
     public void affichePasAcheter () {
     
-        System.out.println("Vous ne pouvez pas acheter cette propriété!");
+        System.out.println("OK, Vous ne voulez pas acheter cette propriété!");
+    
+    }
+    
+    public void affichePeutPasAcheter () {
+    
+        System.out.println("Vous ne pouvez pas acheter cette propriété, elle a déjà un propriétaire !");
     
     }
     
@@ -379,6 +388,31 @@ public class IHM {
         return rep;
        
 
+       
+   }
+   
+   public void afficheNFois(int n, String s){
+       for (int i = 1;i<=n;i++){
+           System.out.print(s);
+       }
+   }
+   
+   public void afficheCarteProprieteAC(ProprieteAConstruire p){
+       
+       int n = p.getNomCarreau().length();
+       
+       System.out.print("***");afficheNFois(n+8,"*");System.out.println("*");
+       //System.out.print("*  ");afficheNFois(n," ");System.out.println("  *");
+       System.out.println("*     "+p.getNomCarreau()+"     *");
+       //System.out.print("*");afficheNFois(n," ");System.out.println("*");
+      // System.out.print("*");afficheNFois(n," ");System.out.println("*");
+       System.out.print("***");afficheNFois(n+8,"*");System.out.println("*");
+       System.out.print("*  ");afficheNFois(n+8," ");System.out.println("*");
+       System.out.print("*  Proprio : "+p.getProprietaire().getNomJoueur());afficheNFois(n+8-(10+p.getProprietaire().getNomJoueur().length()), " ");System.out.println("*");
+       System.out.print("*  Maisons : "+p.getNbmaison());afficheNFois(n+8-11, " ");System.out.println("*");
+       System.out.print("*  Hotel : "); if (p.getHotel()){System.out.print("1");} else System.out.print("0");afficheNFois(n+8-9, " ");System.out.println("*");
+       System.out.print("*  ");afficheNFois(n+8," ");System.out.println("*");
+       System.out.print("***");afficheNFois(n+8,"*");System.out.println("*");
        
    }
 }
