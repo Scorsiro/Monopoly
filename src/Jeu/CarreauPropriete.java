@@ -50,6 +50,7 @@ public abstract class CarreauPropriete extends Carreau {
                 j.payerLoyer(montant);
                 jP.recevoirLoyer(montant);
             }
+            boolean dejaConstruit = false;
             while(rep != 3){
                 rep = mono.getIHM().afficheCadreChoix();
                 if(rep == 1){
@@ -59,7 +60,11 @@ public abstract class CarreauPropriete extends Carreau {
                         mono.getIHM().affichePeutPasAcheter();
                     }
                 }else if( rep == 2){
-                    this.construire(j);
+                    if (!dejaConstruit){
+                        this.construire(j);
+                        dejaConstruit=true;
+                    }
+                    else {System.out.println("Vous ne pouvez construire qu'une seule fois pas tour !"); }
                 }
             }     
        }
