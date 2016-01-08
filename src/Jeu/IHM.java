@@ -417,7 +417,7 @@ public class IHM {
    }
    
    public void afficheCash(Joueur j){
-       System.out.println ("Argent restant aprés paiement  :" + j.getCash()) ;
+       System.out.println ("Argent restant :" + j.getCash()) ;
    }
    
 }
