@@ -246,19 +246,6 @@ public class Joueur {
         this.setCash( this.getCash() + l );
     } 
      
-    /*public void addGroupe (Groupe groupe) {
-        
-        for (ProprieteAConstruire p : groupe.getProprietes() ) {
-        
-            if (p.getProprietaire() == this) {
-            
-                this.getGroupes().add(groupe) ; 
-                groupe.setProprietaire(this);
-            }
-            
-        }
-     }*/
-    
     
     public void addGroupe (Groupe groupe) {
     

@@ -232,7 +232,6 @@ public class Monopoly {
                 
                 Carreau c = j.getPositionCourante() ;
                 int num = c.getNumero();
-                //System.out.println("ICIIIII : " +num);
                 
                 /*Si la nouvelle position sort du plateau, on fait la différence, et on l'ajoute à la case départ + argent*/
                 if (!j.isPrison()){
