@@ -283,7 +283,7 @@ public class IHM {
     public void afficheConstruire (ProprieteAConstruire p) {
 
         //affichage des propriété Puis le joueur va choisir ou il  veut construire 
-        System.out.println ("le numéro de la propriété : "+ p.getNumero() +"Le nom de la propriete : " + p.getNomCarreau() + "|Groupe : " + p.getGroupePropriete()+ "|Prix : " + p.getPrix()) ;  
+        System.out.println ("le numéro de la propriété : "+ p.getNumero() +" |Le nom de la propriete : " + p.getNomCarreau() + " |Groupe : " + p.getGroupePropriete().getCouleur().toString()+ " |Prix : " + p.getPrix()) ;  
      
     }
     
@@ -415,4 +415,9 @@ public class IHM {
        System.out.print("***");afficheNFois(n+8,"*");System.out.println("*");
        
    }
+   
+   public void afficheCash(Joueur j){
+       System.out.println ("Argent restant aprés paiement  :" + j.getCash()) ;
+   }
+   
 }

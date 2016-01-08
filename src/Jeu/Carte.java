@@ -20,9 +20,10 @@ public abstract class Carte {
     }
     private Monopoly monopoly ; 
 
-    public Carte(String nom, String type) {
+    public Carte(String nom, String type, Monopoly mono) {
         this.nom = nom;
         this.type = type;
+        this.monopoly = mono;
     }
     
     

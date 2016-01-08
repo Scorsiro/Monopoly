@@ -14,8 +14,8 @@ public class CarteLibere extends Carte {
     
     
     
-    public CarteLibere(String nom, String type) {
-        super(nom, type);
+    public CarteLibere(String nom, String type, Monopoly mono) {
+        super(nom, type, mono);
     }
     
     

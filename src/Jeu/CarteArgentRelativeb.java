@@ -12,8 +12,8 @@ package Jeu;
  */
 public class CarteArgentRelativeb extends CarteArgent {
 
-    public CarteArgentRelativeb(String nom, String type, int montant) {
-        super(nom, type, montant);
+    public CarteArgentRelativeb(String nom, String type, int montant, Monopoly mono) {
+        super(nom, type, montant, mono);
     }
     
   
@@ -70,6 +70,7 @@ public class CarteArgentRelativeb extends CarteArgent {
             if(j.peutPayer(montant)){
                 int aR = j.calculArgentRest(montant);
                 j.setCash(aR);
+                
             } else {
                 j.getMono().mettreEnFaillite(j);
             }

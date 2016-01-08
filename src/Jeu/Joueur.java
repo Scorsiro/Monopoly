@@ -69,6 +69,7 @@ public class Joueur {
      */
     public void setCash(int cash) {
         this.cash = cash;
+        this.getMono().getIHM().afficheCash(this);
         
     }
     

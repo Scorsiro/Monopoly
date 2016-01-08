@@ -472,27 +472,27 @@ public class Monopoly {
             if(caseType.compareTo("Car") == 0){
 
                         /* Init de carte argent relatif         nom                type                           gain/perte       */
-                        _cartes.add(new CarteArgentRelativeb(dataCarte.get(i)[3],dataCarte.get(i)[1],Integer.parseInt(dataCarte.get(i)[2])));
+                        _cartes.add(new CarteArgentRelativeb(dataCarte.get(i)[3],dataCarte.get(i)[1],Integer.parseInt(dataCarte.get(i)[2]),this));
                         
                         } else if(caseType.compareTo("Caf") == 0){
                             
                         /* Init de carte argent fixe            nom                type                           gain/perte       */
-                        _cartes.add(new CarteArgentFixe(dataCarte.get(i)[3],dataCarte.get(i)[1],Integer.parseInt(dataCarte.get(i)[2])));
+                        _cartes.add(new CarteArgentFixe(dataCarte.get(i)[3],dataCarte.get(i)[1],Integer.parseInt(dataCarte.get(i)[2]),this));
                         
                         } else if(caseType.compareTo("Cmf") == 0){
                             
                          /* Init de la carte mouvement fixe         nom                      type                           deplacement                        numcase*/
-                        _cartes.add(new CarteMouvementFixe(dataCarte.get(i)[4],dataCarte.get(i)[1],Integer.parseInt(dataCarte.get(i)[2]),Integer.parseInt(dataCarte.get(i)[3])));       
+                        _cartes.add(new CarteMouvementFixe(dataCarte.get(i)[4],dataCarte.get(i)[1],Integer.parseInt(dataCarte.get(i)[2]),Integer.parseInt(dataCarte.get(i)[3]),this));       
             
                         } else if(caseType.compareTo("Cmr") == 0){
                             
                          /* Init de la carte mouvement relative           nom                      type                           deplacement                        numcase*/
-                        _cartes.add(new CarteMouvementRelative(dataCarte.get(i)[4],dataCarte.get(i)[1],Integer.parseInt(dataCarte.get(i)[2]),Integer.parseInt(dataCarte.get(i)[3])));                   
+                        _cartes.add(new CarteMouvementRelative(dataCarte.get(i)[4],dataCarte.get(i)[1],Integer.parseInt(dataCarte.get(i)[2]),Integer.parseInt(dataCarte.get(i)[3]), this));                   
                         
                         } else if(caseType.compareTo("Cl") == 0){
                             
                          /* Init de la carte liberation        nom                type         */
-                        _cartes.add(new CarteLibere(dataCarte.get(i)[2],dataCarte.get(i)[1]));
+                        _cartes.add(new CarteLibere(dataCarte.get(i)[2],dataCarte.get(i)[1],this));
                         
                         }
             

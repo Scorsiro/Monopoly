@@ -12,8 +12,8 @@ package Jeu;
  */
 public class CarteMouvementFixe extends CarteMouvement  {
 
-    public CarteMouvementFixe(String nom, String type, int deplacement, int numCase) {
-        super(nom, type, deplacement, numCase);
+    public CarteMouvementFixe(String nom, String type, int deplacement, int numCase, Monopoly mono) {
+        super(nom, type, deplacement, numCase, mono);
     }
     
    

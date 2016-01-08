@@ -17,8 +17,8 @@ public abstract class CarteMouvement extends Carte{
     private int numCase;
     private boolean passageD = false;
     
-    public CarteMouvement(String nom, String type, int deplacement, int numCase) {
-        super(nom, type);
+    public CarteMouvement(String nom, String type, int deplacement, int numCase, Monopoly mono) {
+        super(nom, type, mono);
         this.deplacement = deplacement;
         this.numCase = numCase;
     }

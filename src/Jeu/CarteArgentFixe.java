@@ -12,8 +12,8 @@ package Jeu;
  */
 public class CarteArgentFixe extends CarteArgent {
 
-    public CarteArgentFixe(String nom, String type, int montant) {
-        super(nom, type, montant);
+    public CarteArgentFixe(String nom, String type, int montant, Monopoly mono) {
+        super(nom, type, montant, mono);
     }
 
     

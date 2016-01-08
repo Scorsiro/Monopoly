@@ -15,8 +15,8 @@ public abstract class CarteArgent extends Carte {
     
     private int montant ;
 
-    public CarteArgent(String nom, String type,int montant) {
-        super(nom,type);
+    public CarteArgent(String nom, String type,int montant, Monopoly mono) {
+        super(nom,type,mono);
         this.montant = montant;
     }
 
